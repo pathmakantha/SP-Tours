@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "SP Tours | Individuelle Sri-Lanka-Reiseplanung",
+    "description": "Planen Sie mit SP Tours eine individuelle Sri-Lanka-Reise — Kulturdreieck, Bergland, Wildtier-Safaris und Strände an der Südküste. Erstellen Sie Ihre Reiseroute und schreiben Sie uns auf WhatsApp."
+  },
+  "home": {
+    "eyebrow": "SP Tours",
+    "heading": "Projekt eingerichtet. Design folgt als Nächstes.",
+    "body": "Dieses Next.js + TypeScript + Tailwind-Projekt ist startklar, inklusive Mehrsprachigkeit und Hell-/Dunkel-Design. Sobald das Design feststeht, wird diese Seite zur SP-Tours-Startseite."
+  },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel",
+    "toggleLabel": "Design wechseln"
+  },
+  "language": {
+    "label": "Sprache"
+  }
+}

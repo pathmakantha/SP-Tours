@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "SP Tours | 斯里兰卡定制旅行规划",
+    "description": "与 SP Tours 一起规划专属的斯里兰卡之旅——文化三角、高地茶乡、野生动物园以及南部海岸沙滩。制定您的行程，并通过 WhatsApp 联系我们。"
+  },
+  "home": {
+    "eyebrow": "SP Tours",
+    "heading": "项目已搭建完成，接下来是设计。",
+    "body": "这个 Next.js + TypeScript + Tailwind 项目已经就绪，内置多语言与浅色/深色主题支持。设计确定后，这个页面将成为 SP Tours 的主页。"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "toggleLabel": "切换主题"
+  },
+  "language": {
+    "label": "语言"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "SP Tours | Voyages sur mesure au Sri Lanka",
+    "description": "Planifiez un voyage sur mesure au Sri Lanka avec SP Tours — triangle culturel, région des collines, safaris et plages de la côte sud. Créez votre itinéraire et contactez-nous sur WhatsApp."
+  },
+  "home": {
+    "eyebrow": "SP Tours",
+    "heading": "Projet initialisé. Le design arrive ensuite.",
+    "body": "Ce projet Next.js + TypeScript + Tailwind est prêt, avec prise en charge du multilingue et du thème clair/sombre. Une fois le design finalisé, cette page deviendra la page d'accueil de SP Tours."
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "toggleLabel": "Changer de thème"
+  },
+  "language": {
+    "label": "Langue"
+  }
+}
