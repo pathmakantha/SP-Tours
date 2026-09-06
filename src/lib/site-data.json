@@ -1,0 +1,1873 @@
+{
+  "REGIONS": {
+    "colombo": {
+      "tint": "#9FB8C4",
+      "label": {
+        "en": "Colombo & west coast",
+        "de": "Colombo & Westküste",
+        "fr": "Colombo et côte ouest",
+        "ru": "Коломбо и западный берег",
+        "zh": "科伦坡与西海岸"
+      },
+      "days": [
+        {
+          "en": [
+            "Land, unwind, sea breeze",
+            "Negombo / Colombo"
+          ],
+          "de": [
+            "Ankommen, ausruhen, Meeresluft",
+            "Negombo / Colombo"
+          ],
+          "fr": [
+            "Arrivée, repos, air marin",
+            "Negombo / Colombo"
+          ],
+          "ru": [
+            "Прилёт, отдых, морской воздух",
+            "Негомбо / Коломбо"
+          ],
+          "zh": [
+            "抵达、休整、吹海风",
+            "尼甘布 / 科伦坡"
+          ]
+        },
+        {
+          "en": [
+            "Pettah markets & Bawa's Colombo",
+            "Colombo"
+          ],
+          "de": [
+            "Pettah-Märkte & Bawas Colombo",
+            "Colombo"
+          ],
+          "fr": [
+            "Marchés de Pettah et le Colombo de Bawa",
+            "Colombo"
+          ],
+          "ru": [
+            "Рынки Петтах и архитектура Бавы",
+            "Коломбо"
+          ],
+          "zh": [
+            "佩塔集市与巴瓦建筑",
+            "科伦坡"
+          ]
+        },
+        {
+          "en": [
+            "Galle Face sunset, dinner in Colombo 7",
+            "Colombo"
+          ],
+          "de": [
+            "Sonnenuntergang an der Galle Face, Dinner in Colombo 7",
+            "Colombo"
+          ],
+          "fr": [
+            "Coucher de soleil à Galle Face, dîner à Colombo 7",
+            "Colombo"
+          ],
+          "ru": [
+            "Закат на Галле-Фейс, ужин в Коломбо-7",
+            "Коломбо"
+          ],
+          "zh": [
+            "加勒菲斯海滨日落，七区晚餐",
+            "科伦坡"
+          ]
+        }
+      ]
+    },
+    "cultural": {
+      "tint": "#C79A4B",
+      "label": {
+        "en": "Cultural Triangle",
+        "de": "Kulturelles Dreieck",
+        "fr": "Triangle culturel",
+        "ru": "Культурный треугольник",
+        "zh": "文化三角"
+      },
+      "days": [
+        {
+          "en": [
+            "Sigiriya Rock before the heat",
+            "Sigiriya"
+          ],
+          "de": [
+            "Sigiriya-Felsen vor der Hitze",
+            "Sigiriya"
+          ],
+          "fr": [
+            "Le rocher de Sigiriya avant la chaleur",
+            "Sigiriya"
+          ],
+          "ru": [
+            "Скала Сигирия до жары",
+            "Сигирия"
+          ],
+          "zh": [
+            "趁凉登狮子岩",
+            "锡吉里亚"
+          ]
+        },
+        {
+          "en": [
+            "Dambulla cave temples & village lunch",
+            "Dambulla"
+          ],
+          "de": [
+            "Höhlentempel von Dambulla & Dorfmittagessen",
+            "Dambulla"
+          ],
+          "fr": [
+            "Temples troglodytes de Dambulla et déjeuner au village",
+            "Dambulla"
+          ],
+          "ru": [
+            "Пещерные храмы Дамбуллы и обед в деревне",
+            "Дамбулла"
+          ],
+          "zh": [
+            "丹布拉石窟寺与乡村午餐",
+            "丹布拉"
+          ]
+        },
+        {
+          "en": [
+            "Polonnaruwa ruins by bicycle",
+            "Polonnaruwa"
+          ],
+          "de": [
+            "Ruinen von Polonnaruwa per Fahrrad",
+            "Polonnaruwa"
+          ],
+          "fr": [
+            "Ruines de Polonnaruwa à vélo",
+            "Polonnaruwa"
+          ],
+          "ru": [
+            "Руины Полоннарувы на велосипеде",
+            "Полоннарува"
+          ],
+          "zh": [
+            "骑车游波隆纳鲁瓦古城",
+            "波隆纳鲁瓦"
+          ]
+        },
+        {
+          "en": [
+            "Minneriya elephant gathering at dusk",
+            "Habarana"
+          ],
+          "de": [
+            "Elefantentreffen in Minneriya im Abendlicht",
+            "Habarana"
+          ],
+          "fr": [
+            "Rassemblement d'éléphants à Minneriya au crépuscule",
+            "Habarana"
+          ],
+          "ru": [
+            "Слоны Миннерии на закате",
+            "Хабарана"
+          ],
+          "zh": [
+            "黄昏明尼日亚象群聚集",
+            "哈巴拉纳"
+          ]
+        }
+      ]
+    },
+    "hill": {
+      "tint": "#8FBF9F",
+      "label": {
+        "en": "Hill Country",
+        "de": "Bergland",
+        "fr": "Hauts plateaux",
+        "ru": "Горная страна",
+        "zh": "高地茶乡"
+      },
+      "days": [
+        {
+          "en": [
+            "Temple of the Tooth & Kandy lake loop",
+            "Kandy"
+          ],
+          "de": [
+            "Zahntempel & Runde um den Kandy-See",
+            "Kandy"
+          ],
+          "fr": [
+            "Temple de la Dent et tour du lac de Kandy",
+            "Kandy"
+          ],
+          "ru": [
+            "Храм Зуба Будды и озеро Канди",
+            "Канди"
+          ],
+          "zh": [
+            "佛牙寺与康提湖环湖",
+            "康提"
+          ]
+        },
+        {
+          "en": [
+            "Tea factory, waterfalls, cold air",
+            "Nuwara Eliya"
+          ],
+          "de": [
+            "Teefabrik, Wasserfälle, kühle Luft",
+            "Nuwara Eliya"
+          ],
+          "fr": [
+            "Fabrique de thé, cascades, air frais",
+            "Nuwara Eliya"
+          ],
+          "ru": [
+            "Чайная фабрика, водопады, прохлада",
+            "Нувара-Элия"
+          ],
+          "zh": [
+            "茶厂、瀑布与清冷空气",
+            "努沃勒埃利耶"
+          ]
+        },
+        {
+          "en": [
+            "Blue-window train to Ella",
+            "Nuwara Eliya → Ella"
+          ],
+          "de": [
+            "Zugfahrt mit blauen Fenstern nach Ella",
+            "Nuwara Eliya → Ella"
+          ],
+          "fr": [
+            "Train aux fenêtres bleues jusqu'à Ella",
+            "Nuwara Eliya → Ella"
+          ],
+          "ru": [
+            "Поезд с синими окнами в Эллу",
+            "Нувара-Элия → Элла"
+          ],
+          "zh": [
+            "乘蓝色车厢火车前往埃拉",
+            "努沃勒埃利耶 → 埃拉"
+          ]
+        },
+        {
+          "en": [
+            "Little Adam's Peak & Nine Arch Bridge",
+            "Ella"
+          ],
+          "de": [
+            "Little Adam's Peak & Nine-Arch-Brücke",
+            "Ella"
+          ],
+          "fr": [
+            "Little Adam's Peak et pont des Neuf Arches",
+            "Ella"
+          ],
+          "ru": [
+            "Малый пик Адама и Мост девяти арок",
+            "Элла"
+          ],
+          "zh": [
+            "小亚当峰与九孔桥",
+            "埃拉"
+          ]
+        }
+      ]
+    },
+    "wildlife": {
+      "tint": "#C58A5E",
+      "label": {
+        "en": "Wildlife & safari",
+        "de": "Safari & Tierwelt",
+        "fr": "Safari et faune",
+        "ru": "Сафари и природа",
+        "zh": "野生动物与狩猎"
+      },
+      "days": [
+        {
+          "en": [
+            "Dawn leopard safari, Block 1",
+            "Yala"
+          ],
+          "de": [
+            "Leoparden-Safari im Morgengrauen",
+            "Yala"
+          ],
+          "fr": [
+            "Safari léopard à l'aube",
+            "Yala"
+          ],
+          "ru": [
+            "Сафари на леопарда на рассвете",
+            "Яла"
+          ],
+          "zh": [
+            "清晨寻豹越野",
+            "雅拉"
+          ]
+        },
+        {
+          "en": [
+            "Udawalawe elephants, afternoon jeep",
+            "Udawalawe"
+          ],
+          "de": [
+            "Elefanten in Udawalawe, Jeep am Nachmittag",
+            "Udawalawe"
+          ],
+          "fr": [
+            "Éléphants d'Udawalawe, jeep en après-midi",
+            "Udawalawe"
+          ],
+          "ru": [
+            "Слоны Удавалаве, вечерний джип",
+            "Удавалаве"
+          ],
+          "zh": [
+            "乌达瓦拉维象群，午后越野",
+            "乌达瓦拉维"
+          ]
+        },
+        {
+          "en": [
+            "Sinharaja rainforest walk with a naturalist",
+            "Deniyaya"
+          ],
+          "de": [
+            "Regenwaldwanderung Sinharaja mit Naturführer",
+            "Deniyaya"
+          ],
+          "fr": [
+            "Marche en forêt de Sinharaja avec un naturaliste",
+            "Deniyaya"
+          ],
+          "ru": [
+            "Лес Синхараджа с натуралистом",
+            "Дения"
+          ],
+          "zh": [
+            "与自然学家漫步辛哈拉贾雨林",
+            "德尼亚亚"
+          ]
+        },
+        {
+          "en": [
+            "Bundala birding morning",
+            "Bundala"
+          ],
+          "de": [
+            "Vogelbeobachtung in Bundala",
+            "Bundala"
+          ],
+          "fr": [
+            "Matinée ornithologique à Bundala",
+            "Bundala"
+          ],
+          "ru": [
+            "Утро с птицами в Бундале",
+            "Бундала"
+          ],
+          "zh": [
+            "本达拉观鸟清晨",
+            "本达拉"
+          ]
+        }
+      ]
+    },
+    "coast": {
+      "tint": "#E0B27A",
+      "label": {
+        "en": "South Coast",
+        "de": "Südküste",
+        "fr": "Côte sud",
+        "ru": "Южное побережье",
+        "zh": "南部海岸"
+      },
+      "days": [
+        {
+          "en": [
+            "Galle Fort ramparts at dusk",
+            "Galle"
+          ],
+          "de": [
+            "Wälle des Galle Fort in der Dämmerung",
+            "Galle"
+          ],
+          "fr": [
+            "Remparts du fort de Galle au crépuscule",
+            "Galle"
+          ],
+          "ru": [
+            "Стены форта Галле на закате",
+            "Галле"
+          ],
+          "zh": [
+            "黄昏加勒古堡城墙",
+            "加勒"
+          ]
+        },
+        {
+          "en": [
+            "Whales out of Mirissa, Coconut Hill after",
+            "Mirissa"
+          ],
+          "de": [
+            "Wale ab Mirissa, danach Coconut Hill",
+            "Mirissa"
+          ],
+          "fr": [
+            "Baleines au départ de Mirissa, puis Coconut Hill",
+            "Mirissa"
+          ],
+          "ru": [
+            "Киты из Мириссы и Кокосовый холм",
+            "Марисса"
+          ],
+          "zh": [
+            "米瑞莎观鲸，随后椰子山",
+            "米瑞莎"
+          ]
+        },
+        {
+          "en": [
+            "Surf lesson and nothing else",
+            "Weligama"
+          ],
+          "de": [
+            "Surfstunde und sonst nichts",
+            "Weligama"
+          ],
+          "fr": [
+            "Cours de surf et rien d'autre",
+            "Weligama"
+          ],
+          "ru": [
+            "Урок серфинга и больше ничего",
+            "Велигама"
+          ],
+          "zh": [
+            "只安排一堂冲浪课",
+            "维利加马"
+          ]
+        },
+        {
+          "en": [
+            "Slow day, Hiriketiya bay",
+            "Hiriketiya"
+          ],
+          "de": [
+            "Ruhiger Tag in der Bucht von Hiriketiya",
+            "Hiriketiya"
+          ],
+          "fr": [
+            "Journée tranquille à la baie d'Hiriketiya",
+            "Hiriketiya"
+          ],
+          "ru": [
+            "Медленный день в бухте Хирикетия",
+            "Хирикетия"
+          ],
+          "zh": [
+            "希里克提亚湾的慢日子",
+            "希里克提亚"
+          ]
+        }
+      ]
+    }
+  },
+  "INTERESTS": [
+    {
+      "id": "culture",
+      "w": {
+        "cultural": 3
+      },
+      "label": {
+        "en": "Culture & heritage",
+        "de": "Kultur & Erbe",
+        "fr": "Culture et patrimoine",
+        "ru": "Культура и наследие",
+        "zh": "文化与遗产"
+      },
+      "blurb": {
+        "en": "Rock fortresses, cave temples, ruined capitals",
+        "de": "Felsenfestungen, Höhlentempel, versunkene Hauptstädte",
+        "fr": "Forteresses rupestres, temples troglodytes, capitales en ruine",
+        "ru": "Скальные крепости, пещерные храмы, древние города",
+        "zh": "岩石王城、石窟寺庙、古都遗址"
+      }
+    },
+    {
+      "id": "wildlife",
+      "w": {
+        "wildlife": 3
+      },
+      "label": {
+        "en": "Wildlife & safari",
+        "de": "Safari & Tierwelt",
+        "fr": "Safari et faune",
+        "ru": "Сафари и животные",
+        "zh": "野生动物与狩猎"
+      },
+      "blurb": {
+        "en": "Leopards in Yala, elephant herds in Udawalawe",
+        "de": "Leoparden in Yala, Elefantenherden in Udawalawe",
+        "fr": "Léopards à Yala, troupeaux d'éléphants à Udawalawe",
+        "ru": "Леопарды в Яле, стада слонов в Удавалаве",
+        "zh": "雅拉的豹，乌达瓦拉维的象群"
+      }
+    },
+    {
+      "id": "beaches",
+      "w": {
+        "coast": 3
+      },
+      "label": {
+        "en": "Beaches & coast",
+        "de": "Strände & Küste",
+        "fr": "Plages et littoral",
+        "ru": "Пляжи и океан",
+        "zh": "海滩与海岸"
+      },
+      "blurb": {
+        "en": "Galle Fort, Mirissa whales, warm flat surf",
+        "de": "Galle Fort, Wale bei Mirissa, warme sanfte Wellen",
+        "fr": "Fort de Galle, baleines de Mirissa, vagues douces",
+        "ru": "Форт Галле, киты Мириссы, тёплый мягкий сёрф",
+        "zh": "加勒古堡、米瑞莎观鲸、温暖平缓的浪"
+      }
+    },
+    {
+      "id": "hills",
+      "w": {
+        "hill": 3
+      },
+      "label": {
+        "en": "Hill country & tea",
+        "de": "Bergland & Tee",
+        "fr": "Hauts plateaux et thé",
+        "ru": "Горы и чай",
+        "zh": "高地与茶园"
+      },
+      "blurb": {
+        "en": "Kandy, Nuwara Eliya, the Ella train",
+        "de": "Kandy, Nuwara Eliya, der Zug nach Ella",
+        "fr": "Kandy, Nuwara Eliya, le train d'Ella",
+        "ru": "Канди, Нувара-Элия, поезд в Эллу",
+        "zh": "康提、努沃勒埃利耶、埃拉小火车"
+      }
+    },
+    {
+      "id": "adventure",
+      "w": {
+        "hill": 2,
+        "wildlife": 1,
+        "coast": 1
+      },
+      "label": {
+        "en": "Adventure & hiking",
+        "de": "Abenteuer & Wandern",
+        "fr": "Aventure et randonnée",
+        "ru": "Активный отдых",
+        "zh": "户外与徒步"
+      },
+      "blurb": {
+        "en": "Horton Plains, rafting, Adam's Peak",
+        "de": "Horton Plains, Rafting, Adam's Peak",
+        "fr": "Horton Plains, rafting, pic d'Adam",
+        "ru": "Хортон-Плейнс, рафтинг, пик Адама",
+        "zh": "霍顿平原、漂流、亚当峰"
+      }
+    },
+    {
+      "id": "food",
+      "w": {
+        "colombo": 2,
+        "cultural": 1,
+        "hill": 1
+      },
+      "label": {
+        "en": "Food & spice",
+        "de": "Küche & Gewürze",
+        "fr": "Cuisine et épices",
+        "ru": "Еда и специи",
+        "zh": "美食与香料"
+      },
+      "blurb": {
+        "en": "Market cooking classes, estate lunches",
+        "de": "Kochkurse auf dem Markt, Mittagessen auf Plantagen",
+        "fr": "Cours de cuisine au marché, déjeuners en plantation",
+        "ru": "Кулинарные классы, обеды на плантациях",
+        "zh": "市集烹饪课、庄园午餐"
+      }
+    }
+  ],
+  "PACES": [
+    {
+      "id": "relaxed",
+      "mark": "I",
+      "maxRegions": 3,
+      "minDays": 3,
+      "label": {
+        "en": "Relaxed",
+        "de": "Entspannt",
+        "fr": "Tranquille",
+        "ru": "Спокойный",
+        "zh": "轻松"
+      },
+      "blurb": {
+        "en": "Two or three bases, long lazy mornings",
+        "de": "Zwei bis drei Standorte, lange Morgen",
+        "fr": "Deux ou trois bases, matinées sans réveil",
+        "ru": "Две-три базы и долгие неспешные утра",
+        "zh": "两三个落脚点，早晨不赶"
+      }
+    },
+    {
+      "id": "balanced",
+      "mark": "II",
+      "maxRegions": 4,
+      "minDays": 2,
+      "label": {
+        "en": "Balanced",
+        "de": "Ausgewogen",
+        "fr": "Équilibré",
+        "ru": "Сбалансированный",
+        "zh": "均衡"
+      },
+      "blurb": {
+        "en": "A new place every few days, still time to sit",
+        "de": "Alle paar Tage ein neuer Ort, trotzdem Ruhe",
+        "fr": "Un nouveau lieu tous les deux ou trois jours",
+        "ru": "Новое место каждые пару дней, но без гонки",
+        "zh": "隔几天换一地，仍有停下的时间"
+      }
+    },
+    {
+      "id": "packed",
+      "mark": "III",
+      "maxRegions": 5,
+      "minDays": 1,
+      "label": {
+        "en": "Packed",
+        "de": "Intensiv",
+        "fr": "Intense",
+        "ru": "Насыщенный",
+        "zh": "紧凑"
+      },
+      "blurb": {
+        "en": "See as much as the roads allow",
+        "de": "So viel sehen, wie die Straßen erlauben",
+        "fr": "Voir autant que les routes le permettent",
+        "ru": "Увидеть максимум, насколько позволяют дороги",
+        "zh": "在路况允许下看得最多"
+      }
+    }
+  ],
+  "HOPS": {
+    "colombo>cultural": {
+      "h": 4,
+      "en": "4h drive north to the dry zone",
+      "de": "4 Std. nach Norden in die Trockenzone",
+      "fr": "4 h vers le nord, en zone sèche",
+      "ru": "4 ч на север, в сухую зону",
+      "zh": "向北 4 小时进入干燥地带"
+    },
+    "colombo>hill": {
+      "h": 3.5,
+      "en": "3.5h climb to Kandy",
+      "de": "3,5 Std. Aufstieg nach Kandy",
+      "fr": "3 h 30 de montée vers Kandy",
+      "ru": "3,5 ч подъёма до Канди",
+      "zh": "3.5 小时盘山至康提"
+    },
+    "colombo>wildlife": {
+      "h": 5,
+      "en": "5h south-east along the expressway",
+      "de": "5 Std. südöstlich über die Schnellstraße",
+      "fr": "5 h vers le sud-est par l'autoroute",
+      "ru": "5 ч на юго-восток по автобану",
+      "zh": "沿高速东南行 5 小时"
+    },
+    "colombo>coast": {
+      "h": 2,
+      "en": "2h on the southern expressway",
+      "de": "2 Std. auf der Südschnellstraße",
+      "fr": "2 h sur l'autoroute du sud",
+      "ru": "2 ч по южному автобану",
+      "zh": "南部高速 2 小时"
+    },
+    "cultural>hill": {
+      "h": 3,
+      "en": "3h south through spice country",
+      "de": "3 Std. südlich durch das Gewürzland",
+      "fr": "3 h vers le sud à travers le pays des épices",
+      "ru": "3 ч на юг через край специй",
+      "zh": "南行 3 小时穿过香料产区"
+    },
+    "cultural>wildlife": {
+      "h": 5,
+      "en": "5h down to the park gates",
+      "de": "5 Std. bis zu den Parktoren",
+      "fr": "5 h jusqu'aux portes du parc",
+      "ru": "5 ч до ворот парка",
+      "zh": "5 小时抵达公园门口"
+    },
+    "cultural>coast": {
+      "h": 6,
+      "en": "6h — we'd break this journey",
+      "de": "6 Std. — diese Etappe teilen wir auf",
+      "fr": "6 h — nous scindons ce trajet",
+      "ru": "6 ч — такой перегон мы разбиваем",
+      "zh": "6 小时——这段我们会分两天"
+    },
+    "hill>wildlife": {
+      "h": 3,
+      "en": "3h descent to the plains",
+      "de": "3 Std. Abfahrt in die Ebene",
+      "fr": "3 h de descente vers les plaines",
+      "ru": "3 ч спуска на равнину",
+      "zh": "3 小时下山到平原"
+    },
+    "hill>coast": {
+      "h": 3.5,
+      "en": "3.5h down to the sea",
+      "de": "3,5 Std. hinunter zum Meer",
+      "fr": "3 h 30 jusqu'à la mer",
+      "ru": "3,5 ч вниз, к океану",
+      "zh": "3.5 小时下行到海边"
+    },
+    "wildlife>coast": {
+      "h": 2.5,
+      "en": "2.5h west along the coast road",
+      "de": "2,5 Std. westlich an der Küste",
+      "fr": "2 h 30 vers l'ouest par la côte",
+      "ru": "2,5 ч на запад по берегу",
+      "zh": "沿海岸西行 2.5 小时"
+    }
+  },
+  "DESTINATIONS": {
+    "sigiriya": {
+      "slug": "sigiriya",
+      "file": "Sigiriya.dc.html",
+      "region": "cultural",
+      "interest": "culture",
+      "tint": "#C79A4B",
+      "photos": [
+        "Sigiriya rock from the water gardens — 3:2",
+        "Dambulla cave ceiling frescoes — 4:5",
+        "Polonnaruwa ruins at dawn — 4:5",
+        "Village lake canoe lunch — 3:2"
+      ],
+      "nearby": [
+        "ella",
+        "yala-safari"
+      ],
+      "name": {
+        "en": "Sigiriya & the Cultural Triangle",
+        "de": "Sigiriya & das Kulturelle Dreieck",
+        "fr": "Sigiriya et le Triangle culturel",
+        "ru": "Сигирия и Культурный треугольник",
+        "zh": "锡吉里亚与文化三角"
+      },
+      "short": {
+        "en": "Sigiriya",
+        "de": "Sigiriya",
+        "fr": "Sigiriya",
+        "ru": "Сигирия",
+        "zh": "锡吉里亚"
+      },
+      "tagline": {
+        "en": "A fifth-century sky palace, two hours before the crowds arrive.",
+        "de": "Ein Himmelspalast aus dem 5. Jahrhundert — zwei Stunden vor den Massen.",
+        "fr": "Un palais du ciel du Ve siècle, deux heures avant la foule.",
+        "ru": "Небесный дворец V века — за два часа до толпы.",
+        "zh": "五世纪的天空宫殿，比人群早到两小时。"
+      },
+      "intro1": {
+        "en": "Sigiriya is a 200-metre granite plug with a royal citadel on top, mirrored ponds at its feet and a gallery of 1,500-year-old frescoes halfway up. We start at the 6am gate opening, so you climb in cool air and come down before the tour buses unload.",
+        "de": "Sigiriya ist ein 200 Meter hoher Granitfelsen mit königlicher Zitadelle auf dem Gipfel, Spiegelteichen am Fuß und 1.500 Jahre alten Fresken auf halber Höhe. Wir sind zur Toröffnung um 6 Uhr da: Aufstieg in kühler Luft, Abstieg bevor die Busse ausladen.",
+        "fr": "Sigiriya est un piton de granit de 200 mètres coiffé d'une citadelle royale, avec des bassins miroirs à ses pieds et des fresques vieilles de 1 500 ans à mi-hauteur. Nous arrivons à l'ouverture, à 6 h : montée dans l'air frais, descente avant les cars.",
+        "ru": "Сигирия — двухсотметровая гранитная скала с королевской цитаделью наверху, зеркальными прудами у подножия и фресками возраста 1500 лет на полпути. Мы приезжаем к открытию в шесть утра: подъём по прохладе и спуск до автобусов.",
+        "zh": "锡吉里亚是一座 200 米高的花岗岩巨岩，岩顶是王家城堡，脚下有镜面水池，半山腰还有 1500 年前的壁画。我们赶在六点开门时进园：凉爽时上山，大巴到之前下山。"
+      },
+      "intro2": {
+        "en": "The rock is only the anchor. Within an hour's drive sit the Dambulla cave temples, the ruined capital of Polonnaruwa, and lakes where fishermen still paddle out at dusk — which is why most people give this region three days rather than one.",
+        "de": "Der Felsen ist nur der Anker. Im Umkreis einer Stunde liegen die Höhlentempel von Dambulla, die Ruinenstadt Polonnaruwa und Seen, auf denen Fischer im Abendlicht hinausrudern — deshalb plant man hier eher drei Tage als einen.",
+        "fr": "Le rocher n'est qu'un point d'ancrage. À une heure de route : les temples troglodytes de Dambulla, la capitale en ruine de Polonnaruwa, et des lacs où les pêcheurs partent encore à la rame au crépuscule. D'où trois jours plutôt qu'un.",
+        "ru": "Скала — только якорь. В часе езды пещерные храмы Дамбуллы, разрушенная столица Полоннарува и озёра, куда рыбаки выходят на закате, — поэтому здесь чаще берут три дня, а не один.",
+        "zh": "岩石只是锚点。一小时车程内有丹布拉石窟寺、波隆纳鲁瓦古都遗址，以及黄昏时渔民仍在划船的湖泊——所以多数人会给这一带三天，而不是一天。"
+      },
+      "hi": [
+        {
+          "en": [
+            "Climb at first light",
+            "1,200 steps, cool air, and the frescoes almost to yourself."
+          ],
+          "de": [
+            "Aufstieg im ersten Licht",
+            "1.200 Stufen, kühle Luft und die Fresken fast für sich allein."
+          ],
+          "fr": [
+            "Monter aux premières lueurs",
+            "1 200 marches, air frais, et les fresques presque pour vous."
+          ],
+          "ru": [
+            "Подъём на рассвете",
+            "1200 ступеней, прохлада и фрески почти в одиночестве."
+          ],
+          "zh": [
+            "天刚亮就登顶",
+            "1200 级台阶、清凉空气，壁画几乎只属于你。"
+          ]
+        },
+        {
+          "en": [
+            "Dambulla, five caves deep",
+            "Painted ceilings that follow the rock's curve, 150 Buddhas below."
+          ],
+          "de": [
+            "Dambulla, fünf Höhlen tief",
+            "Bemalte Decken folgen dem Fels, darunter 150 Buddhas."
+          ],
+          "fr": [
+            "Dambulla, cinq grottes",
+            "Des plafonds peints qui suivent la roche, 150 bouddhas dessous."
+          ],
+          "ru": [
+            "Дамбулла, пять пещер",
+            "Расписные потолки по изгибу скалы и 150 Будд под ними."
+          ],
+          "zh": [
+            "丹布拉的五座石窟",
+            "壁画顺着岩壁起伏，下方是 150 尊佛像。"
+          ]
+        },
+        {
+          "en": [
+            "Polonnaruwa by bicycle",
+            "Flat, shaded, and the only sensible way to see a city-sized ruin."
+          ],
+          "de": [
+            "Polonnaruwa per Fahrrad",
+            "Flach, schattig — die einzig sinnvolle Art, eine stadtgroße Ruine zu sehen."
+          ],
+          "fr": [
+            "Polonnaruwa à vélo",
+            "Plat, ombragé : la seule façon sensée de voir une ruine grande comme une ville."
+          ],
+          "ru": [
+            "Полоннарува на велосипеде",
+            "Ровно, в тени — единственный разумный способ осмотреть город-руину."
+          ],
+          "zh": [
+            "骑车逛波隆纳鲁瓦",
+            "地势平坦、树荫连片，看这座城市级遗址唯一合理的方式。"
+          ]
+        },
+        {
+          "en": [
+            "Evening on the tank",
+            "Village canoe, lake breeze, rice and curry cooked on a wood fire."
+          ],
+          "de": [
+            "Abend am Stausee",
+            "Dorfkanu, Seebrise, Reis und Curry über dem Holzfeuer."
+          ],
+          "fr": [
+            "Soirée sur le réservoir",
+            "Pirogue du village, brise du lac, riz-curry cuit au feu de bois."
+          ],
+          "ru": [
+            "Вечер на водохранилище",
+            "Деревенская лодка, ветер с воды, рис с карри на дровах."
+          ],
+          "zh": [
+            "傍晚的水库",
+            "村里的独木舟、湖风，还有柴火煮的米饭配咖喔。"
+          ]
+        }
+      ],
+      "facts": {
+        "en": [
+          [
+            "Best months",
+            "Feb–Sep (dry zone)"
+          ],
+          [
+            "Suggested stay",
+            "2–4 nights"
+          ],
+          [
+            "Drive from Colombo",
+            "about 4 hours"
+          ]
+        ],
+        "de": [
+          [
+            "Beste Monate",
+            "Feb–Sep (Trockenzone)"
+          ],
+          [
+            "Empfohlene Dauer",
+            "2–4 Nächte"
+          ],
+          [
+            "Fahrt von Colombo",
+            "etwa 4 Stunden"
+          ]
+        ],
+        "fr": [
+          [
+            "Meilleurs mois",
+            "févr.–sept. (zone sèche)"
+          ],
+          [
+            "Durée conseillée",
+            "2 à 4 nuits"
+          ],
+          [
+            "Depuis Colombo",
+            "environ 4 heures"
+          ]
+        ],
+        "ru": [
+          [
+            "Лучшие месяцы",
+            "февраль–сентябрь"
+          ],
+          [
+            "Сколько остаться",
+            "2–4 ночи"
+          ],
+          [
+            "Дорога из Коломбо",
+            "около 4 часов"
+          ]
+        ],
+        "zh": [
+          [
+            "最佳月份",
+            "2–9 月（干燥区）"
+          ],
+          [
+            "建议停留",
+            "2–4 晚"
+          ],
+          [
+            "距科伦坡",
+            "约 4 小时"
+          ]
+        ]
+      },
+      "meta": {
+        "en": "Sigiriya, Dambulla and Polonnaruwa with a private local guide — dawn climbs, cave temples and Polonnaruwa by bicycle. Plan your Cultural Triangle days with SP Tours.",
+        "de": "Sigiriya, Dambulla und Polonnaruwa mit privatem Guide — Aufstieg im Morgengrauen, Höhlentempel und Polonnaruwa per Fahrrad. Planen Sie Ihr Kulturelles Dreieck mit SP Tours.",
+        "fr": "Sigiriya, Dambulla et Polonnaruwa avec un guide privé local — montée à l'aube, temples troglodytes, Polonnaruwa à vélo. Planifiez votre Triangle culturel avec SP Tours.",
+        "ru": "Сигирия, Дамбулла и Полоннарува с частным местным гидом: подъём на рассвете, пещерные храмы, велосипеды. Спланируйте Культурный треугольник с SP Tours.",
+        "zh": "由本地私人导游带你走锡吉里亚、丹布拉与波隆纳鲁瓦：清晨登岩、石窟寺庙、骑车看古城。用 SP Tours 规划文化三角行程。"
+      }
+    },
+    "ella": {
+      "slug": "ella",
+      "file": "Ella.dc.html",
+      "region": "hill",
+      "interest": "hills",
+      "tint": "#8FBF9F",
+      "photos": [
+        "Nine Arch Bridge with train — 3:2",
+        "Tea pluckers on a slope — 4:5",
+        "Blue train window, hill country — 4:5",
+        "Ella Gap at sunrise — 3:2"
+      ],
+      "nearby": [
+        "sigiriya",
+        "galle-mirissa"
+      ],
+      "name": {
+        "en": "Ella & the Hill Country",
+        "de": "Ella & das Bergland",
+        "fr": "Ella et les hauts plateaux",
+        "ru": "Элла и Горная страна",
+        "zh": "埃拉与高地茶乡"
+      },
+      "short": {
+        "en": "Ella",
+        "de": "Ella",
+        "fr": "Ella",
+        "ru": "Элла",
+        "zh": "埃拉"
+      },
+      "tagline": {
+        "en": "Tea to the horizon, cold mornings, and the best three hours of train travel in Asia.",
+        "de": "Tee bis zum Horizont, kühle Morgen und die schönsten drei Zugstunden Asiens.",
+        "fr": "Du thé jusqu'à l'horizon, des matins froids et les trois plus belles heures de train d'Asie.",
+        "ru": "Чай до горизонта, холодные утра и лучшие три часа поезда в Азии.",
+        "zh": "茶园连到天边、清冷的早晨，以及亚洲最好的三小时火车。"
+      },
+      "intro1": {
+        "en": "Ella sits in a notch in the hills at 1,040 metres, where the cloud comes through the gap in the afternoon and leaves by dinner. Around it: estate paths, waterfalls you can stand under, and short climbs that pay far more view than effort.",
+        "de": "Ella liegt auf 1.040 Metern in einer Bergkerbe; nachmittags zieht Wolke durch die Lücke und ist zum Abendessen weg. Ringsum: Plantagenwege, Wasserfälle zum Darunterstehen und kurze Aufstiege mit unverhältnismäßig viel Aussicht.",
+        "fr": "Ella se niche dans une échancrure des montagnes à 1 040 mètres ; le nuage passe par la brèche l'après-midi et repart avant le dîner. Autour : chemins de plantation, cascades où l'on peut se placer dessous, et courtes montées très rentables en vues.",
+        "ru": "Элла лежит в горной седловине на высоте 1040 метров: днём через неё проходит облако и уходит к ужину. Вокруг — тропы плантаций, водопады, под которые можно встать, и короткие подъёмы с непропорционально большим видом.",
+        "zh": "埃拉位于海拔 1040 米的山口，午后云从缺口穿过，到晚饭时就散了。周围是茶园小径、可以站到下面的瀑布，以及性价比极高的短途登顶。"
+      },
+      "intro2": {
+        "en": "Most people arrive on the Kandy–Ella line with the doors open and their feet out; we drive your luggage ahead so you ride light. Add Nuwara Eliya for tea factories and 10°C nights, or Horton Plains for a 6am walk to World's End.",
+        "de": "Die meisten kommen auf der Strecke Kandy–Ella an, Türen offen, Füße draußen; wir fahren das Gepäck voraus, damit Sie leicht reisen. Dazu Nuwara Eliya für Teefabriken und 10-°C-Nächte oder Horton Plains für den Weg zum World's End um 6 Uhr.",
+        "fr": "La plupart arrivent par la ligne Kandy–Ella, portes ouvertes et pieds dehors ; nous transportons les bagages en avance pour que vous voyagiez léger. Ajoutez Nuwara Eliya pour les fabriques de thé et ses nuits à 10 °C, ou Horton Plains pour la marche de 6 h vers World's End.",
+        "ru": "Большинство приезжает по линии Канди — Элла с открытыми дверями и ногами наружу; багаж мы отвозим вперёд, чтобы вы ехали налегке. Добавьте Нувара-Элию с чайными фабриками и ночами по +10 °C или Хортон-Плейнс с выходом к World's End в шесть утра.",
+        "zh": "多数人乘康提—埃拉线抵达，车门敞开、双脚伸在外面；行李由我们先开车送到，你可以轻装乘车。可再加努沃勒埃利耶看茶厂、体验 10 ℃ 的夜，或去霍顿平原在清晨六点走到世界尽头。"
+      },
+      "hi": [
+        {
+          "en": [
+            "The blue train, seated",
+            "We book ahead and put you on the correct side of the carriage."
+          ],
+          "de": [
+            "Der blaue Zug, mit Sitzplatz",
+            "Wir buchen vorab und setzen Sie auf die richtige Wagenseite."
+          ],
+          "fr": [
+            "Le train bleu, assis",
+            "Nous réservons à l'avance et vous plaçons du bon côté du wagon."
+          ],
+          "ru": [
+            "Синий поезд, с местом",
+            "Бронируем заранее и садим вас на нужную сторону вагона."
+          ],
+          "zh": [
+            "蓝色火车，有座",
+            "我们提前订票，并让你坐在车厢正确的一侧。"
+          ]
+        },
+        {
+          "en": [
+            "Nine Arch Bridge, off-timetable",
+            "Twenty minutes before the train, from the side nobody stands on."
+          ],
+          "de": [
+            "Nine-Arch-Brücke, abseits",
+            "Zwanzig Minuten vor dem Zug, von der Seite, auf der niemand steht."
+          ],
+          "fr": [
+            "Pont des Neuf Arches, à contretemps",
+            "Vingt minutes avant le train, du côté où personne ne se met."
+          ],
+          "ru": [
+            "Мост девяти арок без толпы",
+            "За двадцать минут до поезда, с той стороны, где никто не стоит."
+          ],
+          "zh": [
+            "九孔桥，避开时段",
+            "火车到达前二十分钟，站在没人去的那一侧。"
+          ]
+        },
+        {
+          "en": [
+            "Little Adam's Peak at dawn",
+            "Forty minutes up, breakfast at the top, back before the heat."
+          ],
+          "de": [
+            "Little Adam's Peak im Morgengrauen",
+            "Vierzig Minuten hinauf, Frühstück oben, zurück vor der Hitze."
+          ],
+          "fr": [
+            "Little Adam's Peak à l'aube",
+            "Quarante minutes de montée, petit-déjeuner au sommet, retour avant la chaleur."
+          ],
+          "ru": [
+            "Малый пик Адама на рассвете",
+            "Сорок минут наверх, завтрак на вершине и спуск до жары."
+          ],
+          "zh": [
+            "清晨小亚当峰",
+            "上行四十分钟，山顶吃早餐，趁热之前返回。"
+          ]
+        },
+        {
+          "en": [
+            "A working tea estate",
+            "Plucking, withering, rolling, tasting — with someone who does it daily."
+          ],
+          "de": [
+            "Eine arbeitende Teeplantage",
+            "Pflücken, Welken, Rollen, Verkosten — mit jemandem, der es täglich tut."
+          ],
+          "fr": [
+            "Une plantation en activité",
+            "Cueillette, flétrissage, roulage, dégustation — avec quelqu'un qui le fait chaque jour."
+          ],
+          "ru": [
+            "Действующая чайная плантация",
+            "Сбор, вяление, скручивание, дегустация — с тем, кто делает это каждый день."
+          ],
+          "zh": [
+            "运转中的茶庄",
+            "采摘、萎凋、揉捻、品饮——由每天做这件事的人带你看。"
+          ]
+        }
+      ],
+      "facts": {
+        "en": [
+          [
+            "Best months",
+            "Jan–Apr, Jul–Sep"
+          ],
+          [
+            "Suggested stay",
+            "3–5 nights"
+          ],
+          [
+            "Drive from Colombo",
+            "about 5 hours"
+          ]
+        ],
+        "de": [
+          [
+            "Beste Monate",
+            "Jan–Apr, Jul–Sep"
+          ],
+          [
+            "Empfohlene Dauer",
+            "3–5 Nächte"
+          ],
+          [
+            "Fahrt von Colombo",
+            "etwa 5 Stunden"
+          ]
+        ],
+        "fr": [
+          [
+            "Meilleurs mois",
+            "janv.–avr., juil.–sept."
+          ],
+          [
+            "Durée conseillée",
+            "3 à 5 nuits"
+          ],
+          [
+            "Depuis Colombo",
+            "environ 5 heures"
+          ]
+        ],
+        "ru": [
+          [
+            "Лучшие месяцы",
+            "янв–апр, июл–сен"
+          ],
+          [
+            "Сколько остаться",
+            "3–5 ночей"
+          ],
+          [
+            "Дорога из Коломбо",
+            "около 5 часов"
+          ]
+        ],
+        "zh": [
+          [
+            "最佳月份",
+            "1–4 月、7–9 月"
+          ],
+          [
+            "建议停留",
+            "3–5 晚"
+          ],
+          [
+            "距科伦坡",
+            "约 5 小时"
+          ]
+        ]
+      },
+      "meta": {
+        "en": "Ella, Nuwara Eliya and Kandy with a private driver-guide — the blue train, Nine Arch Bridge, tea estates and Horton Plains. Plan your hill country days with SP Tours.",
+        "de": "Ella, Nuwara Eliya und Kandy mit privatem Fahrer-Guide — blauer Zug, Nine-Arch-Brücke, Teeplantagen, Horton Plains. Bergland-Tage mit SP Tours planen.",
+        "fr": "Ella, Nuwara Eliya et Kandy avec chauffeur-guide privé — train bleu, pont des Neuf Arches, plantations de thé, Horton Plains. Planifiez vos hauts plateaux avec SP Tours.",
+        "ru": "Элла, Нувара-Элия и Канди с личным гидом-водителем: синий поезд, Мост девяти арок, чайные плантации, Хортон-Плейнс. Планируйте горы с SP Tours.",
+        "zh": "由私人司机兼导游带你走埃拉、努沃勒埃利耶与康提：蓝色火车、九孔桥、茶庄与霍顿平原。用 SP Tours 规划高地行程。"
+      }
+    },
+    "yala-safari": {
+      "slug": "yala-safari",
+      "file": "YalaSafari.dc.html",
+      "region": "wildlife",
+      "interest": "wildlife",
+      "tint": "#C58A5E",
+      "photos": [
+        "Leopard on a rock, Yala — 3:2",
+        "Elephant herd, Udawalawe — 4:5",
+        "Jeep track at dawn — 4:5",
+        "Painted storks at a waterhole — 3:2"
+      ],
+      "nearby": [
+        "galle-mirissa",
+        "ella"
+      ],
+      "name": {
+        "en": "Yala & Udawalawe Safari",
+        "de": "Safari in Yala & Udawalawe",
+        "fr": "Safari à Yala et Udawalawe",
+        "ru": "Сафари в Яле и Удавалаве",
+        "zh": "雅拉与乌达瓦拉维狩猎公园"
+      },
+      "short": {
+        "en": "Yala safari",
+        "de": "Yala-Safari",
+        "fr": "Safari de Yala",
+        "ru": "Сафари в Яле",
+        "zh": "雅拉狩猎"
+      },
+      "tagline": {
+        "en": "The highest density of leopards on earth — and we are through the gate first.",
+        "de": "Die höchste Leopardendichte der Erde — und wir sind zuerst am Tor.",
+        "fr": "La plus forte densité de léopards au monde — et nous passons la barrière les premiers.",
+        "ru": "Самая высокая плотность леопардов в мире — и мы у ворот первыми.",
+        "zh": "全球豹密度最高的地方——而我们第一批进园。"
+      },
+      "intro1": {
+        "en": "Yala's Block 1 holds roughly one leopard per square kilometre, plus sloth bear, crocodile and elephant. Sightings are a matter of being inside at 5:30am, knowing which waterholes are still full, and then sitting still for a while — which is most of what a good tracker does.",
+        "de": "In Yalas Block 1 lebt etwa ein Leopard pro Quadratkilometer, dazu Lippenbären, Krokodile und Elefanten. Sichtungen heißen: um 5:30 Uhr drin sein, wissen, welche Wasserlöcher noch voll sind — und dann eine Weile still sitzen. Genau das macht ein guter Tracker.",
+        "fr": "Le bloc 1 de Yala compte environ un léopard par kilomètre carré, plus ours lippus, crocodiles et éléphants. Les observations tiennent à être entré à 5 h 30, à savoir quels points d'eau sont encore pleins, puis à rester immobile un moment — l'essentiel du métier d'un bon pisteur.",
+        "ru": "В Блоке 1 Ялы примерно один леопард на квадратный километр, плюс медведь-губач, крокодилы и слоны. Успех — это быть внутри к 5:30, знать, какие водоёмы ещё полны, и потом какое-то время сидеть тихо. Именно это и делает хороший трекер.",
+        "zh": "雅拉一号区大约每平方公里就有一只豹，另有懒熊、鳄鱼和大象。能不能看到，取决于清晨 5:30 是否已在园内、知道哪些水塘还有水，然后安静地等一会儿——好的追踪员大部分工作就是这些。"
+      },
+      "intro2": {
+        "en": "Udawalawe, ninety minutes west, is the opposite kind of park: open, dusty and reliably full of elephants, with a transit home for orphaned calves next door. Book both and you stop gambling on a single morning.",
+        "de": "Udawalawe, neunzig Minuten westlich, ist das Gegenteil: offen, staubig und zuverlässig voller Elefanten, samt Auffangstation für Waisenkälber. Beide zusammen, und Sie setzen nicht alles auf einen Morgen.",
+        "fr": "Udawalawe, à quatre-vingt-dix minutes à l'ouest, est un parc inverse : ouvert, poussiéreux et rempli d'éléphants, avec un centre d'accueil pour orphelins à côté. Réservez les deux et vous ne jouez plus tout sur une seule matinée.",
+        "ru": "Удавалаве в девяноста минутах западнее — парк противоположного склада: открытый, пыльный и надёжно полный слонов, рядом центр для слонят-сирот. Возьмите оба — и не будете ставить всё на одно утро.",
+        "zh": "往西九十分钟的乌达瓦拉维是另一种公园：开阔、干燥，象群几乎不会落空，旁边还有孤象幼崽的中转站。两个都安排，就不必把希望押在一个清晨上。"
+      },
+      "hi": [
+        {
+          "en": [
+            "First jeep through the gate",
+            "Pre-dawn coffee, park entry at opening, sightings before the convoy."
+          ],
+          "de": [
+            "Erster Jeep am Tor",
+            "Kaffee vor Sonnenaufgang, Einfahrt zur Öffnung, Sichtungen vor dem Konvoi."
+          ],
+          "fr": [
+            "Premier jeep à la barrière",
+            "Café avant l'aube, entrée à l'ouverture, observations avant le convoi."
+          ],
+          "ru": [
+            "Первый джип у ворот",
+            "Кофе до рассвета, въезд к открытию, встречи до колонны."
+          ],
+          "zh": [
+            "第一辆进园的越野车",
+            "天亮前喝咖啡，开门即入园，在车队之前遇见动物。"
+          ]
+        },
+        {
+          "en": [
+            "A tracker, not a driver",
+            "Same team every week; they read alarm calls, not guesswork."
+          ],
+          "de": [
+            "Ein Tracker, kein Fahrer",
+            "Jede Woche dasselbe Team; sie lesen Warnrufe statt zu raten."
+          ],
+          "fr": [
+            "Un pisteur, pas un chauffeur",
+            "La même équipe chaque semaine ; ils lisent les cris d'alarme, pas au hasard."
+          ],
+          "ru": [
+            "Трекер, а не просто водитель",
+            "Одна и та же команда каждую неделю: они читают тревожные крики, а не угадывают."
+          ],
+          "zh": [
+            "是追踪员，不只是司机",
+            "每周都是同一组人：他们靠警戒叫声判断，而不是靠猜。"
+          ]
+        },
+        {
+          "en": [
+            "Udawalawe elephants",
+            "Open plains, big herds, and a calf nursery worth the extra hour."
+          ],
+          "de": [
+            "Elefanten in Udawalawe",
+            "Offene Ebenen, große Herden und eine Kälberstation, die die Extrastunde wert ist."
+          ],
+          "fr": [
+            "Éléphants d'Udawalawe",
+            "Plaines ouvertes, grands troupeaux et une nurserie qui vaut l'heure de route."
+          ],
+          "ru": [
+            "Слоны Удавалаве",
+            "Открытые равнины, большие стада и питомник для слонят, ради которого стоит доехать."
+          ],
+          "zh": [
+            "乌达瓦拉维的象群",
+            "开阔平原、大型象群，还有值得多花一小时的幼象中心。"
+          ]
+        },
+        {
+          "en": [
+            "Sleep close to the gate",
+            "Tented camps and small lodges ten minutes out, so 5am is survivable."
+          ],
+          "de": [
+            "Nah am Tor schlafen",
+            "Zeltcamps und kleine Lodges zehn Minuten entfernt — 5 Uhr wird machbar."
+          ],
+          "fr": [
+            "Dormir près de l'entrée",
+            "Camps de tentes et petits lodges à dix minutes : 5 h devient supportable."
+          ],
+          "ru": [
+            "Ночевать рядом с воротами",
+            "Палаточные лагеря и маленькие лоджи в десяти минутах — подъём в пять переносим."
+          ],
+          "zh": [
+            "住在园门附近",
+            "十分钟内的帐篷营地与小型旅舍，让清晨五点起床变得可行。"
+          ]
+        }
+      ],
+      "facts": {
+        "en": [
+          [
+            "Best months",
+            "Feb–Jul (Yala closes Sep)"
+          ],
+          [
+            "Suggested stay",
+            "1–2 nights"
+          ],
+          [
+            "Drive from Colombo",
+            "about 5 hours"
+          ]
+        ],
+        "de": [
+          [
+            "Beste Monate",
+            "Feb–Jul (Yala im Sep zu)"
+          ],
+          [
+            "Empfohlene Dauer",
+            "1–2 Nächte"
+          ],
+          [
+            "Fahrt von Colombo",
+            "etwa 5 Stunden"
+          ]
+        ],
+        "fr": [
+          [
+            "Meilleurs mois",
+            "févr.–juil. (Yala fermé en sept.)"
+          ],
+          [
+            "Durée conseillée",
+            "1 à 2 nuits"
+          ],
+          [
+            "Depuis Colombo",
+            "environ 5 heures"
+          ]
+        ],
+        "ru": [
+          [
+            "Лучшие месяцы",
+            "фев–июл (Яла закрыта в сен)"
+          ],
+          [
+            "Сколько остаться",
+            "1–2 ночи"
+          ],
+          [
+            "Дорога из Коломбо",
+            "около 5 часов"
+          ]
+        ],
+        "zh": [
+          [
+            "最佳月份",
+            "2–7 月（雅拉 9 月关闭）"
+          ],
+          [
+            "建议停留",
+            "1–2 晚"
+          ],
+          [
+            "距科伦坡",
+            "约 5 小时"
+          ]
+        ]
+      },
+      "meta": {
+        "en": "Yala and Udawalawe safaris with a private tracker and jeep — first through the gate at dawn, leopards, sloth bear and elephant herds. Plan your safari days with SP Tours.",
+        "de": "Safaris in Yala und Udawalawe mit privatem Tracker und Jeep — als Erste am Tor, Leoparden, Lippenbären, Elefantenherden. Safari-Tage mit SP Tours planen.",
+        "fr": "Safaris à Yala et Udawalawe avec pisteur et jeep privés — premiers à l'ouverture, léopards, ours lippus, troupeaux d'éléphants. Planifiez votre safari avec SP Tours.",
+        "ru": "Сафари в Яле и Удавалаве с личным трекером и джипом: первыми у ворот, леопарды, медведь-губач, стада слонов. Планируйте сафари с SP Tours.",
+        "zh": "由私人追踪员与越野车带你在雅拉和乌达瓦拉维狩猎：清晨第一批进园，寻豹、懒熊与象群。用 SP Tours 规划狩猎行程。"
+      }
+    },
+    "galle-mirissa": {
+      "slug": "galle-mirissa",
+      "file": "GalleMirissa.dc.html",
+      "region": "coast",
+      "interest": "beaches",
+      "tint": "#E0B27A",
+      "photos": [
+        "Galle Fort lighthouse at dusk — 3:2",
+        "Blue whale fluke off Mirissa — 4:5",
+        "Stilt fishermen, Koggala — 4:5",
+        "Palm-lined bay, Hiriketiya — 3:2"
+      ],
+      "nearby": [
+        "yala-safari",
+        "colombo"
+      ],
+      "name": {
+        "en": "Galle, Mirissa & the South Coast",
+        "de": "Galle, Mirissa & die Südküste",
+        "fr": "Galle, Mirissa et la côte sud",
+        "ru": "Галле, Марисса и Южное побережье",
+        "zh": "加勒、米瑞莎与南部海岸"
+      },
+      "short": {
+        "en": "Galle & Mirissa",
+        "de": "Galle & Mirissa",
+        "fr": "Galle et Mirissa",
+        "ru": "Галле и Марисса",
+        "zh": "加勒与米瑞莎"
+      },
+      "tagline": {
+        "en": "A Dutch fort, blue whales offshore, and the flat surf that forgives beginners.",
+        "de": "Ein holländisches Fort, Blauwale vor der Küste und sanfte Wellen für Anfänger.",
+        "fr": "Un fort hollandais, des baleines bleues au large, et des vagues douces pour débuter.",
+        "ru": "Голландский форт, синие киты в море и мягкие волны для новичков.",
+        "zh": "荷兰古堡、海上的蓝鲸，以及对新手宽容的平缓浪。"
+      },
+      "intro1": {
+        "en": "Galle Fort is a walled town you can walk end to end in twenty minutes and still not finish: ramparts, coral-stone churches, hidden courtyards and the best coffee on the coast. Stay inside the walls for a night — it empties out after the day-trippers leave.",
+        "de": "Galle Fort ist eine Stadt in Mauern, die man in zwanzig Minuten durchquert und doch nicht ausschöpft: Wälle, Kirchen aus Korallenstein, versteckte Höfe und der beste Kaffee der Küste. Übernachten Sie innerhalb der Mauern — nach den Tagesgästen wird es still.",
+        "fr": "Le fort de Galle est une ville close qu'on traverse en vingt minutes sans en avoir fini : remparts, églises en pierre de corail, cours cachées et le meilleur café de la côte. Dormez à l'intérieur des murs : tout se vide après les excursionnistes.",
+        "ru": "Форт Галле — город в стенах, который проходишь за двадцать минут и всё равно не осматриваешь: валы, храмы из коралловых блоков, скрытые дворы и лучший кофе на берегу. Останьтесь внутри стен на ночь — после однодневных туристов здесь пусто.",
+        "zh": "加勒古堡是一座城墙围起的小城，二十分钟就能走通，却怎么也走不完：城墙、珊瑚石教堂、藏起来的院子，还有这一带最好的咖啡。在城墙内住一晚——一日游的人走后，这里就安静了。"
+      },
+      "intro2": {
+        "en": "East of it the coast turns to bays: Mirissa for whale boats at 6am, Weligama for first surf lessons, Hiriketiya for doing nothing well. West, Bentota adds a river safari and the two-hour expressway run back to the airport — which is why we usually end trips here.",
+        "de": "Östlich davon wird die Küste zu Bucht nach Bucht: Mirissa für Walboote um 6 Uhr, Weligama für erste Surfstunden, Hiriketiya fürs gute Nichtstun. Westlich bietet Bentota Flusssafari und zwei Stunden Schnellstraße zum Flughafen — deshalb enden Reisen hier meist.",
+        "fr": "À l'est, la côte devient une suite de baies : Mirissa pour les sorties baleines de 6 h, Weligama pour les premiers cours de surf, Hiriketiya pour ne rien faire correctement. À l'ouest, Bentota ajoute une safari-rivière et deux heures d'autoroute vers l'aéroport — d'où nos fins de voyage ici.",
+        "ru": "К востоку берег распадается на бухты: Марисса — лодки к китам в шесть утра, Велигама — первые уроки серфинга, Хирикетия — умение ничего не делать. К западу Бентота добавляет речное сафари и два часа автобана до аэропорта — поэтому мы обычно заканчиваем поездки здесь.",
+        "zh": "往东，海岸变成一个个海湾：米瑞莎清晨六点出海看鲸，维利加马适合第一堂冲浪课，希里克提亚适合认真地什么都不做。往西的本托塔有河上游船，以及两小时高速直达机场——所以我们通常把行程收在这里。"
+      },
+      "hi": [
+        {
+          "en": [
+            "Ramparts at golden hour",
+            "Start at the lighthouse, finish where the local boys dive off the wall."
+          ],
+          "de": [
+            "Wälle zur goldenen Stunde",
+            "Start am Leuchtturm, Ende dort, wo die Jungs von der Mauer springen."
+          ],
+          "fr": [
+            "Remparts à l'heure dorée",
+            "Départ au phare, arrivée là où les gamins plongent du mur."
+          ],
+          "ru": [
+            "Валы в золотой час",
+            "Начать у маяка и закончить там, где местные прыгают со стены."
+          ],
+          "zh": [
+            "黄金时刻走城墙",
+            "从灯塔开始，走到当地少年跳水的那段墙。"
+          ]
+        },
+        {
+          "en": [
+            "Whales, responsibly",
+            "Small licensed boat, no chasing, out before the fleet."
+          ],
+          "de": [
+            "Wale, verantwortungsvoll",
+            "Kleines lizenziertes Boot, kein Verfolgen, raus vor der Flotte."
+          ],
+          "fr": [
+            "Baleines, sans excès",
+            "Petit bateau agréé, aucune poursuite, sortie avant la flotte."
+          ],
+          "ru": [
+            "Киты без гонки",
+            "Маленькая лицензированная лодка, без погони, выход раньше флота."
+          ],
+          "zh": [
+            "观鲸，但不追赶",
+            "持照小船、不追逐，比船队更早出海。"
+          ]
+        },
+        {
+          "en": [
+            "Learn to surf at Weligama",
+            "Waist-high, sandy bottom, instructors who teach children all week."
+          ],
+          "de": [
+            "Surfen lernen in Weligama",
+            "Hüfthoch, Sandgrund, Lehrer, die die ganze Woche Kinder unterrichten."
+          ],
+          "fr": [
+            "Apprendre à surfer à Weligama",
+            "Eau à la taille, fond de sable, moniteurs habitués aux enfants."
+          ],
+          "ru": [
+            "Учиться серфингу в Велигаме",
+            "По пояс, песчаное дно, инструкторы, которые всю неделю учат детей."
+          ],
+          "zh": [
+            "在维利加马学冲浪",
+            "水深及腰、沙底，教练整周都在教小孩。"
+          ]
+        },
+        {
+          "en": [
+            "A day with no plan",
+            "One bay, one hopper of rice and curry, and the afternoon off."
+          ],
+          "de": [
+            "Ein Tag ohne Plan",
+            "Eine Bucht, ein Teller Reis und Curry, und der Nachmittag frei."
+          ],
+          "fr": [
+            "Une journée sans programme",
+            "Une baie, une assiette de riz-curry, et l'après-midi libre."
+          ],
+          "ru": [
+            "День без плана",
+            "Одна бухта, тарелка риса с карри и свободный вечер."
+          ],
+          "zh": [
+            "完全不安排的一天",
+            "一个海湾、一份米饭咖喔，下午留白。"
+          ]
+        }
+      ],
+      "facts": {
+        "en": [
+          [
+            "Best months",
+            "Nov–Apr"
+          ],
+          [
+            "Suggested stay",
+            "2–5 nights"
+          ],
+          [
+            "Drive from Colombo",
+            "about 2 hours"
+          ]
+        ],
+        "de": [
+          [
+            "Beste Monate",
+            "Nov–Apr"
+          ],
+          [
+            "Empfohlene Dauer",
+            "2–5 Nächte"
+          ],
+          [
+            "Fahrt von Colombo",
+            "etwa 2 Stunden"
+          ]
+        ],
+        "fr": [
+          [
+            "Meilleurs mois",
+            "nov.–avr."
+          ],
+          [
+            "Durée conseillée",
+            "2 à 5 nuits"
+          ],
+          [
+            "Depuis Colombo",
+            "environ 2 heures"
+          ]
+        ],
+        "ru": [
+          [
+            "Лучшие месяцы",
+            "ноябрь–апрель"
+          ],
+          [
+            "Сколько остаться",
+            "2–5 ночей"
+          ],
+          [
+            "Дорога из Коломбо",
+            "около 2 часов"
+          ]
+        ],
+        "zh": [
+          [
+            "最佳月份",
+            "11–4 月"
+          ],
+          [
+            "建议停留",
+            "2–5 晚"
+          ],
+          [
+            "距科伦坡",
+            "约 2 小时"
+          ]
+        ]
+      },
+      "meta": {
+        "en": "Galle Fort, Mirissa whale watching, Weligama surf and the south coast beaches with a private guide. Plan your Sri Lanka coast days with SP Tours.",
+        "de": "Galle Fort, Walbeobachtung in Mirissa, Surfen in Weligama und die Strände der Südküste mit privatem Guide. Küstentage mit SP Tours planen.",
+        "fr": "Fort de Galle, baleines à Mirissa, surf à Weligama et plages de la côte sud avec un guide privé. Planifiez votre littoral avec SP Tours.",
+        "ru": "Форт Галле, наблюдение за китами в Мириссе, серфинг в Велигаме и пляжи юга с личным гидом. Планируйте побережье с SP Tours.",
+        "zh": "由私人导游带你走加勒古堡、米瑞莎观鲸、维利加马冲浪与南部海滩。用 SP Tours 规划海岸行程。"
+      }
+    },
+    "colombo": {
+      "slug": "colombo",
+      "file": "Colombo.dc.html",
+      "region": "colombo",
+      "interest": "food",
+      "tint": "#9FB8C4",
+      "photos": [
+        "Galle Face Green at sunset — 3:2",
+        "Pettah market stall — 4:5",
+        "Geoffrey Bawa interior — 4:5",
+        "Street kottu being cooked — 3:2"
+      ],
+      "nearby": [
+        "galle-mirissa",
+        "sigiriya"
+      ],
+      "name": {
+        "en": "Colombo",
+        "de": "Colombo",
+        "fr": "Colombo",
+        "ru": "Коломбо",
+        "zh": "科伦坡"
+      },
+      "short": {
+        "en": "Colombo",
+        "de": "Colombo",
+        "fr": "Colombo",
+        "ru": "Коломбо",
+        "zh": "科伦坡"
+      },
+      "tagline": {
+        "en": "The city most itineraries skip — and the one day we argue for.",
+        "de": "Die Stadt, die die meisten auslassen — und der eine Tag, für den wir argumentieren.",
+        "fr": "La ville que la plupart des circuits sautent — et le jour que nous défendons.",
+        "ru": "Город, который пропускают почти все, — и день, за который мы спорим.",
+        "zh": "大多数行程会跳过的城市——也是我们坚持留下的一天。"
+      },
+      "intro1": {
+        "en": "Colombo rewards a guide more than almost anywhere else on the island, because nothing is signposted. Pettah's wholesale streets, the Dutch hospital block, Geoffrey Bawa's own house, a Tamil breakfast in Wellawatte and sunset on Galle Face Green make one very full, very local day.",
+        "de": "Colombo lohnt einen Guide mehr als fast jeder andere Ort der Insel, weil nichts ausgeschildert ist. Pettahs Großhandelsstraßen, das Dutch-Hospital-Viertel, Geoffrey Bawas eigenes Haus, ein tamilisches Frühstück in Wellawatte und Sonnenuntergang auf Galle Face Green ergeben einen sehr vollen, sehr lokalen Tag.",
+        "fr": "Colombo profite d'un guide plus que presque partout ailleurs, car rien n'est signalé. Les rues de gros de Pettah, le quartier du Dutch Hospital, la maison de Geoffrey Bawa, un petit-déjeuner tamoul à Wellawatte et le coucher de soleil sur Galle Face Green : une journée bien remplie et très locale.",
+        "ru": "В Коломбо гид полезен больше, чем почти где-либо на острове, потому что здесь ничего не подписано. Оптовые улицы Петтаха, квартал Dutch Hospital, собственный дом Джеффри Бавы, тамильский завтрак в Веллаватте и закат на Галле-Фейс — один очень плотный и очень местный день.",
+        "zh": "科伦坡比岛上几乎任何地方都更需要一位导游，因为这里什么都没有指示牌。佩塔的批发街、荷兰医院街区、杰弗里·巴瓦的自宅、韦拉瓦特的泰米尔早餐，加上加勒菲斯绿地的日落，就是充实而地道的一天。"
+      },
+      "intro2": {
+        "en": "It is also the practical bookend: most flights land at night and leave late, so a Colombo or Negombo night at each end saves you from starting the island half-asleep.",
+        "de": "Sie ist auch der praktische Rahmen: Die meisten Flüge landen nachts und starten spät — eine Nacht in Colombo oder Negombo an jedem Ende erspart Ihnen den Start im Halbschlaf.",
+        "fr": "C'est aussi la parenthèse pratique : la plupart des vols atterrissent la nuit et repartent tard ; une nuit à Colombo ou Negombo de chaque côté évite de commencer l'île à moitié endormi.",
+        "ru": "Это ещё и практичные скобки: большинство рейсов садится ночью и улетает поздно, так что ночь в Коломбо или Негомбо с каждой стороны спасает от старта в полусне.",
+        "zh": "它也是行程实用的两端：多数航班深夜落地、很晚起飞，在首尾各住一晚科伦坡或尼甘布，就不会半梦半醒地开始旅程。"
+      },
+      "hi": [
+        {
+          "en": [
+            "Pettah before 9am",
+            "Wholesale streets by trade: rope, spice, electronics, flowers."
+          ],
+          "de": [
+            "Pettah vor 9 Uhr",
+            "Großhandelsstraßen nach Waren: Seile, Gewürze, Elektronik, Blumen."
+          ],
+          "fr": [
+            "Pettah avant 9 h",
+            "Rues de gros par métier : cordes, épices, électronique, fleurs."
+          ],
+          "ru": [
+            "Петтах до девяти утра",
+            "Оптовые улицы по товарам: верёвки, специи, электроника, цветы."
+          ],
+          "zh": [
+            "九点前的佩塔",
+            "按行业分的批发街：绳索、香料、电子、鲜花。"
+          ]
+        },
+        {
+          "en": [
+            "Bawa's rooms",
+            "Number 11 and the Gallery Café — Sri Lankan modernism at eye level."
+          ],
+          "de": [
+            "Bawas Räume",
+            "Number 11 und das Gallery Café — srilankische Moderne auf Augenhöhe."
+          ],
+          "fr": [
+            "Les pièces de Bawa",
+            "Number 11 et le Gallery Café — le modernisme sri-lankais de près."
+          ],
+          "ru": [
+            "Комнаты Бавы",
+            "Number 11 и Gallery Café — ланкийский модернизм вблизи."
+          ],
+          "zh": [
+            "巴瓦的房间",
+            "11 号宅与 Gallery Café——近距离看斯里兰卡现代主义。"
+          ]
+        },
+        {
+          "en": [
+            "Eat like a local",
+            "Kottu on a hotplate, hoppers at dusk, short eats with tea at 4pm."
+          ],
+          "de": [
+            "Essen wie hier",
+            "Kottu von der Platte, Hoppers am Abend, Short Eats mit Tee um 16 Uhr."
+          ],
+          "fr": [
+            "Manger comme ici",
+            "Kottu sur la plaque, hoppers au crépuscule, short eats et thé à 16 h."
+          ],
+          "ru": [
+            "Есть как местные",
+            "Котту с жаровни, хопперы на закате, снеки с чаем в четыре."
+          ],
+          "zh": [
+            "像本地人一样吃",
+            "铁板炒饼、黄昏的碗状米饼、下午四点的茶配小食。"
+          ]
+        },
+        {
+          "en": [
+            "Sunset on the Green",
+            "Kite sellers, isso vadai, and the whole city out walking."
+          ],
+          "de": [
+            "Sonnenuntergang am Green",
+            "Drachenverkäufer, Isso Vadai und die ganze Stadt beim Spazieren."
+          ],
+          "fr": [
+            "Coucher de soleil sur le Green",
+            "Vendeurs de cerfs-volants, isso vadai, et toute la ville qui marche."
+          ],
+          "ru": [
+            "Закат на Грин",
+            "Продавцы воздушных змеев, иссо вадай и весь город на прогулке."
+          ],
+          "zh": [
+            "绿地上的日落",
+            "卖风筝的人、虾饼，以及全城出来散步的人。"
+          ]
+        }
+      ],
+      "facts": {
+        "en": [
+          [
+            "Best months",
+            "All year"
+          ],
+          [
+            "Suggested stay",
+            "1–2 nights"
+          ],
+          [
+            "Drive from airport",
+            "about 45 minutes"
+          ]
+        ],
+        "de": [
+          [
+            "Beste Monate",
+            "Ganzjährig"
+          ],
+          [
+            "Empfohlene Dauer",
+            "1–2 Nächte"
+          ],
+          [
+            "Fahrt vom Flughafen",
+            "etwa 45 Minuten"
+          ]
+        ],
+        "fr": [
+          [
+            "Meilleurs mois",
+            "Toute l'année"
+          ],
+          [
+            "Durée conseillée",
+            "1 à 2 nuits"
+          ],
+          [
+            "Depuis l'aéroport",
+            "environ 45 minutes"
+          ]
+        ],
+        "ru": [
+          [
+            "Лучшие месяцы",
+            "Весь год"
+          ],
+          [
+            "Сколько остаться",
+            "1–2 ночи"
+          ],
+          [
+            "Дорога из аэропорта",
+            "около 45 минут"
+          ]
+        ],
+        "zh": [
+          [
+            "最佳月份",
+            "全年"
+          ],
+          [
+            "建议停留",
+            "1–2 晚"
+          ],
+          [
+            "距机场",
+            "约 45 分钟"
+          ]
+        ]
+      },
+      "meta": {
+        "en": "One well-planned day in Colombo with a local guide — Pettah markets, Geoffrey Bawa's house, street food and sunset on Galle Face Green. Plan it with SP Tours.",
+        "de": "Ein gut geplanter Tag in Colombo mit lokalem Guide — Pettah-Märkte, Geoffrey Bawas Haus, Streetfood, Sonnenuntergang am Galle Face Green. Mit SP Tours planen.",
+        "fr": "Une journée bien pensée à Colombo avec un guide local — marchés de Pettah, maison de Geoffrey Bawa, street food et coucher de soleil sur Galle Face Green. À planifier avec SP Tours.",
+        "ru": "Один хорошо спланированный день в Коломбо с местным гидом: рынки Петтах, дом Джеффри Бавы, стритфуд и закат на Галле-Фейс. Планируйте с SP Tours.",
+        "zh": "由本地导游带你用心过完科伦坡的一天：佩塔集市、巴瓦自宅、街头小吃与加勒菲斯绿地日落。用 SP Tours 规划。"
+      }
+    }
+  },
+  "DEST_ORDER": [
+    "sigiriya",
+    "ella",
+    "yala-safari",
+    "galle-mirissa",
+    "colombo"
+  ],
+  "ROUTE": [
+    "colombo",
+    "cultural",
+    "hill",
+    "wildlife",
+    "coast"
+  ]
+}

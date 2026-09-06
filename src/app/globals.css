@@ -3,24 +3,155 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fffdf8;
-  --foreground: #14231f;
+  --background: #f7f3eb;
+  --foreground: #0a2a2b;
+
+  --bg: #f7f3eb;
+  --bg-alt: #efe8da;
+  --surface: #fffdf8;
+  --field: #f7f3eb;
+
+  --ink: #0a2a2b;
+  --line: rgba(10, 42, 43, 0.12);
+  --line-2: rgba(10, 42, 43, 0.2);
+
+  --deep: #061c1d;
+  --deep2: #0a2a2b;
+
+  --od: #f7f3eb;
+
+  --gold: #c79a4b;
+  --terra: #a85a3e;
+  --green: #5fa97f;
+  --green-ink: #04211a;
+
+  --shadow: rgba(10, 42, 43, 0.34);
 }
 
 .dark {
-  --background: #0d1a17;
-  --foreground: #f2ede2;
+  --background: #08201f;
+  --foreground: #ede6d9;
+
+  --bg: #08201f;
+  --bg-alt: #051817;
+  --surface: #0e2b2a;
+  --field: #0a2423;
+
+  --ink: #ede6d9;
+  --line: rgba(237, 230, 217, 0.14);
+  --line-2: rgba(237, 230, 217, 0.24);
+
+  --deep: #040f10;
+  --deep2: #061a1a;
+
+  --od: #ede6d9;
+
+  --gold: #d6ac61;
+  --terra: #c9784f;
+  --green: #66b489;
+  --green-ink: #03150f;
+
+  --shadow: rgba(0, 0, 0, 0.6);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-field: var(--field);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-deep: var(--deep);
+  --color-deep2: var(--deep2);
+  --color-od: var(--od);
+  --color-gold: var(--gold);
+  --color-terra: var(--terra);
+  --color-green: var(--green);
+  --color-green-ink: var(--green-ink);
+  --color-shadow: var(--shadow);
+
+  --font-sans: var(--font-jost), "Noto Sans SC", system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+a {
+  color: var(--terra);
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--gold);
+  color: #061c1d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-reveal] {
+  animation: reveal-in 0.9s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 25%;
+}
+
+@supports not (animation-timeline: view()) {
+  [data-reveal] {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
