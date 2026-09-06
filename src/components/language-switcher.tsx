@@ -13,7 +13,7 @@ export function LanguageSwitcher() {
   const params = useParams();
 
   return (
-    <label className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300">
+    <label className="relative flex flex-none items-center">
       <span className="sr-only">{t("label")}</span>
       <select
         aria-label={t("label")}
@@ -26,11 +26,16 @@ export function LanguageSwitcher() {
             { locale: nextLocale },
           );
         }}
-        className="rounded-full border border-neutral-300 bg-transparent px-3 py-1.5 text-sm text-neutral-700 outline-none transition-colors hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800"
+        className="cursor-pointer appearance-none rounded-full border border-od/22 bg-transparent px-3.5 py-2 font-mono text-[10px] tracking-[0.14em] text-od outline-none transition-colors hover:border-gold"
       >
         {locales.map((code) => (
-          <option key={code} value={code}>
-            {localeLabels[code]}
+          <option
+            key={code}
+            value={code}
+            title={localeLabels[code]}
+            className="text-[#0A2A2B]"
+          >
+            {code === "zh" ? "中文" : code.toUpperCase()}
           </option>
         ))}
       </select>
