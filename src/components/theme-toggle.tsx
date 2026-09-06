@@ -23,7 +23,7 @@ export function ThemeToggle() {
     return (
       <button
         aria-hidden
-        className="h-9 w-9 rounded-full border border-neutral-300 dark:border-neutral-700"
+        className="h-[38px] w-[38px] flex-none rounded-full border border-od/22"
       />
     );
   }
@@ -36,33 +36,9 @@ export function ThemeToggle() {
       aria-label={t("toggleLabel")}
       title={isDark ? t("light") : t("dark")}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-neutral-700 transition-colors hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800"
+      className="flex h-[38px] w-[38px] flex-none items-center justify-center rounded-full border border-od/22 bg-transparent transition-all duration-300 hover:border-gold hover:bg-gold/14"
     >
-      {isDark ? (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          className="h-4 w-4"
-        >
-          <circle cx="12" cy="12" r="4" />
-          <path
-            strokeLinecap="round"
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-          />
-        </svg>
-      ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="h-4 w-4"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" />
-        </svg>
-      )}
+      <span className="block h-[15px] w-[15px] rounded-full bg-gold" />
     </button>
   );
 }
