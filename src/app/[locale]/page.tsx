@@ -5,8 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { SiteImage } from "@/components/site-image";
-import { HomePlanner } from "@/components/home-planner";
-import { destList } from "@/lib/site-data";
+import { StartersAndPlanner } from "@/components/starters-and-planner";
+import { ReachUs } from "@/components/reach-us";
+import { destList, FAQ } from "@/lib/site-data";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
 import { HERO_PHOTOS, GALLERY_PHOTOS, destPhoto } from "@/lib/photos";
@@ -22,11 +23,26 @@ export default async function Home({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("site");
-  const dests = destList((await getLocale()) as Locale);
+  const currentLocale = (await getLocale()) as Locale;
+  const dests = destList(currentLocale);
   const waSimple = waSimpleHref(WHATSAPP_NUMBER, { waSimple: t("waSimple") });
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ.map((f) => ({
+      "@type": "Question",
+      name: f.q.en,
+      acceptedAnswer: { "@type": "Answer", text: f.a.en },
+    })),
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <SiteHeader variant="home" />
       <main id="top" className="pt-[62px]">
         {/* Hero */}
@@ -98,6 +114,23 @@ export default async function Home({
                 <SiteImage file={HERO_PHOTOS.leopard} alt="Leopard, Yala" />
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Trust bar */}
+        <section
+          aria-label={t("trustLicensed")}
+          className="border-t border-od/14 bg-deep2 px-4 py-5.5 text-od sm:px-8"
+        >
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-4.5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
+            <p className="flex items-baseline gap-2.5 text-sm text-od/72">
+              <span className="font-serif text-2xl text-gold">
+                {t("trustRating")}
+              </span>
+            </p>
+            <p className="text-sm leading-snug text-od/72">{t("trustReviews")}</p>
+            <p className="text-sm leading-snug text-od/72">{t("trustLicensed")}</p>
+            <p className="text-sm leading-snug text-od/72">{t("trustNoDeposit")}</p>
           </div>
         </section>
 
@@ -201,30 +234,8 @@ export default async function Home({
           </div>
         </section>
 
-        {/* Trip planner */}
-        <section
-          id="planner"
-          className="bg-gradient-to-b from-bg to-bg-alt px-4 py-16 sm:px-8 sm:py-24"
-        >
-          <div className="mx-auto max-w-6xl">
-            <div className="flex flex-wrap items-end justify-between gap-6">
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.26em] text-terra uppercase">
-                  {t("plKicker")}
-                </p>
-                <h2 className="mt-4.5 max-w-[22ch] font-serif text-4xl leading-none font-normal tracking-tight sm:text-6xl">
-                  {t("plH")}
-                </h2>
-              </div>
-              <p className="max-w-[38ch] text-base leading-relaxed text-ink/72">
-                {t("plBody")}
-              </p>
-            </div>
-            <div className="mt-10">
-              <HomePlanner />
-            </div>
-          </div>
-        </section>
+        {/* Starter itineraries + trip planner (shared local state) */}
+        <StartersAndPlanner />
 
         {/* How it works */}
         <section className="bg-bg px-4 py-16 sm:px-8 sm:py-24">
@@ -325,7 +336,45 @@ export default async function Home({
           </div>
         </section>
       </main>
-      <SiteFooter variant="home" />
+
+      {/* FAQ */}
+      <section
+        id="faq"
+        aria-labelledby="faq-h"
+        className="bg-bg-alt px-4 py-16 sm:px-8 sm:py-24"
+      >
+        <div className="mx-auto max-w-3xl">
+          <p className="font-mono text-[11px] tracking-[0.26em] text-terra uppercase">
+            {t("faqK")}
+          </p>
+          <h2
+            id="faq-h"
+            className="mt-4 max-w-[24ch] font-serif text-3xl leading-tight font-normal sm:text-5xl"
+          >
+            {t("faqH")}
+          </h2>
+          <div className="mt-8 flex flex-col gap-3">
+            {FAQ.map((f, i) => (
+              <details
+                key={i}
+                className="rounded-2xl border border-line bg-surface px-5.5 py-5"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg leading-snug sm:text-xl">
+                  <span>{f.q[currentLocale]}</span>
+                  <span className="h-5.5 w-5.5 flex-none rounded-full border border-line-2" />
+                </summary>
+                <p className="mt-3.5 max-w-[70ch] text-[15.5px] leading-relaxed text-ink/72">
+                  {f.a[currentLocale]}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ReachUs headingId="reach-h" background="bg-bg" />
+
+      <SiteFooter />
       <WhatsAppFloat href={waSimple} />
     </>
   );

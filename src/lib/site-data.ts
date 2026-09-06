@@ -1,11 +1,14 @@
 import raw from "./site-data.json";
 import type { Locale } from "@/i18n/routing";
 import type {
+  ContactData,
   DestinationData,
+  FaqData,
   HopData,
   InterestData,
   PaceData,
   RegionData,
+  StarterData,
 } from "./types";
 
 export const REGIONS = raw.REGIONS as unknown as Record<string, RegionData>;
@@ -18,6 +21,9 @@ export const DESTINATIONS = raw.DESTINATIONS as unknown as Record<
 >;
 export const DEST_ORDER = raw.DEST_ORDER as string[];
 export const ROUTE = raw.ROUTE as string[];
+export const STARTERS = raw.STARTERS as unknown as StarterData[];
+export const FAQ = raw.FAQ as unknown as FaqData[];
+export const CONTACT = raw.CONTACT as unknown as ContactData;
 
 export interface DestListItem {
   slug: string;

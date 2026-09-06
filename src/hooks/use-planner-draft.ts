@@ -2,22 +2,16 @@
 
 import { useLocale, useMessages } from "next-intl";
 import { useMemo, useState } from "react";
-import { PlannerFields } from "@/components/planner-fields";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { buildPlan, planHref, type SiteStrings } from "@/lib/trip-planner";
 import type { DraftState } from "@/lib/types";
 import type { Locale } from "@/i18n/routing";
 
 /**
- * Standalone planner instance with its own local state (not the shared
- * DraftContext) — matches the redesigned Home page, where the planner
- * embed is self-contained rather than synced across pages.
+ * Local (non-shared) trip planner state — every embed of the planner
+ * manages its own draft rather than syncing across pages.
  */
-export function HomePlanner({
-  presetInterest,
-}: {
-  presetInterest?: string;
-} = {}) {
+export function usePlannerDraft(presetInterest?: string) {
   const locale = useLocale() as Locale;
   const messages = useMessages() as unknown as { site: SiteStrings };
   const T = messages.site;
@@ -46,15 +40,5 @@ export function HomePlanner({
   const plan = useMemo(() => buildPlan(draft, locale, T), [draft, locale, T]);
   const waHref = planHref(WHATSAPP_NUMBER, draft, plan, locale, T);
 
-  return (
-    <PlannerFields
-      draft={draft}
-      patch={patch}
-      toggleInterest={toggleInterest}
-      locale={locale}
-      t={T}
-      plan={plan}
-      waHref={waHref}
-    />
-  );
+  return { draft, patch, toggleInterest, plan, waHref, locale, T };
 }

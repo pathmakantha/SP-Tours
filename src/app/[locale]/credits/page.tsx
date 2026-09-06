@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { MinimalFooter } from "@/components/minimal-footer";
 import photoCredits from "@/lib/photo-credits.json";
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export default async function CreditsPage({
 
   return (
     <>
-      <SiteHeader />
-      <main className="bg-bg px-4 pt-[110px] pb-20 sm:px-8">
+      <SiteHeader variant="about" />
+      <main className="bg-bg px-4 pt-[92px] pb-20 sm:px-8">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-serif text-4xl leading-tight font-normal tracking-tight sm:text-5xl">
             Photo credits
@@ -55,7 +55,7 @@ export default async function CreditsPage({
           </ul>
         </div>
       </main>
-      <SiteFooter />
+      <MinimalFooter />
     </>
   );
 }

@@ -47,6 +47,26 @@ export interface DestinationData {
   meta: LocalizedString;
 }
 
+export interface StarterData {
+  id: string;
+  days: number;
+  interests: string[];
+  pace: string;
+  name: LocalizedString;
+  blurb: LocalizedString;
+}
+
+export interface FaqData {
+  q: LocalizedString;
+  a: LocalizedString;
+}
+
+export interface ContactData {
+  phone: string;
+  tel: string;
+  email: string;
+}
+
 export interface DraftState {
   step: 1 | 2 | 3 | 4;
   days: number;

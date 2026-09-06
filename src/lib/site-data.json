@@ -1869,5 +1869,205 @@
     "hill",
     "wildlife",
     "coast"
-  ]
+  ],
+  "STARTERS": [
+    {
+      "id": "classic10",
+      "days": 10,
+      "interests": [
+        "culture",
+        "hills",
+        "beaches"
+      ],
+      "pace": "balanced",
+      "name": {
+        "en": "The Classic Ten",
+        "de": "Die klassischen zehn",
+        "fr": "Le classique en dix jours",
+        "ru": "Классические десять",
+        "zh": "经典十日"
+      },
+      "blurb": {
+        "en": "Cultural Triangle, hill country and a soft landing on the south coast.",
+        "de": "Kulturdreieck, Bergland und ein sanfter Ausklang an der Südküste.",
+        "fr": "Triangle culturel, hauts plateaux et fin en douceur sur la côte sud.",
+        "ru": "Культурный треугольник, горы и мягкий финал на юге.",
+        "zh": "文化三角、高地茶乡，最后在南岸收尾。"
+      }
+    },
+    {
+      "id": "wild7",
+      "days": 7,
+      "interests": [
+        "wildlife",
+        "beaches"
+      ],
+      "pace": "relaxed",
+      "name": {
+        "en": "Leopards & Long Beaches",
+        "de": "Leoparden & lange Strände",
+        "fr": "Léopards et longues plages",
+        "ru": "Леопарды и длинные пляжи",
+        "zh": "寻豹与长滩"
+      },
+      "blurb": {
+        "en": "Two safari mornings, then nothing but coast. Good for a first week.",
+        "de": "Zwei Safari-Morgen, danach nur Küste. Gut für eine erste Woche.",
+        "fr": "Deux matins de safari, puis rien que la côte. Idéal pour une première semaine.",
+        "ru": "Два утра на сафари, потом только берег. Хорошо для первой недели.",
+        "zh": "两个清晨狩猎，其余全在海边。适合第一周。"
+      }
+    },
+    {
+      "id": "honeymoon12",
+      "days": 12,
+      "interests": [
+        "hills",
+        "beaches",
+        "food"
+      ],
+      "pace": "relaxed",
+      "name": {
+        "en": "Slow Honeymoon",
+        "de": "Langsame Hochzeitsreise",
+        "fr": "Lune de miel tranquille",
+        "ru": "Медленный медовый месяц",
+        "zh": "慢速蜜月"
+      },
+      "blurb": {
+        "en": "Tea-country mornings, private dinners, and a week you never rush.",
+        "de": "Morgen im Teeland, private Dinner und eine Woche ohne Eile.",
+        "fr": "Matins en pays du thé, dîners privés, une semaine sans hâte.",
+        "ru": "Утра в чайном краю, ужины вдвоём и неделя без спешки.",
+        "zh": "茶乡的清晨、私人晚餐，以及从不赶的一周。"
+      }
+    },
+    {
+      "id": "family14",
+      "days": 14,
+      "interests": [
+        "wildlife",
+        "beaches",
+        "culture"
+      ],
+      "pace": "relaxed",
+      "name": {
+        "en": "Family Fourteen",
+        "de": "Familien-Vierzehn",
+        "fr": "Quatorze jours en famille",
+        "ru": "Семейные четырнадцать",
+        "zh": "家庭十四日"
+      },
+      "blurb": {
+        "en": "Short drives, elephants, and a pool at the end of every day.",
+        "de": "Kurze Fahrten, Elefanten und abends immer ein Pool.",
+        "fr": "Trajets courts, éléphants, et une piscine chaque soir.",
+        "ru": "Короткие переезды, слоны и бассейн в конце каждого дня.",
+        "zh": "车程短、有大象，每天结束都有泳池。"
+      }
+    }
+  ],
+  "FAQ": [
+    {
+      "q": {
+        "en": "When is the best time to visit Sri Lanka?",
+        "de": "Wann ist die beste Reisezeit für Sri Lanka?",
+        "fr": "Quelle est la meilleure période pour visiter le Sri Lanka ?",
+        "ru": "Когда лучше ехать на Шри-Ланку?",
+        "zh": "什么时候来斯里兰卡最好？"
+      },
+      "a": {
+        "en": "There is no bad month — the island has two monsoons on opposite coasts. December to April suits the south and west coasts plus the Cultural Triangle; May to September suits the east coast and Trincomalee. The hill country is pleasant all year and cold at night. Tell us your dates and we'll route you to the dry side.",
+        "de": "Es gibt keinen schlechten Monat — die Insel hat zwei Monsune an gegenüberliegenden Küsten. Dezember bis April passt für Süd- und Westküste sowie das Kulturdreieck; Mai bis September für die Ostküste und Trincomalee. Das Bergland ist ganzjährig angenehm und nachts kalt. Nennen Sie uns Ihre Daten, wir legen die Route auf die trockene Seite.",
+        "fr": "Aucun mois n'est mauvais : l'île connaît deux moussons sur des côtes opposées. De décembre à avril pour le sud, l'ouest et le Triangle culturel ; de mai à septembre pour la côte est et Trincomalee. Les hauts plateaux sont agréables toute l'année, froids la nuit. Donnez-nous vos dates et nous routons vers le côté sec.",
+        "ru": "Плохого месяца нет — на острове два муссона на противоположных берегах. Декабрь–апрель подходит для юга, запада и Культурного треугольника; май–сентябрь — для востока и Тринкомали. В горах приятно круглый год и холодно ночью. Скажите даты — проложим маршрут по сухой стороне.",
+        "zh": "没有坏月份——岛上两侧海岸各有一个季风季。12 月至 4 月适合南岸、西岸与文化三角；5 月至 9 月适合东岸与亭可马里。高地全年舒适，夜里偏冷。告诉我们日期，我们会把路线安排在干燥的一侧。"
+      }
+    },
+    {
+      "q": {
+        "en": "Do I need a visa?",
+        "de": "Brauche ich ein Visum?",
+        "fr": "Ai-je besoin d'un visa ?",
+        "ru": "Нужна ли виза?",
+        "zh": "需要签证吗？"
+      },
+      "a": {
+        "en": "Most nationalities need an ETA (electronic travel authorisation), applied for online before departure and usually approved within a day. We send you the current official link and the exact fields to fill — we never charge for visa help.",
+        "de": "Die meisten Nationalitäten brauchen eine ETA (elektronische Reisegenehmigung), online vor Abflug beantragt und meist innerhalb eines Tages genehmigt. Wir senden Ihnen den aktuellen offiziellen Link und die auszufüllenden Felder — Visumshilfe ist bei uns kostenlos.",
+        "fr": "La plupart des nationalités ont besoin d'une ETA (autorisation électronique), demandée en ligne avant le départ et approuvée en général en un jour. Nous vous envoyons le lien officiel à jour et les champs exacts à remplir — l'aide au visa est gratuite.",
+        "ru": "Большинству нужна ETA — электронное разрешение, оформляется онлайн до вылета и обычно одобряется за день. Мы пришлём актуальную официальную ссылку и подскажем, что вписывать; за помощь с визой мы не берём денег.",
+        "zh": "多数国籍需要办 ETA（电子旅行授权），出发前在线申请，通常一天内批准。我们会把当前官方链接和需要填写的字段发给你——签证协助不收费。"
+      }
+    },
+    {
+      "q": {
+        "en": "What does a custom trip cost?",
+        "de": "Was kostet eine individuelle Reise?",
+        "fr": "Combien coûte un voyage sur mesure ?",
+        "ru": "Сколько стоит индивидуальная поездка?",
+        "zh": "定制行程要多少钱？"
+      },
+      "a": {
+        "en": "It depends almost entirely on hotels, so we quote per trip rather than publish a package price. Send your draft and you'll get a line-by-line quote — car and driver-guide, entrance fees, safaris and each hotel priced separately, so you can move any single line up or down.",
+        "de": "Es hängt fast nur an den Hotels, daher kalkulieren wir pro Reise statt Paketpreise zu veröffentlichen. Schicken Sie Ihren Entwurf und Sie erhalten ein Angebot Zeile für Zeile — Fahrzeug und Fahrer-Guide, Eintritte, Safaris und jedes Hotel einzeln, sodass Sie jede Position anpassen können.",
+        "fr": "Cela dépend presque uniquement des hôtels : nous chiffrons chaque voyage plutôt que d'afficher un prix forfaitaire. Envoyez votre brouillon et recevez un devis ligne par ligne — véhicule et chauffeur-guide, entrées, safaris et chaque hôtel séparément, pour ajuster n'importe quel poste.",
+        "ru": "Почти всё определяют отели, поэтому мы считаем под каждую поездку, а не публикуем цену пакета. Пришлите черновик — вернём смету построчно: машина с гидом-водителем, входные билеты, сафари и каждый отель отдельно, чтобы любую строку можно было изменить.",
+        "zh": "价格几乎完全取决于酒店，所以我们按行程报价，而不公布套餐价。把草稿发来，你会收到逐项报价——车辆与司机导游、门票、狩猎，以及每家酒店单独计价，任何一项都可上调或下调。"
+      }
+    },
+    {
+      "q": {
+        "en": "Is it safe, and is it good for kids?",
+        "de": "Ist es sicher, und ist es gut für Kinder?",
+        "fr": "Est-ce sûr, et adapté aux enfants ?",
+        "ru": "Безопасно ли это и подходит ли детям?",
+        "zh": "安全吗？适合带小孩吗？"
+      },
+      "a": {
+        "en": "Sri Lanka is one of the easier countries in Asia to travel with children — short distances, warm sea, and people who genuinely like kids. We plan drives around naps, carry child seats on request, and pick hotels with pools and family rooms.",
+        "de": "Sri Lanka gehört zu den einfacheren Ländern Asiens für Reisen mit Kindern — kurze Distanzen, warmes Meer und Menschen, die Kinder wirklich mögen. Wir legen Fahrten um Schlafzeiten, bringen auf Wunsch Kindersitze mit und wählen Hotels mit Pool und Familienzimmern.",
+        "fr": "Le Sri Lanka est l'un des pays d'Asie les plus simples avec des enfants : courtes distances, mer chaude et des gens qui aiment sincèrement les enfants. Nous calons les trajets sur les siestes, fournissons des sièges auto sur demande et choisissons des hôtels avec piscine et chambres familiales.",
+        "ru": "Шри-Ланка — одна из самых удобных стран Азии для поездок с детьми: короткие расстояния, тёплое море и люди, которые искренне любят детей. Мы строим переезды вокруг сна, по просьбе берём детские кресла и выбираем отели с бассейном и семейными номерами.",
+        "zh": "斯里兰卡是亚洲带小孩旅行较轻松的国家之一：距离短、海水温暖，而且当地人真心喜欢孩子。我们会把车程安排在午睡时段，按需准备儿童座椅，并挑选有泳池和家庭房的酒店。"
+      }
+    },
+    {
+      "q": {
+        "en": "How much driving is there each day?",
+        "de": "Wie viel Fahrzeit hat man pro Tag?",
+        "fr": "Combien de route par jour ?",
+        "ru": "Сколько времени в дороге каждый день?",
+        "zh": "每天要坐多久车？"
+      },
+      "a": {
+        "en": "Distances look tiny and take twice as long as you'd expect — 100 km can be three hours. We cap transfer days at about four hours and never move you two days in a row unless you ask. The planner above shows an estimated total so you can see it before you commit.",
+        "de": "Die Distanzen wirken winzig und dauern doppelt so lang wie erwartet — 100 km können drei Stunden sein. Wir begrenzen Transfertage auf etwa vier Stunden und verlegen Sie nie zwei Tage hintereinander, außer Sie wünschen es. Der Planer oben zeigt eine Gesamtschätzung.",
+        "fr": "Les distances paraissent minuscules et prennent deux fois plus de temps que prévu : 100 km peuvent faire trois heures. Nous limitons les jours de transfert à environ quatre heures et ne vous déplaçons jamais deux jours de suite, sauf demande. Le planificateur ci-dessus affiche un total estimé.",
+        "ru": "Расстояния кажутся крошечными и занимают вдвое больше, чем ожидаешь: 100 км могут быть тремя часами. Мы держим дни переездов в пределах примерно четырёх часов и не перевозим два дня подряд, если вы сами не попросите. Планировщик выше показывает примерный итог.",
+        "zh": "距离看起来很短，实际却要多花一倍时间——100 公里可能开三小时。我们把转场日控制在约四小时内，除非你要求，不会连续两天赶路。上方的规划器会给出预估总车程。"
+      }
+    },
+    {
+      "q": {
+        "en": "How do I book, and what deposit is needed?",
+        "de": "Wie buche ich, und welche Anzahlung fällt an?",
+        "fr": "Comment réserver, et quel acompte ?",
+        "ru": "Как забронировать и какой нужен депозит?",
+        "zh": "怎么预订？要付多少定金？"
+      },
+      "a": {
+        "en": "Send your draft on WhatsApp, we refine and quote it, and a small deposit confirms the dates and hotels. The balance is due on arrival. You get your driver-guide's name, photo and number before you fly, and the same WhatsApp thread stays open for the whole trip.",
+        "de": "Senden Sie Ihren Entwurf per WhatsApp, wir verfeinern und kalkulieren, eine kleine Anzahlung bestätigt Termine und Hotels. Der Rest ist bei Ankunft fällig. Namen, Foto und Nummer Ihres Fahrer-Guides erhalten Sie vor dem Flug, und derselbe WhatsApp-Chat bleibt die ganze Reise offen.",
+        "fr": "Envoyez votre brouillon sur WhatsApp, nous l'affinons et le chiffrons, puis un petit acompte confirme dates et hôtels. Le solde est réglé à l'arrivée. Vous recevez le nom, la photo et le numéro de votre chauffeur-guide avant le vol, et le même fil WhatsApp reste ouvert tout le voyage.",
+        "ru": "Пришлите черновик в WhatsApp, мы уточним и посчитаем, небольшой депозит закрепит даты и отели. Остаток — по прибытии. Имя, фото и номер гида-водителя вы получите до вылета, а тот же чат остаётся открытым всю поездку.",
+        "zh": "把草稿用 WhatsApp 发来，我们细化并报价，付一笔小额定金即可锁定日期与酒店，余款抵达后再付。出发前你会拿到司机导游的姓名、照片和电话，同一个 WhatsApp 对话会全程保持畅通。"
+      }
+    }
+  ],
+  "CONTACT": {
+    "phone": "+94 77 000 0000",
+    "tel": "+94770000000",
+    "email": "hello@sptours.lk"
+  }
 }

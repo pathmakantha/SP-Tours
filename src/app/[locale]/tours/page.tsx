@@ -2,15 +2,13 @@ import type { Metadata } from "next";
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { MinimalFooter } from "@/components/minimal-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { SiteImage } from "@/components/site-image";
-import { destPhoto } from "@/lib/photos";
-import { AddPlanButton } from "@/components/add-plan-button";
-import { TripPlanner } from "@/components/trip-planner";
 import { destList } from "@/lib/site-data";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
+import { destPhoto } from "@/lib/photos";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -36,80 +34,56 @@ export default async function ToursPage({
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader variant="tours" />
       <main className="pt-[62px]">
-        <section className="bg-deep px-4 py-20 text-od sm:px-8 sm:py-28">
-          <div className="mx-auto max-w-6xl">
-            <nav
-              aria-label="Breadcrumb"
-              className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-od/50 uppercase"
-            >
-              <Link href="/" className="hover:text-gold">
-                {t("navHome")}
-              </Link>
-              <span>/</span>
-              <span className="text-gold">{t("navDest")}</span>
-            </nav>
-            <h1 className="mt-7 max-w-[22ch] font-serif text-5xl leading-[0.98] font-normal tracking-tight sm:text-7xl">
+        <section className="bg-deep px-4 pt-14 pb-14 text-od sm:px-8 sm:pt-16 sm:pb-20">
+          <div className="mx-auto max-w-3xl">
+            <p className="font-mono text-[11px] tracking-[0.24em] text-gold uppercase">
+              {t("navTours")}
+            </p>
+            <h1 className="mt-4 font-serif text-4xl leading-[1.02] font-normal sm:text-6xl">
               {t("toursH")}
             </h1>
-            <p className="mt-5.5 max-w-[52ch] text-base leading-relaxed text-od/72 sm:text-lg">
+            <p className="mt-5 max-w-[56ch] text-[17px] leading-relaxed text-od/72">
               {t("toursLede")}
-            </p>
-            <p className="mt-4.5 font-mono text-[11px] tracking-[0.16em] text-gold uppercase">
-              {t("toursNote")}
             </p>
           </div>
         </section>
 
-        <section className="bg-bg px-4 pt-10 pb-16 sm:px-8 sm:pb-24">
+        <section className="bg-bg px-4 py-12 sm:px-8 sm:py-20">
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {dests.map((d) => (
-              <article
+              <Link
                 key={d.slug}
-                className="flex flex-col overflow-hidden rounded-[22px] border border-line bg-surface transition-transform hover:-translate-y-1.5"
+                href={`/destinations/${d.slug}`}
+                className="flex flex-col overflow-hidden rounded-[20px] border border-line bg-surface text-ink transition-transform hover:-translate-y-1.5"
               >
-                <div className="relative min-h-[220px]">
+                <div className="relative min-h-[210px]">
                   <SiteImage file={destPhoto(d.slug, 0)} alt={d.name} />
                 </div>
-                <div className="flex flex-1 flex-col gap-2.5 p-6">
+                <div className="p-5.5">
                   <p
-                    className="font-mono text-[10px] tracking-[0.2em] uppercase"
+                    className="font-mono text-[10px] tracking-[0.18em] uppercase"
                     style={{ color: d.tint }}
                   >
                     {d.region}
                   </p>
-                  <h2 className="font-serif text-2xl leading-tight font-normal">
+                  <h2 className="mt-2.5 font-serif text-2xl leading-tight font-normal">
                     {d.name}
                   </h2>
-                  <p className="text-[14.5px] leading-relaxed text-ink/72">
+                  <p className="mt-2 text-sm leading-relaxed text-ink/72">
                     {d.tagline}
                   </p>
-                  <p className="mt-1.5 font-mono text-[10px] tracking-[0.16em] text-ink/50 uppercase">
-                    {t("stayK")} · {d.stay}
-                  </p>
-                  <div className="mt-auto flex flex-wrap gap-2.5 pt-4">
-                    <Link
-                      href={`/destinations/${d.slug}`}
-                      className="rounded-full bg-deep2 px-5 py-3 text-[13.5px] tracking-[0.03em] text-od hover:bg-terra"
-                    >
-                      {t("navDest")}
-                    </Link>
-                    <AddPlanButton
-                      interestId={d.interest}
-                      label={t("addPlan")}
-                      className="rounded-full border border-line-2 px-5 py-3 text-[13.5px] hover:border-ink"
-                    />
-                  </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
+          <p className="mx-auto mt-8 max-w-6xl text-[13px] text-ink/50">
+            {t("toursNote")}
+          </p>
         </section>
-
-        <TripPlanner />
       </main>
-      <SiteFooter />
+      <MinimalFooter />
       <WhatsAppFloat href={waSimple} />
     </>
   );

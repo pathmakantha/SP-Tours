@@ -1,18 +1,12 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { destList } from "@/lib/site-data";
+import { CONTACT } from "@/lib/site-data";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
-import type { Locale } from "@/i18n/routing";
 
-export async function SiteFooter({
-  variant = "default",
-}: {
-  variant?: "home" | "default";
-} = {}) {
+/** Rich footer used only on the Home page. Every other page uses MinimalFooter. */
+export async function SiteFooter() {
   const t = await getTranslations("site");
-  const locale = (await getLocale()) as Locale;
-  const dests = destList(locale);
   const waHref = waSimpleHref(WHATSAPP_NUMBER, { waSimple: t("waSimple") });
 
   return (
@@ -43,14 +37,17 @@ export async function SiteFooter({
             </p>
             <p className="mt-2.5 text-[15px] leading-[1.7] text-od/72">
               WhatsApp{" "}
-              <a
-                href={waHref}
-                className="border-b border-gold/50 text-od"
-              >
+              <a href={waHref} className="border-b border-gold/50 text-od">
                 +{WHATSAPP_NUMBER}
               </a>
               <br />
-              hello@sptours.lk
+              <a href={`tel:${CONTACT.tel}`} className="text-od">
+                {CONTACT.phone}
+              </a>
+              <br />
+              <a href={`mailto:${CONTACT.email}`} className="text-od">
+                {CONTACT.email}
+              </a>
               <br />
               {t("ftCity")}
             </p>
@@ -58,38 +55,24 @@ export async function SiteFooter({
           </div>
           <div>
             <p className="font-mono text-[10px] tracking-[0.2em] text-gold uppercase">
-              {variant === "home" ? t("ftExplore") : t("navDest")}
+              {t("ftExplore")}
             </p>
-            <nav
-              aria-label={variant === "home" ? "Footer" : "Destinations"}
-              className="mt-2.5 flex flex-col gap-2"
-            >
-              {variant === "home" ? (
-                <>
-                  <Link href="/tours" className="text-[15px] text-od/72 hover:text-od">
-                    {t("navTours")}
-                  </Link>
-                  <Link href="/about" className="text-[15px] text-od/72 hover:text-od">
-                    {t("navAbout")}
-                  </Link>
-                  <a href="#planner" className="text-[15px] text-od/72 hover:text-od">
-                    {t("navPlanner")}
-                  </a>
-                  <a href="#gallery" className="text-[15px] text-od/72 hover:text-od">
-                    {t("navGallery")}
-                  </a>
-                </>
-              ) : (
-                dests.map((d) => (
-                  <Link
-                    key={d.slug}
-                    href={`/destinations/${d.slug}`}
-                    className="text-[15px] text-od/72 hover:text-od"
-                  >
-                    {d.name}
-                  </Link>
-                ))
-              )}
+            <nav aria-label="Footer" className="mt-2.5 flex flex-col gap-2">
+              <Link href="/tours" className="text-[15px] text-od/72 hover:text-od">
+                {t("navTours")}
+              </Link>
+              <Link href="/about" className="text-[15px] text-od/72 hover:text-od">
+                {t("navAbout")}
+              </Link>
+              <a href="#planner" className="text-[15px] text-od/72 hover:text-od">
+                {t("navPlanner")}
+              </a>
+              <a href="#gallery" className="text-[15px] text-od/72 hover:text-od">
+                {t("navGallery")}
+              </a>
+              <a href="#faq" className="text-[15px] text-od/72 hover:text-od">
+                FAQ
+              </a>
             </nav>
           </div>
         </div>
