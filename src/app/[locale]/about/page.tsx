@@ -4,7 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { PlaceholderImage } from "@/components/placeholder-image";
+import { SiteImage } from "@/components/site-image";
+import { ABOUT_TEAM_PHOTO } from "@/lib/photos";
 import { TripPlanner } from "@/components/trip-planner";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
@@ -76,7 +77,7 @@ export default async function AboutPage({
             </div>
             <div className="flex flex-col gap-5">
               <figure className="relative min-h-[300px] overflow-hidden rounded-[22px] sm:min-h-[400px]">
-                <PlaceholderImage label="The team with the car" />
+                <SiteImage file={ABOUT_TEAM_PHOTO} alt="Driver-guide and car on the road, Sri Lanka" />
               </figure>
               <ul className="flex list-none flex-col overflow-hidden rounded-2xl border border-line bg-surface p-0">
                 {(["aboutV1", "aboutV2", "aboutV3", "aboutV4"] as const).map(

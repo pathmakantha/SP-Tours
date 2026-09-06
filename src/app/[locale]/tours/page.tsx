@@ -4,7 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { PlaceholderImage } from "@/components/placeholder-image";
+import { SiteImage } from "@/components/site-image";
+import { destPhoto } from "@/lib/photos";
 import { AddPlanButton } from "@/components/add-plan-button";
 import { TripPlanner } from "@/components/trip-planner";
 import { destList } from "@/lib/site-data";
@@ -69,7 +70,7 @@ export default async function ToursPage({
                 className="flex flex-col overflow-hidden rounded-[22px] border border-line bg-surface transition-transform hover:-translate-y-1.5"
               >
                 <div className="relative min-h-[220px]">
-                  <PlaceholderImage label={d.photo} />
+                  <SiteImage file={destPhoto(d.slug, 0)} alt={d.name} />
                 </div>
                 <div className="flex flex-1 flex-col gap-2.5 p-6">
                   <p

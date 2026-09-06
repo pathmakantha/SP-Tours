@@ -5,13 +5,17 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
 
-export async function SiteHeader() {
+export async function SiteHeader({
+  variant = "page",
+}: {
+  variant?: "home" | "page";
+} = {}) {
   const t = await getTranslations("site");
   const waHref = waSimpleHref(WHATSAPP_NUMBER, {
     waSimple: t("waSimple"),
   });
 
-  const navLinks: Array<{ href: "/" | "/tours" | "/about"; label: string }> = [
+  const pageLinks: Array<{ href: "/" | "/tours" | "/about"; label: string }> = [
     { href: "/", label: t("navHome") },
     { href: "/tours", label: t("navTours") },
     { href: "/about", label: t("navAbout") },
@@ -35,21 +39,52 @@ export async function SiteHeader() {
         aria-label="Primary"
         className="flex items-center gap-2 sm:gap-4 lg:gap-6"
       >
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="hidden text-[13px] tracking-[0.08em] text-od/72 uppercase hover:text-od lg:block"
-          >
-            {link.label}
-          </Link>
-        ))}
-        <a
-          href="#planner"
-          className="hidden text-[13px] tracking-[0.08em] text-od/72 uppercase hover:text-od lg:block"
-        >
-          {t("navPlanner")}
-        </a>
+        {variant === "home" ? (
+          <>
+            <Link
+              href="/tours"
+              className="hidden text-[13px] tracking-[0.08em] text-od/72 uppercase hover:text-od lg:block"
+            >
+              {t("navTours")}
+            </Link>
+            <a
+              href="#why"
+              className="hidden text-[13px] tracking-[0.08em] text-od/72 uppercase hover:text-od lg:block"
+            >
+              {t("navWhy")}
+            </a>
+            <Link
+              href="/about"
+              className="hidden text-[13px] tracking-[0.08em] text-od/72 uppercase hover:text-od lg:block"
+            >
+              {t("navAbout")}
+            </Link>
+            <a
+              href="#gallery"
+              className="hidden text-[13px] tracking-[0.08em] text-od/72 uppercase hover:text-od lg:block"
+            >
+              {t("navGallery")}
+            </a>
+          </>
+        ) : (
+          <>
+            {pageLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="hidden text-[13px] tracking-[0.08em] text-od/72 uppercase hover:text-od lg:block"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href="#planner"
+              className="hidden text-[13px] tracking-[0.08em] text-od/72 uppercase hover:text-od lg:block"
+            >
+              {t("navPlanner")}
+            </a>
+          </>
+        )}
 
         <LanguageSwitcher />
 

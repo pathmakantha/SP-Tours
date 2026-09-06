@@ -1,39 +1,18 @@
 import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { PlaceholderImage } from "@/components/placeholder-image";
-import { AddPlanButton } from "@/components/add-plan-button";
-import { TripPlanner } from "@/components/trip-planner";
+import { SiteImage } from "@/components/site-image";
+import { HomePlanner } from "@/components/home-planner";
+import { destList } from "@/lib/site-data";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
+import { HERO_PHOTOS, GALLERY_PHOTOS, destPhoto } from "@/lib/photos";
+import type { Locale } from "@/i18n/routing";
 
-const REGION_ROWS = [
-  {
-    key: "cultural",
-    dest: "sigiriya",
-    kicker: "w1k",
-    title: "w1t",
-    titleItalic: "w1t2",
-    body: "w1b",
-    chips: ["w1c1", "w1c2", "w1c3"],
-    interest: "culture",
-    photo: "reg-cultural",
-  },
-  {
-    key: "hill",
-    dest: "ella",
-    kicker: "w2k",
-    title: "w2t",
-    titleItalic: "w2t2",
-    body: "w2b",
-    chips: ["w2c1", "w2c2", "w2c3"],
-    interest: "hills",
-    photo: "reg-hill",
-  },
-] as const;
+const GALLERY_SPANS = ["row-span-2", "", "col-span-2", "", "row-span-2", "", "col-span-2"];
 
 export default async function Home({
   params,
@@ -43,11 +22,12 @@ export default async function Home({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("site");
+  const dests = destList((await getLocale()) as Locale);
   const waSimple = waSimpleHref(WHATSAPP_NUMBER, { waSimple: t("waSimple") });
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader variant="home" />
       <main id="top" className="pt-[62px]">
         {/* Hero */}
         <section className="relative overflow-hidden bg-deep px-4 py-20 text-od sm:px-8 sm:py-28">
@@ -105,21 +85,17 @@ export default async function Home({
 
             <div className="relative h-[340px] sm:h-[420px] lg:h-[500px]">
               <div className="absolute top-[2%] left-[6%] h-[74%] w-[58%] overflow-hidden rounded-2xl border border-od/14 shadow-2xl">
-                <PlaceholderImage label="Sigiriya rock at sunrise" />
+                <SiteImage
+                  file={HERO_PHOTOS.sigiriya}
+                  alt="Sigiriya rock at sunrise"
+                  priority
+                />
               </div>
               <div className="absolute top-[18%] right-[2%] h-[52%] w-[42%] overflow-hidden rounded-2xl border border-od/14 shadow-2xl">
-                <PlaceholderImage label="Tea picker, hill country" />
+                <SiteImage file={HERO_PHOTOS.teaPicker} alt="Tea picker, hill country" />
               </div>
               <div className="absolute bottom-[6%] left-[24%] hidden h-[240px] w-[220px] max-w-[38%] overflow-hidden rounded-2xl border border-od/22 shadow-2xl sm:block">
-                <PlaceholderImage label="Leopard, Yala" />
-              </div>
-              <div className="absolute right-[4%] bottom-0 rounded-2xl bg-surface px-4.5 py-3.5 text-ink shadow-2xl">
-                <p className="font-mono text-[9px] tracking-[0.2em] text-terra uppercase">
-                  {t("draftLabel")}
-                </p>
-                <p className="mt-1 font-serif text-xl leading-tight">
-                  10 {t("daysWord")} · 2 {t("regionsWord")}
-                </p>
+                <SiteImage file={HERO_PHOTOS.leopard} alt="Leopard, Yala" />
               </div>
             </div>
           </div>
@@ -150,9 +126,7 @@ export default async function Home({
                 <article
                   key={k}
                   className={`flex flex-col gap-3.5 rounded-[20px] p-7 transition-transform hover:-translate-y-1.5 ${
-                    dark
-                      ? "bg-deep2 text-od"
-                      : "border border-line bg-surface"
+                    dark ? "bg-deep2 text-od" : "border border-line bg-surface"
                   }`}
                 >
                   <span
@@ -174,19 +148,16 @@ export default async function Home({
                   </p>
                 </article>
               ))}
-              <figure className="relative min-h-[280px] overflow-hidden rounded-[22px] sm:col-span-2">
-                <PlaceholderImage label="Driver-guide + car on a hill road" />
-                <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep/86 to-transparent px-6 pt-10 pb-11 text-sm tracking-[0.04em] text-[#F7F3EB]">
-                  {t("whyCaption")}
-                </figcaption>
-              </figure>
             </div>
           </div>
         </section>
 
-        {/* Regions */}
-        <section id="regions" className="bg-deep2 text-od">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-8 sm:py-24">
+        {/* Regions — simple destination grid */}
+        <section
+          id="regions"
+          className="bg-deep2 px-4 py-16 text-od sm:px-8 sm:py-24"
+        >
+          <div className="mx-auto max-w-6xl">
             <p className="font-mono text-[11px] tracking-[0.26em] text-gold uppercase">
               {t("regKicker")}
             </p>
@@ -196,170 +167,64 @@ export default async function Home({
             <p className="mt-5.5 max-w-[50ch] text-[17px] leading-relaxed text-od/72">
               {t("regBody")}
             </p>
-          </div>
 
-          {REGION_ROWS.map((row, idx) => (
-            <article
-              key={row.key}
-              className="mx-auto grid max-w-6xl items-center gap-7 border-t border-od/14 px-4 py-14 sm:px-8 sm:py-20 lg:grid-cols-2"
-            >
-              <div
-                className={`relative min-h-[260px] overflow-hidden rounded-[20px] shadow-2xl sm:min-h-[380px] ${
-                  idx % 2 ? "lg:order-2" : ""
-                }`}
-              >
-                <PlaceholderImage label={t(row.photo === "reg-cultural" ? "w1t" : "w2t")} />
-              </div>
-              <div className={idx % 2 ? "lg:order-1" : ""}>
-                <p className="font-mono text-[10px] tracking-[0.24em] text-gold uppercase">
-                  {t(row.kicker)}
-                </p>
-                <h3 className="mt-3.5 font-serif text-3xl leading-tight font-normal sm:text-5xl">
-                  {t(row.title)} <span className="italic">{t(row.titleItalic)}</span>
-                </h3>
-                <p className="mt-4 max-w-[46ch] text-base leading-relaxed text-od/72">
-                  {t(row.body)}
-                </p>
-                <ul className="mt-5.5 flex flex-wrap gap-2.5 p-0">
-                  {row.chips.map((c) => (
-                    <li
-                      key={c}
-                      className="rounded-full border border-od/22 px-3.5 py-1.5 text-xs tracking-[0.06em]"
-                    >
-                      {t(c)}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6.5 flex flex-wrap items-center gap-3.5">
-                  <AddPlanButton
-                    interestId={row.interest}
-                    label={t("addPlan")}
-                    className="rounded-full bg-gold/18 px-6 py-3.5 text-sm tracking-[0.04em] text-gold hover:bg-gold hover:text-[#061C1D]"
-                  />
-                  <Link
-                    href={`/destinations/${row.dest}`}
-                    className="rounded-full border border-od/22 px-5.5 py-3.5 text-sm tracking-[0.04em] text-od hover:border-gold hover:text-gold"
-                  >
-                    {t("navDest")} →
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
-
-          {/* Wildlife — full bleed */}
-          <article className="border-t border-od/14 px-4 py-14 sm:px-8 sm:py-20">
-            <div className="relative mx-auto min-h-[340px] max-w-6xl overflow-hidden rounded-3xl shadow-2xl sm:min-h-[480px]">
-              <PlaceholderImage label={t("w3t")} />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-deep/90 via-deep/40 to-transparent" />
-              <div className="absolute top-0 left-0 max-w-[80%] p-6 sm:max-w-[48ch] sm:p-12">
-                <p className="font-mono text-[10px] tracking-[0.24em] text-[#C58A5E] uppercase">
-                  {t("w3k")}
-                </p>
-                <h3 className="mt-3.5 font-serif text-3xl leading-tight font-normal text-[#F7F3EB] sm:text-5xl">
-                  {t("w3t")} <span className="italic">{t("w3t2")}</span>
-                </h3>
-                <p className="mt-4 text-base leading-relaxed text-[#F7F3EBd1]">
-                  {t("w3b")}
-                </p>
-                <div className="pointer-events-auto mt-6.5 flex flex-wrap gap-3.5">
-                  <AddPlanButton
-                    interestId="wildlife"
-                    label={t("addPlan")}
-                    className="rounded-full bg-od/16 px-6 py-3.5 text-sm tracking-[0.04em] text-[#F7F3EB] backdrop-blur hover:bg-gold hover:text-[#061C1D]"
-                  />
-                  <Link
-                    href="/destinations/yala-safari"
-                    className="rounded-full border border-od/22 px-5.5 py-3.5 text-sm tracking-[0.04em] text-od hover:border-gold hover:text-gold"
-                  >
-                    {t("navDest")} →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          {/* Coast */}
-          <article className="mx-auto grid max-w-6xl items-center gap-7 border-t border-od/14 px-4 py-14 sm:px-8 sm:py-20 lg:grid-cols-2">
-            <div className="relative min-h-[260px] overflow-hidden rounded-[20px] shadow-2xl sm:min-h-[380px]">
-              <PlaceholderImage label="Galle Fort at dusk" />
-            </div>
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.24em] text-[#E0B27A] uppercase">
-                {t("w4k")}
-              </p>
-              <h3 className="mt-3.5 font-serif text-3xl leading-tight font-normal sm:text-5xl">
-                {t("w4t")} <span className="italic">{t("w4t2")}</span>
-              </h3>
-              <p className="mt-4 max-w-[46ch] text-base leading-relaxed text-od/72">
-                {t("w4b")}
-              </p>
-              <ul className="mt-5.5 flex flex-wrap gap-2.5 p-0">
-                {(["w4c1", "w4c2", "w4c3"] as const).map((c) => (
-                  <li
-                    key={c}
-                    className="rounded-full border border-od/22 px-3.5 py-1.5 text-xs tracking-[0.06em]"
-                  >
-                    {t(c)}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6.5 flex flex-wrap items-center gap-3.5">
-                <AddPlanButton
-                  interestId="beaches"
-                  label={t("addPlan")}
-                  className="rounded-full bg-gold/18 px-6 py-3.5 text-sm tracking-[0.04em] text-gold hover:bg-gold hover:text-[#061C1D]"
-                />
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {dests.map((d) => (
                 <Link
-                  href="/destinations/galle-mirissa"
-                  className="rounded-full border border-od/22 px-5.5 py-3.5 text-sm tracking-[0.04em] text-od hover:border-gold hover:text-gold"
+                  key={d.slug}
+                  href={`/destinations/${d.slug}`}
+                  className="flex flex-col overflow-hidden rounded-[18px] border border-od/14 bg-od/5 text-od transition-transform hover:-translate-y-1.5"
                 >
-                  {t("navDest")} →
+                  <div className="relative min-h-[180px]">
+                    <SiteImage file={destPhoto(d.slug, 0)} alt={d.name} />
+                  </div>
+                  <div className="p-5">
+                    <p
+                      className="font-mono text-[10px] tracking-[0.18em] uppercase"
+                      style={{ color: d.tint }}
+                    >
+                      {d.region}
+                    </p>
+                    <h3 className="mt-2 font-serif text-[22px] leading-tight font-normal">
+                      {d.name} →
+                    </h3>
+                  </div>
                 </Link>
-              </div>
+              ))}
             </div>
-          </article>
-
-          {/* Colombo */}
-          <article className="border-t border-od/14 px-4 py-14 pb-20 sm:px-8 sm:py-20 sm:pb-28">
-            <div className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2">
-              <div>
-                <p className="font-mono text-[10px] tracking-[0.24em] text-[#9FB8C4] uppercase">
-                  {t("w5k")}
-                </p>
-                <h3 className="mt-3.5 font-serif text-3xl leading-tight font-normal sm:text-5xl">
-                  {t("w5t")} <span className="italic">{t("w5t2")}</span>
-                </h3>
-                <p className="mt-4 max-w-[42ch] text-base leading-relaxed text-od/72">
-                  {t("w5b")}
-                </p>
-                <div className="mt-6.5 flex flex-wrap items-center gap-3.5">
-                  <AddPlanButton
-                    interestId="food"
-                    label={t("addPlan")}
-                    className="rounded-full bg-gold/18 px-6 py-3.5 text-sm tracking-[0.04em] text-gold hover:bg-gold hover:text-[#061C1D]"
-                  />
-                  <Link
-                    href="/destinations/colombo"
-                    className="rounded-full border border-od/22 px-5.5 py-3.5 text-sm tracking-[0.04em] text-od hover:border-gold hover:text-gold"
-                  >
-                    {t("navDest")} →
-                  </Link>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-3.5">
-                <div className="relative min-h-[160px] overflow-hidden rounded-2xl sm:min-h-[260px]">
-                  <PlaceholderImage label="Colombo street food" />
-                </div>
-                <div className="relative mt-6 min-h-[160px] overflow-hidden rounded-2xl sm:min-h-[260px]">
-                  <PlaceholderImage label="Bawa architecture interior" />
-                </div>
-              </div>
-            </div>
-          </article>
+            <Link
+              href="/tours"
+              className="mt-7 inline-flex text-[14px] tracking-[0.04em] text-gold"
+            >
+              {t("exploreAll")}
+            </Link>
+          </div>
         </section>
 
-        <TripPlanner />
+        {/* Trip planner */}
+        <section
+          id="planner"
+          className="bg-gradient-to-b from-bg to-bg-alt px-4 py-16 sm:px-8 sm:py-24"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.26em] text-terra uppercase">
+                  {t("plKicker")}
+                </p>
+                <h2 className="mt-4.5 max-w-[22ch] font-serif text-4xl leading-none font-normal tracking-tight sm:text-6xl">
+                  {t("plH")}
+                </h2>
+              </div>
+              <p className="max-w-[38ch] text-base leading-relaxed text-ink/72">
+                {t("plBody")}
+              </p>
+            </div>
+            <div className="mt-10">
+              <HomePlanner />
+            </div>
+          </div>
+        </section>
 
         {/* How it works */}
         <section className="bg-bg px-4 py-16 sm:px-8 sm:py-24">
@@ -446,27 +311,21 @@ export default async function Home({
               </p>
             </div>
             <div className="mt-8 grid auto-rows-[150px] grid-cols-2 gap-3 sm:grid-cols-4">
-              {[
-                ["Stilt fishermen, Koggala", "row-span-2"],
-                ["Kandy lake", ""],
-                ["Nine Arch Bridge", "col-span-2"],
-                ["Rice & curry spread", ""],
-                ["Elephants, Udawalawe", "row-span-2"],
-                ["Galle rampart sunset", ""],
-                ["Tea estate morning mist", "col-span-2"],
-              ].map(([label, span]) => (
+              {GALLERY_PHOTOS.map((photo, i) => (
                 <div
-                  key={label}
-                  className={`relative overflow-hidden rounded-2xl ${span}`}
+                  key={photo.file}
+                  className={`relative overflow-hidden rounded-2xl ${
+                    GALLERY_SPANS[i]
+                  }`}
                 >
-                  <PlaceholderImage label={label} />
+                  <SiteImage file={photo.file} alt={photo.alt} />
                 </div>
               ))}
             </div>
           </div>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter variant="home" />
       <WhatsAppFloat href={waSimple} />
     </>
   );

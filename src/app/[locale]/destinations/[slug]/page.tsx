@@ -5,13 +5,14 @@ import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { PlaceholderImage } from "@/components/placeholder-image";
+import { SiteImage } from "@/components/site-image";
 import { AddPlanButton } from "@/components/add-plan-button";
 import { SeedInterest } from "@/components/seed-interest";
 import { TripPlanner } from "@/components/trip-planner";
 import { DESTINATIONS, DEST_ORDER, REGIONS } from "@/lib/site-data";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
+import { destPhoto } from "@/lib/photos";
 import type { Locale } from "@/i18n/routing";
 
 export function generateStaticParams() {
@@ -96,7 +97,7 @@ export default async function DestinationPage({
                 </div>
               </div>
               <div className="relative min-h-[260px] overflow-hidden rounded-[22px] border border-od/14 shadow-2xl sm:min-h-[380px]">
-                <PlaceholderImage label={d.photos[0]} />
+                <SiteImage file={destPhoto(slug, 0)} alt={d.photos[0]} priority />
               </div>
             </div>
           </div>
@@ -162,7 +163,10 @@ export default async function DestinationPage({
                     i === 1 ? "sm:mt-9" : ""
                   }`}
                 >
-                  <PlaceholderImage label={photo} />
+                  <SiteImage
+                    file={destPhoto(slug, (i + 1) as 1 | 2 | 3)}
+                    alt={photo}
+                  />
                 </div>
               ))}
             </div>
@@ -189,16 +193,16 @@ export default async function DestinationPage({
               </Link>
             </div>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
-              {d.nearby.map((slug) => {
-                const n = DESTINATIONS[slug];
+              {d.nearby.map((nearbySlug) => {
+                const n = DESTINATIONS[nearbySlug];
                 return (
                   <Link
-                    key={slug}
-                    href={`/destinations/${slug}`}
+                    key={nearbySlug}
+                    href={`/destinations/${nearbySlug}`}
                     className="flex flex-col overflow-hidden rounded-[20px] border border-line bg-surface text-ink transition-transform hover:-translate-y-1.5"
                   >
                     <span className="relative block min-h-[200px]">
-                      <PlaceholderImage label={n.photos[0]} />
+                      <SiteImage file={destPhoto(nearbySlug, 0)} alt={n.photos[0]} />
                     </span>
                     <span className="flex flex-col gap-2 p-6.5">
                       <span

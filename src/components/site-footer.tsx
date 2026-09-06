@@ -5,7 +5,11 @@ import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
 import type { Locale } from "@/i18n/routing";
 
-export async function SiteFooter() {
+export async function SiteFooter({
+  variant = "default",
+}: {
+  variant?: "home" | "default";
+} = {}) {
   const t = await getTranslations("site");
   const locale = (await getLocale()) as Locale;
   const dests = destList(locale);
@@ -54,27 +58,47 @@ export async function SiteFooter() {
           </div>
           <div>
             <p className="font-mono text-[10px] tracking-[0.2em] text-gold uppercase">
-              {t("navDest")}
+              {variant === "home" ? t("ftExplore") : t("navDest")}
             </p>
             <nav
-              aria-label="Destinations"
+              aria-label={variant === "home" ? "Footer" : "Destinations"}
               className="mt-2.5 flex flex-col gap-2"
             >
-              {dests.map((d) => (
-                <Link
-                  key={d.slug}
-                  href={`/destinations/${d.slug}`}
-                  className="text-[15px] text-od/72 hover:text-od"
-                >
-                  {d.name}
-                </Link>
-              ))}
+              {variant === "home" ? (
+                <>
+                  <Link href="/tours" className="text-[15px] text-od/72 hover:text-od">
+                    {t("navTours")}
+                  </Link>
+                  <Link href="/about" className="text-[15px] text-od/72 hover:text-od">
+                    {t("navAbout")}
+                  </Link>
+                  <a href="#planner" className="text-[15px] text-od/72 hover:text-od">
+                    {t("navPlanner")}
+                  </a>
+                  <a href="#gallery" className="text-[15px] text-od/72 hover:text-od">
+                    {t("navGallery")}
+                  </a>
+                </>
+              ) : (
+                dests.map((d) => (
+                  <Link
+                    key={d.slug}
+                    href={`/destinations/${d.slug}`}
+                    className="text-[15px] text-od/72 hover:text-od"
+                  >
+                    {d.name}
+                  </Link>
+                ))
+              )}
             </nav>
           </div>
         </div>
       </div>
-      <p className="mx-auto mt-14 max-w-6xl border-t border-od/14 pt-5 text-xs tracking-[0.06em] text-od/42 sm:mt-20">
-        {t("ftLegal")}
+      <p className="mx-auto mt-14 flex max-w-6xl flex-wrap items-baseline justify-between gap-3 border-t border-od/14 pt-5 text-xs tracking-[0.06em] text-od/42 sm:mt-20">
+        <span>{t("ftLegal")}</span>
+        <Link href="/credits" className="text-od/42 hover:text-od/70">
+          Photo credits
+        </Link>
       </p>
     </footer>
   );
