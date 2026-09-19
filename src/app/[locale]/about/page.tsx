@@ -8,6 +8,14 @@ import { Photo } from "@/components/photo";
 import { TripPlanner } from "@/components/trip-planner";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
+import type { Locale } from "@/i18n/routing";
+import {
+  ORG_ID,
+  breadcrumbJsonLd,
+  jsonLdHtml,
+  localizedUrl,
+  pageMetadata,
+} from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -16,7 +24,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "site" });
-  return { title: `${t("navAbout")} — SP Tours`, description: t("aboutLede") };
+  const m = await getTranslations({ locale, namespace: "meta" });
+  return pageMetadata({
+    locale: locale as Locale,
+    path: "/about",
+    title: m("aboutTitle"),
+    description: t("aboutLede"),
+    image: "Tea picker, hill country",
+  });
 }
 
 export default async function AboutPage({
@@ -28,9 +43,30 @@ export default async function AboutPage({
   setRequestLocale(locale);
   const t = await getTranslations("site");
   const waSimple = waSimpleHref(WHATSAPP_NUMBER, { waSimple: t("waSimple") });
+  const l = locale as Locale;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      breadcrumbJsonLd(l, [
+        [t("navHome"), "/"],
+        [t("navAbout"), "/about"],
+      ]),
+      {
+        "@type": "AboutPage",
+        url: localizedUrl(l, "/about"),
+        name: t("navAbout"),
+        description: t("aboutLede"),
+        about: { "@id": ORG_ID },
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdHtml(jsonLd)}
+      />
       <SiteHeader />
       <main className="pt-[62px]">
         <section className="bg-deep px-4 py-20 text-od sm:px-8 sm:py-28">

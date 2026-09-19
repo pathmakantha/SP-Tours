@@ -13,6 +13,17 @@ import { DESTINATIONS, DEST_ORDER, REGIONS } from "@/lib/site-data";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
 import type { Locale } from "@/i18n/routing";
+import {
+  ORG_ID,
+  breadcrumbJsonLd,
+  jsonLdHtml,
+  localizedUrl,
+  pageMetadata,
+  photoImage,
+} from "@/lib/seo";
+
+// Only the known destinations exist; anything else is a hard 404.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return DEST_ORDER.map((slug) => ({ slug }));
@@ -27,7 +38,15 @@ export async function generateMetadata({
   const d = DESTINATIONS[slug];
   if (!d) return {};
   const l = locale as Locale;
-  return { title: `${d.name[l]} — SP Tours`, description: d.meta[l] };
+  const m = await getTranslations({ locale, namespace: "meta" });
+  return pageMetadata({
+    locale: l,
+    path: `/destinations/${slug}`,
+    title: m("destTitle", { name: d.name[l] }),
+    description: d.meta[l],
+    image: d.photos[0],
+    type: "article",
+  });
 }
 
 export default async function DestinationPage({
@@ -42,9 +61,40 @@ export default async function DestinationPage({
   const l = (await getLocale()) as Locale;
   const t = await getTranslations("site");
   const waSimple = waSimpleHref(WHATSAPP_NUMBER, { waSimple: t("waSimple") });
+  const path = `/destinations/${slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      breadcrumbJsonLd(l, [
+        [t("navHome"), "/"],
+        [t("navDest"), "/tours"],
+        [d.short[l], path],
+      ]),
+      {
+        "@type": "TouristDestination",
+        name: d.name[l],
+        url: localizedUrl(l, path),
+        description: d.meta[l],
+        image: d.photos
+          .map((label) => photoImage(label)?.url)
+          .filter(Boolean),
+        containedInPlace: { "@type": "Country", name: "Sri Lanka" },
+        includesAttraction: d.hi.map((h) => ({
+          "@type": "TouristAttraction",
+          name: h[l][0],
+          description: h[l][1],
+        })),
+        provider: { "@id": ORG_ID },
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdHtml(jsonLd)}
+      />
       <SeedInterest interestId={d.interest} />
       <SiteHeader />
       <main className="pt-[62px]">

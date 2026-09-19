@@ -1,7 +1,11 @@
 {
   "meta": {
     "title": "SP Tours | Voyages sur mesure au Sri Lanka",
-    "description": "Planifiez un voyage sur mesure au Sri Lanka avec SP Tours — triangle culturel, région des collines, safaris et plages de la côte sud. Créez votre itinéraire et contactez-nous sur WhatsApp."
+    "description": "Planifiez un voyage sur mesure au Sri Lanka avec SP Tours — triangle culturel, région des collines, safaris et plages de la côte sud. Créez votre itinéraire et contactez-nous sur WhatsApp.",
+    "toursTitle": "Destinations et régions du Sri Lanka",
+    "aboutTitle": "Nos chauffeurs-guides sri-lankais",
+    "destTitle": "{name} : circuit privé au Sri Lanka",
+    "keywords": "circuit Sri Lanka, voyage sur mesure Sri Lanka, chauffeur privé Sri Lanka, chauffeur-guide Sri Lanka, itinéraire Sri Lanka, triangle culturel, Sigiriya, Kandy, Ella, safari Yala, Galle, agence de voyage Sri Lanka"
   },
   "theme": {
     "light": "Clair",

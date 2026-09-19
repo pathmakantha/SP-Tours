@@ -514,9 +514,9 @@ export function TripPlanner({
         <p className="text-[9px] tracking-[0.22em] uppercase" style={{ color: "#8A5E12" }}>
           SP Tours · {t("draftLabel")}
         </p>
-        <h1 className="mt-2 font-serif text-[26px] leading-tight font-normal">
+        <h2 className="mt-2 font-serif text-[26px] leading-tight font-normal">
           {planHeading}
-        </h1>
+        </h2>
         <table className="mt-3.5 w-full border-collapse border-y border-[#10312F] text-[11px]">
           <tbody>
             <tr>

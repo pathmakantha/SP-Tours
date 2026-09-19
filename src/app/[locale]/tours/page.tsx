@@ -11,6 +11,12 @@ import { destList } from "@/lib/site-data";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
 import type { Locale } from "@/i18n/routing";
+import {
+  breadcrumbJsonLd,
+  jsonLdHtml,
+  localizedUrl,
+  pageMetadata,
+} from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -19,7 +25,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "site" });
-  return { title: `${t("toursH")} — SP Tours`, description: t("toursLede") };
+  const m = await getTranslations({ locale, namespace: "meta" });
+  return pageMetadata({
+    locale: locale as Locale,
+    path: "/tours",
+    title: m("toursTitle"),
+    description: t("toursLede"),
+    image: "Nine Arch Bridge",
+  });
 }
 
 export default async function ToursPage({
@@ -32,9 +45,33 @@ export default async function ToursPage({
   const t = await getTranslations("site");
   const dests = destList((await getLocale()) as Locale);
   const waSimple = waSimpleHref(WHATSAPP_NUMBER, { waSimple: t("waSimple") });
+  const l = locale as Locale;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      breadcrumbJsonLd(l, [
+        [t("navHome"), "/"],
+        [t("navDest"), "/tours"],
+      ]),
+      {
+        "@type": "ItemList",
+        name: t("toursH"),
+        itemListElement: dests.map((d, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: d.name,
+          url: localizedUrl(l, d.href),
+        })),
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdHtml(jsonLd)}
+      />
       <SiteHeader />
       <main className="pt-[62px]">
         <section className="bg-deep px-4 py-20 text-od sm:px-8 sm:py-28">

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
@@ -17,6 +18,27 @@ import {
 import { FAQ, destList } from "@/lib/site-data";
 import { waSimpleHref } from "@/lib/trip-planner";
 import type { Locale } from "@/i18n/routing";
+import { ORG_ID, jsonLdHtml, localizedUrl, pageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const meta = pageMetadata({
+    locale: locale as Locale,
+    path: "/",
+    description: t("description"),
+  });
+  return {
+    ...meta,
+    title: { absolute: t("title") },
+    openGraph: { ...meta.openGraph, title: t("title") },
+    twitter: { ...meta.twitter, title: t("title") },
+  };
+}
 
 const SECTION_PAD = "px-4 sm:px-[clamp(16px,4vw,56px)]";
 const H2 =
@@ -39,26 +61,22 @@ export default async function Home({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "TravelAgency",
-        "@id": "#sptours",
-        name: "SP Tours",
-        description:
-          "Custom full-island tour planning in Sri Lanka: private driver-guides, cultural triangle, hill country, wildlife safaris and south coast beaches.",
-        areaServed: { "@type": "Country", name: "Sri Lanka" },
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: "LK",
-          addressLocality: "Colombo",
-        },
-        availableLanguage: ["en", "de", "fr", "ru", "zh"],
-        priceRange: "$$",
-        openingHours: "Mo-Su 00:00-24:00",
-      },
-      {
         "@type": "TouristTrip",
         name: "Custom Sri Lanka Journey",
         touristType: ["Culture", "Wildlife", "Beach", "Adventure"],
-        provider: { "@id": "#sptours" },
+        provider: { "@id": ORG_ID },
+        itinerary: {
+          "@type": "ItemList",
+          itemListElement: dests.map((d, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "TouristDestination",
+              name: d.name,
+              url: localizedUrl(locale, d.href),
+            },
+          })),
+        },
       },
       {
         "@type": "FAQPage",
@@ -107,9 +125,7 @@ export default async function Home({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
+        dangerouslySetInnerHTML={jsonLdHtml(jsonLd)}
       />
       <SiteHeader />
       <main id="top">

@@ -1,7 +1,11 @@
 {
   "meta": {
     "title": "SP Tours | Individuelle Sri-Lanka-Reiseplanung",
-    "description": "Planen Sie mit SP Tours eine individuelle Sri-Lanka-Reise — Kulturdreieck, Bergland, Wildtier-Safaris und Strände an der Südküste. Erstellen Sie Ihre Reiseroute und schreiben Sie uns auf WhatsApp."
+    "description": "Planen Sie mit SP Tours eine individuelle Sri-Lanka-Reise — Kulturdreieck, Bergland, Wildtier-Safaris und Strände an der Südküste. Erstellen Sie Ihre Reiseroute und schreiben Sie uns auf WhatsApp.",
+    "toursTitle": "Sri-Lanka-Reiseziele & Regionen",
+    "aboutTitle": "Über unsere srilankischen Fahrer-Guides",
+    "destTitle": "{name}: Privatreise Sri Lanka",
+    "keywords": "Sri Lanka Rundreise, Sri Lanka Reise individuell, Sri Lanka Privatfahrer, Sri Lanka Fahrer mit Guide, Sri Lanka Reiseroute, Kulturdreieck, Sigiriya, Kandy, Ella, Yala Safari, Galle, Sri Lanka Reiseagentur"
   },
   "theme": {
     "light": "Hell",

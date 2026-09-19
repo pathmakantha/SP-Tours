@@ -1,7 +1,11 @@
 {
   "meta": {
     "title": "SP Tours | Custom Sri Lanka Travel Planning",
-    "description": "Plan a custom Sri Lanka tour with SP Tours — cultural triangle, hill country, wildlife safaris, and south coast beaches. Build your itinerary and chat with us on WhatsApp."
+    "description": "Plan a custom Sri Lanka tour with SP Tours — cultural triangle, hill country, wildlife safaris, and south coast beaches. Build your itinerary and chat with us on WhatsApp.",
+    "toursTitle": "Sri Lanka Destinations & Tour Regions",
+    "aboutTitle": "About Our Sri Lankan Driver-Guides",
+    "destTitle": "{name}: Private Tours in Sri Lanka",
+    "keywords": "Sri Lanka tours, Sri Lanka tour packages, private driver Sri Lanka, Sri Lanka driver guide, custom Sri Lanka itinerary, Sri Lanka round trip, cultural triangle tour, Sigiriya, Kandy, Ella, Yala safari, Galle, Sri Lanka travel agency"
   },
   "theme": {
     "light": "Light",
