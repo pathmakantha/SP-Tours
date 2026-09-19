@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { PlaceholderImage } from "@/components/placeholder-image";
+import { Photo } from "@/components/photo";
 import { AddPlanButton } from "@/components/add-plan-button";
 import { TripPlanner } from "@/components/trip-planner";
 import { destList } from "@/lib/site-data";
@@ -43,11 +43,11 @@ export default async function ToursPage({
               aria-label="Breadcrumb"
               className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-od/50 uppercase"
             >
-              <Link href="/" className="hover:text-gold">
+              <Link href="/" className="hover:text-gold-t">
                 {t("navHome")}
               </Link>
               <span>/</span>
-              <span className="text-gold">{t("navDest")}</span>
+              <span className="text-gold-t">{t("navDest")}</span>
             </nav>
             <h1 className="mt-7 max-w-[22ch] font-serif text-5xl leading-[0.98] font-normal tracking-tight sm:text-7xl">
               {t("toursH")}
@@ -55,7 +55,7 @@ export default async function ToursPage({
             <p className="mt-5.5 max-w-[52ch] text-base leading-relaxed text-od/72 sm:text-lg">
               {t("toursLede")}
             </p>
-            <p className="mt-4.5 font-mono text-[11px] tracking-[0.16em] text-gold uppercase">
+            <p className="mt-4.5 font-mono text-[11px] tracking-[0.16em] text-gold-t uppercase">
               {t("toursNote")}
             </p>
           </div>
@@ -69,7 +69,7 @@ export default async function ToursPage({
                 className="flex flex-col overflow-hidden rounded-[22px] border border-line bg-surface transition-transform hover:-translate-y-1.5"
               >
                 <div className="relative min-h-[220px]">
-                  <PlaceholderImage label={d.photo} />
+                  <Photo label={d.photo} />
                 </div>
                 <div className="flex flex-1 flex-col gap-2.5 p-6">
                   <p

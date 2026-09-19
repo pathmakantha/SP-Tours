@@ -1,12 +1,29 @@
 "use client";
 
 import { useLocale, useMessages, useTranslations } from "next-intl";
-import { useMemo } from "react";
-import { useDraft } from "@/components/draft-context";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
+import { NOTE_MAX, useDraft } from "@/components/draft-context";
 import { WHATSAPP_NUMBER } from "@/lib/config";
-import { INTERESTS, PACES, REGIONS } from "@/lib/site-data";
-import { buildPlan, planHref, type SiteStrings } from "@/lib/trip-planner";
+import { INTERESTS, PACES, REGIONS, ROUTE } from "@/lib/site-data";
+import {
+  buildPlan,
+  daysLabel,
+  planHref,
+  planTotalDays,
+  type SiteStrings,
+} from "@/lib/trip-planner";
 import type { Locale } from "@/i18n/routing";
+
+const emptySubscribe = () => () => {};
+
+function useMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+}
 
 function chipClasses(on: boolean) {
   return on
@@ -27,10 +44,39 @@ export function TripPlanner({
   const locale = useLocale() as Locale;
   const messages = useMessages() as unknown as { site: SiteStrings };
   const T = messages.site;
-  const { draft, patch, toggleInterest } = useDraft();
+  const { draft, patch, update, toggleInterest } = useDraft();
 
   const plan = useMemo(() => buildPlan(draft, locale, T), [draft, locale, T]);
-  const waHref = planHref(WHATSAPP_NUMBER, draft, plan, locale, T);
+  const mounted = useMounted();
+  const asideRef = useRef<HTMLElement>(null);
+  const [flash, setFlash] = useState(false);
+
+  useEffect(() => {
+    if (!flash) return;
+    const id = setTimeout(() => setFlash(false), 1800);
+    return () => clearTimeout(id);
+  }, [flash]);
+
+  /** Last step's button: bring the finished itinerary into view and highlight it. */
+  const reviewPlan = () => {
+    const el = asideRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < 64 || r.bottom > window.innerHeight) {
+      window.scrollTo({ top: r.top + window.scrollY - 76, behavior: "smooth" });
+    }
+    el.focus({ preventScroll: true });
+    setFlash(true);
+  };
+
+  const totalDays = planTotalDays(plan);
+  const waHref = planHref(
+    WHATSAPP_NUMBER,
+    { ...draft, days: totalDays },
+    plan,
+    locale,
+    T,
+  );
 
   const lengthOptions = [
     [5, t("len1")],
@@ -39,9 +85,40 @@ export function TripPlanner({
     [14, t("len4")],
   ] as const;
 
-  const daysLabel = locale === "zh" ? `${draft.days} 天` : `${draft.days} ${t("daysWord")}`;
+  const sliderLabel = daysLabel(draft.days, locale, T);
   const stepLabel =
     locale === "zh" ? `第 ${draft.step} / 4 步` : `${t("stepWord")} ${draft.step}/4`;
+
+  const stepLegDays = (key: string, delta: number, current: number) =>
+    update((prev) => {
+      const cur = prev.dayOverride[key] ?? current;
+      const next = Math.min(14, Math.max(1, cur + delta));
+      if (next === cur) return {};
+      return { dayOverride: { ...prev.dayOverride, [key]: next } };
+    });
+
+  const removeLeg = (key: string) =>
+    update((prev) => {
+      const dayOverride = { ...prev.dayOverride };
+      delete dayOverride[key];
+      return {
+        excluded: prev.excluded.includes(key)
+          ? prev.excluded
+          : [...prev.excluded, key],
+        included: prev.included.filter((x) => x !== key),
+        dayOverride,
+      };
+    });
+
+  const addLeg = (key: string) =>
+    update((prev) => ({
+      excluded: prev.excluded.filter((x) => x !== key),
+      included: prev.included.includes(key)
+        ? prev.included
+        : [...prev.included, key],
+    }));
+
+  const addable = ROUTE.filter((r) => !plan.order.includes(r));
 
   const regionNames = plan.order.map((r) => REGIONS[r].label[locale]);
   const planHeading = regionNames.length
@@ -114,11 +191,11 @@ export function TripPlanner({
                 <label className="mt-7 block">
                   <span className="flex justify-between text-[13px] tracking-[0.06em] text-ink/72">
                     <span>{t("fineTune")}</span>
-                    <span>{daysLabel}</span>
+                    <span>{sliderLabel}</span>
                   </span>
                   <input
                     type="range"
-                    min={3}
+                    min={1}
                     max={21}
                     step={1}
                     value={draft.days}
@@ -245,6 +322,7 @@ export function TripPlanner({
                       type="text"
                       value={draft.note}
                       onChange={(e) => patch({ note: e.target.value })}
+                      maxLength={NOTE_MAX}
                       placeholder={t("fNotePh")}
                       className="rounded-xl border border-line-2 bg-field px-3.5 py-3.5 text-[15px]"
                     />
@@ -265,7 +343,9 @@ export function TripPlanner({
               <button
                 type="button"
                 onClick={() =>
-                  patch({ step: Math.min(4, draft.step + 1) as 1 | 2 | 3 | 4 })
+                  draft.step === 4
+                    ? reviewPlan()
+                    : patch({ step: (draft.step + 1) as 1 | 2 | 3 | 4 })
                 }
                 className="rounded-full bg-deep2 px-6.5 py-3.5 text-sm font-medium tracking-[0.03em] text-od transition-colors hover:bg-terra"
               >
@@ -276,11 +356,15 @@ export function TripPlanner({
 
           {/* Draft itinerary aside */}
           <aside
+            ref={asideRef}
+            tabIndex={-1}
             aria-live="polite"
-            className="sticky top-20 rounded-3xl bg-deep p-5 text-od shadow-[0_50px_90px_-50px_var(--color-shadow)] sm:p-8"
+            className={`sticky top-20 rounded-3xl bg-deep p-5 text-od shadow-[0_50px_90px_-50px_var(--color-shadow)] outline-none transition-shadow duration-500 sm:p-8 ${
+              flash ? "ring-2 ring-gold" : "ring-0 ring-transparent"
+            }`}
           >
             <div className="flex items-baseline justify-between gap-3">
-              <p className="font-mono text-[10px] tracking-[0.22em] text-gold uppercase">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-gold-t uppercase">
                 {t("draftLabel")}
               </p>
               <p className="text-xs text-od/50">{t("live")}</p>
@@ -293,7 +377,7 @@ export function TripPlanner({
                 <dt className="font-mono text-[10px] tracking-[0.18em] text-od/50 uppercase">
                   {t("mDays")}
                 </dt>
-                <dd className="mt-1 text-lg">{draft.days}</dd>
+                <dd className="mt-1 text-lg">{totalDays}</dd>
               </div>
               <div>
                 <dt className="font-mono text-[10px] tracking-[0.18em] text-od/50 uppercase">
@@ -326,14 +410,36 @@ export function TripPlanner({
                 >
                   <span
                     className="absolute top-1 -left-[5px] h-2.5 w-2.5 rounded-full"
-                    style={{ background: leg.tint }}
+                    style={{ background: leg.dot }}
                   />
-                  <p
-                    className="font-mono text-[9px] tracking-[0.2em] uppercase"
-                    style={{ color: leg.tint }}
-                  >
-                    {leg.dayRange} — {leg.label}
-                  </p>
+                  <div className="flex items-center justify-between gap-2.5">
+                    <p
+                      className="font-mono text-[9px] tracking-[0.2em] uppercase"
+                      style={{ color: leg.tint }}
+                    >
+                      {leg.dayRange} · {leg.label}
+                    </p>
+                    {leg.editable && (
+                      <span className="-my-2.5 flex flex-none items-center gap-0.5">
+                        <LegButton
+                          label={t("fewerDays")}
+                          glyph="−"
+                          dimmed={leg.days.length <= 1}
+                          onClick={() => stepLegDays(leg.key, -1, leg.days.length)}
+                        />
+                        <LegButton
+                          label={t("moreDays")}
+                          glyph="+"
+                          onClick={() => stepLegDays(leg.key, 1, leg.days.length)}
+                        />
+                        <LegButton
+                          label={t("removePlace")}
+                          glyph="✕"
+                          onClick={() => removeLeg(leg.key)}
+                        />
+                      </span>
+                    )}
+                  </div>
                   <div className="mt-2.5 flex flex-col gap-2">
                     {leg.days.map((d) => (
                       <div
@@ -359,20 +465,128 @@ export function TripPlanner({
               ))}
             </ol>
 
+            {addable.length > 0 && (
+              <div className="mt-1.5 border-t border-od/14 pt-4">
+                <p className="font-mono text-[10px] tracking-[0.18em] text-od/50 uppercase">
+                  {t("addPlaceLabel")}
+                </p>
+                <div className="mt-2.5 flex flex-wrap gap-2">
+                  {addable.map((r) => (
+                    <button
+                      key={r}
+                      type="button"
+                      onClick={() => addLeg(r)}
+                      className="flex min-h-11 items-center rounded-full border border-od/22 px-4.5 text-[13.5px] whitespace-nowrap text-od transition-colors hover:border-gold hover:bg-od/[0.06]"
+                    >
+                      + {REGIONS[r].label[locale]}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <a
               href={waHref}
               target="_blank"
               rel="noopener"
-              className="mt-6 flex items-center justify-center gap-2.5 rounded-2xl bg-green py-4.5 text-center text-[15px] font-medium text-green-ink shadow-[0_20px_40px_-20px_rgba(95,169,127,0.6)] hover:bg-gold"
+              className="mt-6 flex items-center justify-center gap-2.5 rounded-2xl bg-green py-4.5 text-center text-[15px] font-medium text-green-ink shadow-[0_20px_40px_-20px_color-mix(in_oklab,var(--green)_60%,transparent)] hover:bg-gold"
             >
               {t("sendPlan")}
             </a>
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="mt-3 flex w-full items-center justify-center gap-2.5 rounded-2xl border border-od/22 py-3.5 text-[14.5px] font-medium text-od transition-colors hover:border-terra hover:bg-od/[0.06]"
+            >
+              {t("downloadPdf")}
+            </button>
             <p className="mt-3 text-xs leading-relaxed text-od/42">
               {t("sendNote")}
             </p>
           </aside>
         </div>
       </div>
+
+      {/* Printed by "Download plan as PDF". Rendered straight under <body> so the
+          print stylesheet can drop everything else and avoid blank pages. */}
+      {mounted &&
+        createPortal(
+      <div data-print-sheet>
+        <p className="text-[9px] tracking-[0.22em] uppercase" style={{ color: "#8A5E12" }}>
+          SP Tours · {t("draftLabel")}
+        </p>
+        <h1 className="mt-2 font-serif text-[26px] leading-tight font-normal">
+          {planHeading}
+        </h1>
+        <table className="mt-3.5 w-full border-collapse border-y border-[#10312F] text-[11px]">
+          <tbody>
+            <tr>
+              <td className="py-2 pr-2.5">
+                <strong>{t("mDays")}:</strong> {totalDays}
+              </td>
+              <td className="px-2.5 py-2">
+                <strong>{t("mRegions")}:</strong> {plan.order.length}
+              </td>
+              <td className="px-2.5 py-2">
+                <strong>{t("mDrive")}:</strong> ≈{plan.drive}
+                {t("hourSuffix")}
+              </td>
+              <td className="py-2 pl-2.5">
+                <strong>{t("mPace")}:</strong> {plan.pace.label[locale]}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="mt-4">
+          {plan.legs.map((leg) => (
+            <div key={leg.key} className="mb-3.5 break-inside-avoid">
+              <p className="text-[9px] tracking-[0.16em] uppercase" style={{ color: "#8A5E12" }}>
+                {leg.dayRange} · {leg.label}
+              </p>
+              {leg.days.map((d) => (
+                <p key={d.n} className="mt-1 text-xs leading-normal">
+                  <strong>{d.tag}</strong> · {d.title}{" "}
+                  <span style={{ color: "#5A6B68" }}>({d.place})</span>
+                </p>
+              ))}
+              <p className="mt-1 text-[10.5px]" style={{ color: "#5A6B68" }}>
+                {leg.hop}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>,
+          document.body,
+        )}
     </section>
+  );
+}
+
+/** 44×44 tap target wrapping a 24px visual circle, per the design's a11y pass. */
+function LegButton({
+  label,
+  glyph,
+  dimmed,
+  onClick,
+}: {
+  label: string;
+  glyph: string;
+  dimmed?: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      aria-disabled={dimmed || undefined}
+      onClick={onClick}
+      className={`flex h-11 w-11 flex-none items-center justify-center text-[15px] leading-none text-od ${
+        dimmed ? "opacity-35" : ""
+      }`}
+    >
+      <span className="flex h-6 w-6 items-center justify-center rounded-full border border-od/22 transition-colors hover:border-terra">
+        {glyph}
+      </span>
+    </button>
   );
 }

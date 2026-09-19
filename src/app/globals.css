@@ -3,29 +3,37 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f7f3eb;
-  --foreground: #0a2a2b;
+  --background: #fffcf6;
+  --foreground: #10312f;
 
-  --bg: #f7f3eb;
-  --bg-alt: #efe8da;
-  --surface: #fffdf8;
-  --field: #f7f3eb;
+  --bg: #fffcf6;
+  --bg-alt: #f6efe3;
+  --surface: #ffffff;
+  --field: #f7f2e8;
 
-  --ink: #0a2a2b;
-  --line: rgba(10, 42, 43, 0.12);
-  --line-2: rgba(10, 42, 43, 0.2);
+  --ink: #10312f;
+  --line: rgba(16, 49, 47, 0.12);
+  --line-2: rgba(16, 49, 47, 0.2);
 
-  --deep: #061c1d;
-  --deep2: #0a2a2b;
+  /* "deep" / "od" (on-deep) flip with the theme: in light mode the hero and
+     footer sit on warm paper with dark ink, in dark mode they go deep teal. */
+  --deep: #fffcf6;
+  --deep2: #f1e8da;
+  --od: #10312f;
 
-  --od: #f7f3eb;
+  --gold: #d9a441;
+  --gold-t: #8a5e12; /* gold for text: passes contrast on the light surfaces */
+  --terra: #a2502f;
+  --green: #1e7a48;
+  --green-ink: #ffffff;
 
-  --gold: #c79a4b;
-  --terra: #a85a3e;
-  --green: #5fa97f;
-  --green-ink: #04211a;
+  --shadow: rgba(16, 49, 47, 0.18);
 
-  --shadow: rgba(10, 42, 43, 0.34);
+  --tint-cultural: #8a5e12;
+  --tint-hill: #2f6b49;
+  --tint-wildlife: #8c4a22;
+  --tint-coast: #7a5416;
+  --tint-colombo: #3a5d6c;
 }
 
 .dark {
@@ -43,15 +51,21 @@
 
   --deep: #040f10;
   --deep2: #061a1a;
-
   --od: #ede6d9;
 
   --gold: #d6ac61;
+  --gold-t: #d6ac61;
   --terra: #c9784f;
   --green: #66b489;
   --green-ink: #03150f;
 
   --shadow: rgba(0, 0, 0, 0.6);
+
+  --tint-cultural: #c79a4b;
+  --tint-hill: #8fbf9f;
+  --tint-wildlife: #c58a5e;
+  --tint-coast: #e0b27a;
+  --tint-colombo: #9fb8c4;
 }
 
 @theme inline {
@@ -69,60 +83,70 @@
   --color-deep2: var(--deep2);
   --color-od: var(--od);
   --color-gold: var(--gold);
+  --color-gold-t: var(--gold-t);
   --color-terra: var(--terra);
   --color-green: var(--green);
   --color-green-ink: var(--green-ink);
   --color-shadow: var(--shadow);
+  --color-tint-cultural: var(--tint-cultural);
+  --color-tint-hill: var(--tint-hill);
+  --color-tint-wildlife: var(--tint-wildlife);
+  --color-tint-coast: var(--tint-coast);
+  --color-tint-colombo: var(--tint-colombo);
 
-  --font-sans: var(--font-jost), "Noto Sans SC", system-ui, sans-serif;
-  --font-serif: var(--font-instrument-serif), Georgia, serif;
-  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-sans: var(--font-figtree), var(--font-noto-sc), system-ui, sans-serif;
+  --font-serif: var(--font-spectral), Georgia, serif;
+  /* Small uppercase labels use the sans face in the design; the utility name is kept. */
+  --font-mono: var(--font-figtree), var(--font-noto-sc), system-ui, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
+/* Base resets live in a layer so Tailwind utilities (e.g. text-* on links) win. */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  overflow-x: hidden;
-  font-weight: 300;
-}
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: hidden;
+    font-weight: 300;
+  }
 
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
 
-a {
-  color: var(--terra);
-  text-decoration: none;
-}
+  a {
+    color: var(--terra);
+    text-decoration: none;
+  }
 
-button,
-input,
-select {
-  font: inherit;
-  color: inherit;
-}
+  button,
+  input,
+  select {
+    font: inherit;
+    color: inherit;
+  }
 
-::selection {
-  background: var(--gold);
-  color: #061c1d;
+  ::selection {
+    background: var(--gold);
+    color: #061c1d;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -153,5 +177,31 @@ select {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Printed by the planner's "Download plan as PDF": the sheet is a direct child
+   of <body>, and everything else is removed from layout so no blank pages print. */
+[data-print-sheet] {
+  display: none;
+}
+
+@media print {
+  body > *:not([data-print-sheet]) {
+    display: none !important;
+  }
+  html,
+  body {
+    height: auto !important;
+    min-height: 0 !important;
+    background: #fff !important;
+  }
+  [data-print-sheet] {
+    display: block !important;
+    color: #10312f;
+    background: #fff;
+  }
+  @page {
+    margin: 16mm;
   }
 }

@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { PlaceholderImage } from "@/components/placeholder-image";
+import { Photo } from "@/components/photo";
 import { TripPlanner } from "@/components/trip-planner";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
@@ -39,11 +39,11 @@ export default async function AboutPage({
               aria-label="Breadcrumb"
               className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-od/50 uppercase"
             >
-              <Link href="/" className="hover:text-gold">
+              <Link href="/" className="hover:text-gold-t">
                 {t("navHome")}
               </Link>
               <span>/</span>
-              <span className="text-gold">{t("navAbout")}</span>
+              <span className="text-gold-t">{t("navAbout")}</span>
             </nav>
             <div className="mt-7 grid gap-9 lg:grid-cols-2 lg:items-end">
               <h1 className="max-w-[20ch] font-serif text-5xl leading-[0.98] font-normal tracking-tight sm:text-7xl">
@@ -76,7 +76,7 @@ export default async function AboutPage({
             </div>
             <div className="flex flex-col gap-5">
               <figure className="relative min-h-[300px] overflow-hidden rounded-[22px] sm:min-h-[400px]">
-                <PlaceholderImage label="The team with the car" />
+                <Photo label="The team with the car" />
               </figure>
               <ul className="flex list-none flex-col overflow-hidden rounded-2xl border border-line bg-surface p-0">
                 {(["aboutV1", "aboutV2", "aboutV3", "aboutV4"] as const).map(

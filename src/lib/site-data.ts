@@ -2,10 +2,13 @@ import raw from "./site-data.json";
 import type { Locale } from "@/i18n/routing";
 import type {
   DestinationData,
+  FaqItem,
   HopData,
   InterestData,
+  LocalizedPair,
   PaceData,
   RegionData,
+  Starter,
 } from "./types";
 
 export const REGIONS = raw.REGIONS as unknown as Record<string, RegionData>;
@@ -18,6 +21,11 @@ export const DESTINATIONS = raw.DESTINATIONS as unknown as Record<
 >;
 export const DEST_ORDER = raw.DEST_ORDER as string[];
 export const ROUTE = raw.ROUTE as string[];
+/** Extra day templates used once a region's own days run out, so no day repeats. */
+export const FILLERS = raw.FILLERS as unknown as Record<string, LocalizedPair[]>;
+export const STARTERS = raw.STARTERS as unknown as Starter[];
+export const FAQ = raw.FAQ as unknown as FaqItem[];
+export const CONTACT = raw.CONTACT as { phone: string; tel: string; email: string };
 
 export interface DestListItem {
   slug: string;
@@ -30,6 +38,7 @@ export interface DestListItem {
   interest: string;
   stay: string;
   photo: string;
+  regionKey: string;
 }
 
 export function destList(locale: Locale): DestListItem[] {
@@ -38,11 +47,12 @@ export function destList(locale: Locale): DestListItem[] {
     return {
       slug,
       href: `/destinations/${slug}`,
-      tint: d.tint,
+      tint: d.tintVar,
       name: d.name[locale],
       short: d.short[locale],
       tagline: d.tagline[locale],
       region: REGIONS[d.region].label[locale],
+      regionKey: d.region,
       interest: d.interest,
       stay: d.facts[locale][1][1],
       photo: d.photos[0],
