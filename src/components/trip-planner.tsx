@@ -3,7 +3,7 @@
 import { useLocale, useMessages, useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import { useDraft } from "@/components/draft-context";
+import { NOTE_MAX, useDraft } from "@/components/draft-context";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { INTERESTS, PACES, REGIONS, ROUTE } from "@/lib/site-data";
 import {
@@ -322,6 +322,7 @@ export function TripPlanner({
                       type="text"
                       value={draft.note}
                       onChange={(e) => patch({ note: e.target.value })}
+                      maxLength={NOTE_MAX}
                       placeholder={t("fNotePh")}
                       className="rounded-xl border border-line-2 bg-field px-3.5 py-3.5 text-[15px]"
                     />
