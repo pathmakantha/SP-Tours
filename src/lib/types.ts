@@ -5,6 +5,8 @@ export type LocalizedPair = Record<Locale, [string, string]>;
 
 export interface RegionData {
   tint: string;
+  tintVar: string;
+  tintInk: string;
   label: LocalizedString;
   days: LocalizedPair[];
 }
@@ -35,6 +37,7 @@ export interface DestinationData {
   region: string;
   interest: string;
   tint: string;
+  tintVar: string;
   photos: [string, string, string, string];
   nearby: string[];
   name: LocalizedString;
@@ -55,6 +58,25 @@ export interface DraftState {
   startDate: string;
   group: number;
   note: string;
+  /** Regions the visitor removed / added by hand in the draft itinerary. */
+  excluded: string[];
+  included: string[];
+  /** Per-region day counts the visitor set with the − / + steppers. */
+  dayOverride: Record<string, number>;
+}
+
+export interface Starter {
+  id: string;
+  days: number;
+  interests: string[];
+  pace: string;
+  name: LocalizedString;
+  blurb: LocalizedString;
+}
+
+export interface FaqItem {
+  q: LocalizedString;
+  a: LocalizedString;
 }
 
 export interface PlanLegDay {
@@ -68,9 +90,11 @@ export interface PlanLeg {
   key: string;
   label: string;
   tint: string;
+  dot: string;
   dayRange: string;
   days: PlanLegDay[];
   hop: string;
+  editable: boolean;
 }
 
 export interface Plan {

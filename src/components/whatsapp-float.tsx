@@ -9,7 +9,7 @@ export function WhatsAppFloat({ href }: { href: string }) {
 
   useEffect(() => {
     const onScroll = () => {
-      setVisible(window.scrollY > window.innerHeight * 0.6);
+      setVisible(window.scrollY > window.innerHeight * 0.7);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();

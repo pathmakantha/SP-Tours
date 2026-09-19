@@ -9,15 +9,18 @@ import {
   useState,
 } from "react";
 import { DEFAULT_DRAFT } from "@/lib/trip-planner";
-import type { DraftState } from "@/lib/types";
+import type { DraftState, Starter } from "@/lib/types";
 
 const STORAGE_KEY = "sptours.draft";
 
 interface DraftContextValue {
   draft: DraftState;
   patch: (patch: Partial<DraftState>) => void;
+  /** Like `patch`, but derives the change from the live state (safe for rapid taps). */
+  update: (fn: (prev: DraftState) => Partial<DraftState>) => void;
   addInterest: (id: string, silent?: boolean) => void;
   toggleInterest: (id: string) => void;
+  applyStarter: (starter: Starter) => void;
 }
 
 const DraftContext = createContext<DraftContextValue | null>(null);
@@ -70,6 +73,13 @@ export function DraftProvider({ children }: { children: React.ReactNode }) {
     setDraft((prev) => ({ ...prev, ...p }));
   }, []);
 
+  const update = useCallback(
+    (fn: (prev: DraftState) => Partial<DraftState>) => {
+      setDraft((prev) => ({ ...prev, ...fn(prev) }));
+    },
+    [],
+  );
+
   const addInterest = useCallback((id: string, silent?: boolean) => {
     setDraft((prev) => ({
       ...prev,
@@ -89,9 +99,22 @@ export function DraftProvider({ children }: { children: React.ReactNode }) {
     }));
   }, []);
 
+  const applyStarter = useCallback((st: Starter) => {
+    setDraft((prev) => ({
+      ...prev,
+      days: st.days,
+      interests: st.interests.slice(),
+      pace: st.pace,
+      step: 4,
+      excluded: [],
+      included: [],
+      dayOverride: {},
+    }));
+  }, []);
+
   const value = useMemo(
-    () => ({ draft, patch, addInterest, toggleInterest }),
-    [draft, patch, addInterest, toggleInterest],
+    () => ({ draft, patch, update, addInterest, toggleInterest, applyStarter }),
+    [draft, patch, update, addInterest, toggleInterest, applyStarter],
   );
 
   return (

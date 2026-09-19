@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { PlaceholderImage } from "@/components/placeholder-image";
+import { Photo } from "@/components/photo";
 import { AddPlanButton } from "@/components/add-plan-button";
 import { SeedInterest } from "@/components/seed-interest";
 import { TripPlanner } from "@/components/trip-planner";
@@ -54,21 +54,21 @@ export default async function DestinationPage({
               aria-label="Breadcrumb"
               className="flex flex-wrap items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-od/50 uppercase"
             >
-              <Link href="/" className="hover:text-gold">
+              <Link href="/" className="hover:text-gold-t">
                 {t("navHome")}
               </Link>
               <span>/</span>
-              <Link href="/tours" className="hover:text-gold">
+              <Link href="/tours" className="hover:text-gold-t">
                 {t("navDest")}
               </Link>
               <span>/</span>
-              <span className="text-gold">{d.short[l]}</span>
+              <span className="text-gold-t">{d.short[l]}</span>
             </nav>
             <div className="mt-7 grid items-end gap-9 lg:grid-cols-2">
               <div>
                 <p
                   className="font-mono text-[11px] tracking-[0.24em] uppercase"
-                  style={{ color: d.tint }}
+                  style={{ color: d.tintVar }}
                 >
                   {REGIONS[d.region].label[l]}
                 </p>
@@ -96,7 +96,7 @@ export default async function DestinationPage({
                 </div>
               </div>
               <div className="relative min-h-[260px] overflow-hidden rounded-[22px] border border-od/14 shadow-2xl sm:min-h-[380px]">
-                <PlaceholderImage label={d.photos[0]} />
+                <Photo label={d.photos[0]} />
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@ export default async function DestinationPage({
                 >
                   <span
                     className="font-mono text-[10px] tracking-[0.22em]"
-                    style={{ color: d.tint }}
+                    style={{ color: d.tintVar }}
                   >
                     0{i + 1}
                   </span>
@@ -162,7 +162,7 @@ export default async function DestinationPage({
                     i === 1 ? "sm:mt-9" : ""
                   }`}
                 >
-                  <PlaceholderImage label={photo} />
+                  <Photo label={photo} />
                 </div>
               ))}
             </div>
@@ -198,12 +198,12 @@ export default async function DestinationPage({
                     className="flex flex-col overflow-hidden rounded-[20px] border border-line bg-surface text-ink transition-transform hover:-translate-y-1.5"
                   >
                     <span className="relative block min-h-[200px]">
-                      <PlaceholderImage label={n.photos[0]} />
+                      <Photo label={n.photos[0]} />
                     </span>
                     <span className="flex flex-col gap-2 p-6.5">
                       <span
                         className="font-mono text-[10px] tracking-[0.2em] uppercase"
-                        style={{ color: n.tint }}
+                        style={{ color: n.tintVar }}
                       >
                         {REGIONS[n.region].label[l]}
                       </span>

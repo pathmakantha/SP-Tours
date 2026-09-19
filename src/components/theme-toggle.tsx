@@ -38,7 +38,14 @@ export function ThemeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className="flex h-[38px] w-[38px] flex-none items-center justify-center rounded-full border border-od/22 bg-transparent transition-all duration-300 hover:border-gold hover:bg-gold/14"
     >
-      <span className="block h-[15px] w-[15px] rounded-full bg-gold" />
+      <span
+        className="block h-[15px] w-[15px] rounded-full bg-gold"
+        style={{
+          boxShadow: isDark
+            ? "0 -9px 0 -6px var(--gold), 0 9px 0 -6px var(--gold), -9px 0 0 -6px var(--gold), 9px 0 0 -6px var(--gold)"
+            : "inset -5px -2px 0 0 var(--deep)",
+        }}
+      />
     </button>
   );
 }
