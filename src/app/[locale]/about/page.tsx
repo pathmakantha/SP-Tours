@@ -5,9 +5,10 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { Photo } from "@/components/photo";
-import { TripPlanner } from "@/components/trip-planner";
 import { WHATSAPP_NUMBER } from "@/lib/config";
 import { waSimpleHref } from "@/lib/trip-planner";
+
+const PAD = "px-[clamp(14px,3vw,40px)]";
 
 export async function generateMetadata({
   params,
@@ -29,116 +30,137 @@ export default async function AboutPage({
   const t = await getTranslations("site");
   const waSimple = waSimpleHref(WHATSAPP_NUMBER, { waSimple: t("waSimple") });
 
+  const story = [
+    ["aboutS1H", "aboutS1B"],
+    ["aboutS2H", "aboutS2B"],
+    ["aboutS3H", "aboutS3B"],
+  ] as const;
+
+  const values = ["aboutV1", "aboutV2", "aboutV3", "aboutV4"] as const;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    about: {
+      "@type": "TravelAgency",
+      name: "SP Tours",
+      areaServed: { "@type": "Country", name: "Sri Lanka" },
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <SiteHeader />
-      <main className="pt-[62px]">
-        <section className="bg-deep px-4 py-20 text-od sm:px-8 sm:py-28">
-          <div className="mx-auto max-w-6xl">
-            <nav
-              aria-label="Breadcrumb"
-              className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-od/50 uppercase"
-            >
-              <Link href="/" className="hover:text-gold-t">
-                {t("navHome")}
-              </Link>
-              <span>/</span>
-              <span className="text-gold-t">{t("navAbout")}</span>
-            </nav>
-            <div className="mt-7 grid gap-9 lg:grid-cols-2 lg:items-end">
-              <h1 className="max-w-[20ch] font-serif text-5xl leading-[0.98] font-normal tracking-tight sm:text-7xl">
+      <main id="top">
+        <section
+          aria-labelledby="about-h"
+          className={`${PAD} pt-[clamp(108px,14vh,140px)]`}
+        >
+          <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(28px,4vw,64px)]">
+            <div>
+              <p className="text-sm font-bold text-accent">{t("navAbout")}</p>
+              <h1
+                id="about-h"
+                className="mt-2.5 max-w-[16ch] text-[clamp(36px,5vw,66px)] leading-[1.04] font-extrabold tracking-[-0.035em]"
+              >
                 {t("aboutH")}
               </h1>
-              <p className="max-w-[48ch] text-base leading-relaxed text-od/72 sm:text-lg">
+              <p className="mt-4.5 max-w-[54ch] text-[17px] leading-[1.65] text-ink/72">
                 {t("aboutLede")}
               </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  href="/#planner"
+                  className="flex min-h-[52px] items-center rounded-xl bg-accent px-5.5 text-[15px] font-bold text-accent-ink transition-[filter] hover:text-accent-ink hover:brightness-110"
+                >
+                  {t("aboutCta")} →
+                </Link>
+                <a
+                  href={waSimple}
+                  target="_blank"
+                  rel="noopener"
+                  className="flex min-h-[52px] items-center gap-2.25 rounded-xl border-[1.5px] border-line-2 px-5 text-[15px] font-bold text-ink hover:border-accent hover:text-ink"
+                >
+                  <span className="h-2 w-2 flex-none rounded-full bg-[#1E7A48]" />
+                  {t("ctaWa")}
+                </a>
+              </div>
+            </div>
+            <div className="relative aspect-[4/5] max-h-[640px] overflow-hidden rounded-3xl">
+              <Photo
+                label="Street kottu being cooked, 3:2"
+                sizes="(min-width: 1024px) 600px, 100vw"
+                priority
+              />
             </div>
           </div>
         </section>
 
-        <section className="bg-bg px-4 py-16 sm:px-8 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-9 lg:grid-cols-2">
-            <div className="flex flex-col gap-8">
-              {(
-                [
-                  ["aboutS1H", "aboutS1B", "border-ink"],
-                  ["aboutS2H", "aboutS2B", "border-line-2"],
-                  ["aboutS3H", "aboutS3B", "border-line-2"],
-                ] as const
-              ).map(([h, b, border]) => (
-                <article key={h} className={`flex flex-col gap-2.5 border-t-2 pt-5.5 ${border}`}>
-                  <h2 className="font-serif text-[28px] leading-tight font-normal">
-                    {t(h)}
-                  </h2>
-                  <p className="text-base leading-relaxed text-ink/72">{t(b)}</p>
-                </article>
-              ))}
-            </div>
-            <div className="flex flex-col gap-5">
-              <figure className="relative min-h-[300px] overflow-hidden rounded-[22px] sm:min-h-[400px]">
-                <Photo label="The team with the car" />
-              </figure>
-              <ul className="flex list-none flex-col overflow-hidden rounded-2xl border border-line bg-surface p-0">
-                {(["aboutV1", "aboutV2", "aboutV3", "aboutV4"] as const).map(
-                  (v, i, arr) => (
-                    <li
-                      key={v}
-                      className={`px-5 py-4 text-[14.5px] ${
-                        i < arr.length - 1 ? "border-b border-line" : ""
-                      }`}
-                    >
-                      {t(v)}
-                    </li>
-                  ),
-                )}
-              </ul>
-              <p className="text-[13.5px] leading-relaxed text-ink/50">
+        <section aria-label={t("navAbout")} className={`${PAD} pt-[clamp(72px,10vh,120px)]`}>
+          <ol className="mx-auto grid max-w-[1240px] list-none grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4.5 p-0">
+            {story.map(([h, b], i) => (
+              <li
+                key={h}
+                className="flex flex-col gap-3 rounded-[18px] bg-bg-alt p-7"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-base font-extrabold text-accent-ink">
+                  {i + 1}
+                </span>
+                <h2 className="text-[21px] font-extrabold tracking-[-0.02em]">
+                  {t(h)}
+                </h2>
+                <p className="text-[15.5px] leading-[1.65] text-ink/72">
+                  {t(b)}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section
+          aria-labelledby="values-h"
+          className={`${PAD} pt-[clamp(72px,10vh,120px)]`}
+        >
+          <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] items-start gap-[clamp(28px,4vw,64px)]">
+            <div>
+              <h2
+                id="values-h"
+                className="max-w-[18ch] text-[clamp(28px,3.4vw,44px)] leading-[1.1] font-extrabold tracking-[-0.03em]"
+              >
+                {t("whyL1")} {t("whyL2")}
+                {t("whyL3")}
+              </h2>
+              <p className="mt-3.5 max-w-[52ch] text-base leading-[1.65] text-ink/72">
+                {t("whyBody")}
+              </p>
+              <p className="mt-4.5 text-[14.5px] font-semibold text-ink/72">
                 {t("langNote")}
               </p>
             </div>
-          </div>
-        </section>
-
-        <section className="bg-bg-alt px-4 py-16 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="max-w-[20ch] font-serif text-3xl leading-tight font-normal tracking-tight sm:text-5xl">
-              {t("howH")}
-            </h2>
-            <div className="mt-10 grid gap-7 sm:grid-cols-3">
-              {(
-                [
-                  ["h1t", "h1b", "border-ink"],
-                  ["h2t", "h2b", "border-line-2"],
-                  ["h3t", "h3b", "border-line-2"],
-                ] as const
-              ).map(([ti, b, border], i) => (
-                <div key={ti} className={`border-t-2 pt-5.5 ${border}`}>
-                  <p className="font-mono text-[11px] tracking-[0.2em] text-terra">
-                    0{i + 1}
-                  </p>
-                  <h3 className="mt-3 font-serif text-[27px] font-normal">{t(ti)}</h3>
-                  <p className="mt-2.5 text-[15px] leading-relaxed text-ink/72">{t(b)}</p>
-                </div>
+            <ul className="m-0 grid list-none gap-2.5 p-0">
+              {values.map((v) => (
+                <li
+                  key={v}
+                  className="flex min-h-16 items-center gap-3.5 rounded-[14px] border border-line bg-surface px-4.5 py-3.5 text-base font-semibold"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-accent-soft text-sm font-extrabold text-accent"
+                  >
+                    ✓
+                  </span>
+                  {t(v)}
+                </li>
               ))}
-            </div>
-            <div className="mt-9 flex flex-wrap gap-3.5">
-              <a
-                href="#planner"
-                className="rounded-full bg-deep2 px-7 py-4 text-[15px] font-medium text-od hover:bg-terra"
-              >
-                {t("aboutCta")}
-              </a>
-              <Link
-                href="/tours"
-                className="rounded-full border border-line-2 px-7 py-4 text-[15px] text-ink hover:border-ink"
-              >
-                {t("allDest")}
-              </Link>
-            </div>
+            </ul>
           </div>
         </section>
-
-        <TripPlanner />
       </main>
       <SiteFooter />
       <WhatsAppFloat href={waSimple} />

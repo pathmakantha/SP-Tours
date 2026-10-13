@@ -26,14 +26,13 @@ export function LanguageSwitcher() {
             { locale: nextLocale },
           );
         }}
-        className="cursor-pointer appearance-none rounded-full border border-od/22 bg-transparent px-3.5 py-2 font-mono text-[10px] tracking-[0.14em] text-od outline-none transition-colors hover:border-gold"
+        className="h-10 cursor-pointer appearance-none rounded-[10px] border border-line-2 bg-surface px-3.5 text-[13px] font-semibold text-ink transition-colors hover:border-ink/40"
       >
         {locales.map((code) => (
           <option
             key={code}
             value={code}
             title={localeLabels[code]}
-            className="text-[#0A2A2B]"
           >
             {code === "zh" ? "中文" : code.toUpperCase()}
           </option>

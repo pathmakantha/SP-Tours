@@ -37,6 +37,11 @@ export interface DestListItem {
   region: string;
   interest: string;
   stay: string;
+  /** Label for `stay` in this locale ("Suggested stay"). */
+  stayKey: string;
+  /** First fact, usually the best months to visit, with its label. */
+  best: string;
+  bestKey: string;
   photo: string;
   regionKey: string;
 }
@@ -55,6 +60,9 @@ export function destList(locale: Locale): DestListItem[] {
       regionKey: d.region,
       interest: d.interest,
       stay: d.facts[locale][1][1],
+      stayKey: d.facts[locale][1][0],
+      best: d.facts[locale][0][1],
+      bestKey: d.facts[locale][0][0],
       photo: d.photos[0],
     };
   });
