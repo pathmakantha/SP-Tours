@@ -3,31 +3,35 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fffcf6;
-  --foreground: #10312f;
+  --background: #ffffff;
+  --foreground: #0e1b1d;
 
-  --bg: #fffcf6;
-  --bg-alt: #f6efe3;
+  --bg: #ffffff;
+  --bg-alt: #f3f6f5;
   --surface: #ffffff;
-  --field: #f7f2e8;
+  --field: #f3f6f5;
 
-  --ink: #10312f;
-  --line: rgba(16, 49, 47, 0.12);
-  --line-2: rgba(16, 49, 47, 0.2);
+  --ink: #0e1b1d;
+  --line: rgba(14, 27, 29, 0.1);
+  --line-2: rgba(14, 27, 29, 0.18);
 
-  /* "deep" / "od" (on-deep) flip with the theme: in light mode the hero and
-     footer sit on warm paper with dark ink, in dark mode they go deep teal. */
-  --deep: #fffcf6;
-  --deep2: #f1e8da;
-  --od: #10312f;
+  /* "deep" / "od" (on-deep) flip with the theme. In the current design they
+     match the page surfaces, so older sections built on them blend in. */
+  --deep: #ffffff;
+  --deep2: #f3f6f5;
+  --od: #0e1b1d;
 
-  --gold: #d9a441;
-  --gold-t: #8a5e12; /* gold for text: passes contrast on the light surfaces */
-  --terra: #a2502f;
+  --accent: #0b6e69;
+  --accent-soft: #e2f1ef;
+  --accent-ink: #ffffff; /* text on solid accent fills */
+  --gold: #f2b33d;
+  --gold-t: #0b6e69; /* "gold" text now reads in the accent teal */
+  --terra: #0b6e69;
   --green: #1e7a48;
   --green-ink: #ffffff;
+  --star: #e3a21f;
 
-  --shadow: rgba(16, 49, 47, 0.18);
+  --shadow: rgba(14, 27, 29, 0.16);
 
   --tint-cultural: #8a5e12;
   --tint-hill: #2f6b49;
@@ -37,29 +41,33 @@
 }
 
 .dark {
-  --background: #08201f;
-  --foreground: #ede6d9;
+  --background: #0c1416;
+  --foreground: #e8eeed;
 
-  --bg: #08201f;
-  --bg-alt: #051817;
-  --surface: #0e2b2a;
-  --field: #0a2423;
+  --bg: #0c1416;
+  --bg-alt: #111c1f;
+  --surface: #152226;
+  --field: #1b2b2f;
 
-  --ink: #ede6d9;
-  --line: rgba(237, 230, 217, 0.14);
-  --line-2: rgba(237, 230, 217, 0.24);
+  --ink: #e8eeed;
+  --line: rgba(232, 238, 237, 0.12);
+  --line-2: rgba(232, 238, 237, 0.22);
 
-  --deep: #040f10;
-  --deep2: #061a1a;
-  --od: #ede6d9;
+  --deep: #0c1416;
+  --deep2: #152226;
+  --od: #e8eeed;
 
-  --gold: #d6ac61;
-  --gold-t: #d6ac61;
-  --terra: #c9784f;
-  --green: #66b489;
-  --green-ink: #03150f;
+  --accent: #3fb7ac;
+  --accent-soft: rgba(63, 183, 172, 0.14);
+  --accent-ink: #04140b;
+  --gold: #f2b33d;
+  --gold-t: #3fb7ac;
+  --terra: #3fb7ac;
+  --green: #3fae6e;
+  --green-ink: #04140b;
+  --star: #e3a21f;
 
-  --shadow: rgba(0, 0, 0, 0.6);
+  --shadow: rgba(0, 0, 0, 0.55);
 
   --tint-cultural: #c79a4b;
   --tint-hill: #8fbf9f;
@@ -82,6 +90,10 @@
   --color-deep: var(--deep);
   --color-deep2: var(--deep2);
   --color-od: var(--od);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-star: var(--star);
   --color-gold: var(--gold);
   --color-gold-t: var(--gold-t);
   --color-terra: var(--terra);
@@ -94,10 +106,11 @@
   --color-tint-coast: var(--tint-coast);
   --color-tint-colombo: var(--tint-colombo);
 
-  --font-sans: var(--font-figtree), var(--font-noto-sc), system-ui, sans-serif;
-  --font-serif: var(--font-spectral), Georgia, serif;
-  /* Small uppercase labels use the sans face in the design; the utility name is kept. */
-  --font-mono: var(--font-figtree), var(--font-noto-sc), system-ui, sans-serif;
+  --font-sans: var(--font-manrope), var(--font-noto-sc), system-ui, sans-serif;
+  /* The design dropped the serif display face: headings use Manrope too.
+     The utility names are kept so existing markup picks up the new face. */
+  --font-serif: var(--font-manrope), var(--font-noto-sc), system-ui, sans-serif;
+  --font-mono: var(--font-manrope), var(--font-noto-sc), system-ui, sans-serif;
 }
 
 /* Base resets live in a layer so Tailwind utilities (e.g. text-* on links) win. */
@@ -116,7 +129,7 @@
     background: var(--bg);
     color: var(--ink);
     overflow-x: hidden;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   h1,
@@ -132,7 +145,7 @@
   }
 
   a {
-    color: var(--terra);
+    color: var(--accent);
     text-decoration: none;
   }
 
@@ -144,8 +157,17 @@
   }
 
   ::selection {
-    background: var(--gold);
-    color: #061c1d;
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* In-page anchors (#planner, #faq…) land below the fixed header. */
+  section[id] {
+    scroll-margin-top: 64px;
   }
 }
 

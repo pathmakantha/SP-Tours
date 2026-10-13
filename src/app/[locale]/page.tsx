@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { Photo } from "@/components/photo";
 import { FaqItem } from "@/components/faq-item";
-import { Parallax } from "@/components/parallax";
+import { HeroSearch } from "@/components/hero-search";
 import { StarterGrid } from "@/components/starter-grid";
 import { TripPlanner } from "@/components/trip-planner";
 import {
@@ -18,10 +18,10 @@ import { FAQ, destList } from "@/lib/site-data";
 import { waSimpleHref } from "@/lib/trip-planner";
 import type { Locale } from "@/i18n/routing";
 
-const SECTION_PAD = "px-4 sm:px-[clamp(16px,4vw,56px)]";
+const SECTION = "px-[clamp(14px,3vw,40px)] pt-[clamp(72px,10vh,120px)]";
+const KICKER = "text-sm font-bold text-accent";
 const H2 =
-  "font-serif font-normal tracking-[-0.02em] leading-none text-[clamp(36px,5.2vw,74px)]";
-const KICKER = "text-[11px] tracking-[0.26em] uppercase";
+  "text-[clamp(28px,3.4vw,44px)] leading-[1.1] font-extrabold tracking-[-0.03em]";
 
 export default async function Home({
   params,
@@ -43,7 +43,7 @@ export default async function Home({
         "@id": "#sptours",
         name: "SP Tours",
         description:
-          "Custom full-island tour planning in Sri Lanka: private driver-guides, cultural triangle, hill country, wildlife safaris and south coast beaches.",
+          "Private, custom tours across Sri Lanka with local driver-guides: cultural triangle, hill country, wildlife safaris and south coast beaches.",
         areaServed: { "@type": "Country", name: "Sri Lanka" },
         address: {
           "@type": "PostalAddress",
@@ -71,37 +71,27 @@ export default async function Home({
     ],
   };
 
-  const why = [
-    ["why1k", "why1t", "why1b", false],
-    ["why2k", "why2t", "why2b", true],
-    ["why3k", "why3t", "why3b", false],
-    ["why4k", "why4t", "why4b", false],
+  const steps = [
+    ["h1t", "h1b"],
+    ["h2t", "h2b"],
+    ["h3t", "h3b"],
   ] as const;
 
-  const how = [
-    ["h1t", "h1b", "border-ink"],
-    ["h2t", "h2b", "border-line-2"],
-    ["h3t", "h3b", "border-line-2"],
+  const whys = [
+    ["why1t", "why1b"],
+    ["why2t", "why2b"],
+    ["why3t", "why3b"],
+    ["why4t", "why4b"],
   ] as const;
 
-  const testimonials = [
-    ["tst1", "tst1m", "Hanna & Jonas, Berlin", false],
-    ["tst2", "tst2m", "Ravi S., Singapore", true],
-    ["tst3", "tst3m", "Yulia & Artem, Moscow", false],
+  const reviews = [
+    ["tst1", "tst1m", "Hanna & Jonas, Berlin"],
+    ["tst2", "tst2m", "Ravi S., Singapore"],
+    ["tst3", "tst3m", "Yulia & Artem, Moscow"],
   ] as const;
 
-  const gallery = [
-    ["Stilt fishermen, Koggala", "row-span-2"],
-    ["Kandy lake", ""],
-    ["Nine Arch Bridge", "col-span-2"],
-    ["Rice & curry spread", ""],
-    ["Elephants, Udawalawe", "row-span-2"],
-    ["Galle rampart sunset", ""],
-    ["Tea estate morning mist", "col-span-2"],
-  ] as const;
-
-  const contactCard =
-    "flex flex-col gap-2 rounded-[18px] p-6 transition-transform duration-400 hover:-translate-y-[5px]";
+  const contactRow =
+    "flex min-h-14 items-center justify-between gap-3 rounded-xl px-4.5 text-ink hover:text-ink";
 
   return (
     <>
@@ -116,248 +106,122 @@ export default async function Home({
         {/* Hero */}
         <section
           aria-labelledby="hero-h"
-          className={`relative min-h-svh overflow-hidden bg-deep pt-[clamp(112px,15vh,180px)] pb-[clamp(48px,8vh,96px)] text-od ${SECTION_PAD}`}
+          className="px-[clamp(10px,2vw,28px)] pt-[84px]"
         >
-          <Parallax
-            speed={0.06}
-            className="pointer-events-none absolute -top-[8%] -right-[20%] size-[min(70vw,720px)] rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 40% 40%, color-mix(in oklab, var(--gold) 30%, transparent), transparent 68%)",
-            }}
-          />
-          <Parallax
-            speed={-0.04}
-            className="pointer-events-none absolute -bottom-[18%] -left-[14%] size-[min(60vw,620px)] rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle at 60% 40%, color-mix(in oklab, var(--terra) 26%, transparent), transparent 70%)",
-            }}
-          />
-
-          <div className="relative mx-auto grid max-w-[1440px] grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-[clamp(20px,3vw,48px)]">
-            <div className="max-w-[760px]" data-reveal>
-              <p
-                className={`mb-6.5 flex items-center gap-3 text-gold-t ${KICKER}`}
-              >
-                <span className="block h-px w-11 flex-none bg-gold" />
+          <div className="relative mx-auto flex min-h-[min(80svh,780px)] max-w-[1400px] flex-col justify-end overflow-hidden rounded-[clamp(18px,2vw,28px)] bg-[#16302E]">
+            <Photo
+              label="Sigiriya from Pidurangala"
+              sizes="(min-width: 1400px) 1400px, 100vw"
+              className="object-[50%_56%]"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,20,22,0)_25%,rgba(8,20,22,0.74)_100%)]" />
+            <div className="relative max-w-[900px] px-[clamp(22px,5vw,64px)] pt-[clamp(24px,5vw,64px)] pb-[clamp(100px,13vh,132px)] text-white">
+              <p className="inline-flex items-center gap-2 rounded-full bg-white/16 px-3.5 py-2 text-[13px] font-semibold backdrop-blur-md">
+                <span className="h-[7px] w-[7px] flex-none rounded-full bg-[#F2B33D]" />
                 {t("heroKicker")}
               </p>
               <h1
                 id="hero-h"
-                className="font-serif text-[clamp(40px,7.6vw,108px)] leading-[0.96] font-normal tracking-[-0.02em]"
+                className="mt-4.5 text-[clamp(38px,6vw,82px)] leading-[1.02] font-extrabold tracking-[-0.035em] text-balance"
               >
-                {t("heroL1")}{" "}
-                <span className="text-gold-t italic">{t("heroL2")}</span>
+                {t("heroL1")} {t("heroL2")}
                 {t("heroL3")}
               </h1>
-              <p className="mt-[clamp(20px,3vh,32px)] max-w-[54ch] text-[clamp(16px,1.3vw,19px)] leading-[1.62] text-balance text-od/72">
+              <p className="mt-4.5 max-w-[58ch] text-[clamp(16px,1.3vw,18px)] leading-[1.6] text-pretty text-white/90">
                 {t("heroBody")}
               </p>
-              <div className="mt-[clamp(28px,4vh,40px)] flex flex-wrap gap-3.5">
-                <a
-                  href="#planner"
-                  className="rounded-full bg-gold px-7.5 py-4.25 text-[15px] font-medium tracking-[0.02em] text-[#1A1206] shadow-[0_18px_40px_-18px_color-mix(in_oklab,var(--gold)_70%,transparent)] hover:bg-od hover:text-bg"
-                >
-                  {t("ctaStart")}
-                </a>
-                <a
-                  href={waSimple}
-                  target="_blank"
-                  rel="noopener"
-                  className="flex items-center gap-2.5 rounded-full border border-od/22 px-7 py-4.25 text-[15px] text-od hover:border-gold-t hover:bg-gold/12 hover:text-od"
-                >
-                  <span className="h-2 w-2 flex-none rounded-full bg-green" />
-                  {t("ctaWa")}
-                </a>
+            </div>
+          </div>
+
+          <div className="relative z-[2] mx-auto -mt-[68px] max-w-[1120px] px-[clamp(12px,3vw,32px)]">
+            <HeroSearch />
+          </div>
+
+          <ul className="mx-auto mt-5.5 flex max-w-[1120px] list-none flex-wrap justify-center gap-x-7.5 gap-y-2.5 px-[clamp(12px,3vw,32px)] text-sm text-ink/72">
+            <li className="flex items-center gap-2">
+              <span aria-hidden="true" className="tracking-[1px] text-star">
+                ★★★★★
+              </span>
+              <strong className="font-bold text-ink">{t("trustRating")}</strong>
+            </li>
+            <li>{t("trustReviews")}</li>
+            <li>{t("trustLicensed")}</li>
+            <li>{t("trustNoDeposit")}</li>
+          </ul>
+        </section>
+
+        {/* Destinations */}
+        <section
+          id="destinations"
+          aria-labelledby="dest-h"
+          className={SECTION}
+        >
+          <div className="mx-auto max-w-[1240px]">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className={KICKER}>{t("regKicker")}</p>
+                <h2 id="dest-h" className={`mt-2 max-w-[22ch] ${H2}`}>
+                  {t("toursH")}
+                </h2>
               </div>
-              <dl className="mt-[clamp(40px,6vh,64px)] flex flex-wrap gap-[clamp(22px,4vw,56px)] border-t border-od/14 pt-6.5">
-                {(
-                  [
-                    ["stat1k", "1,200+"],
-                    ["stat2k", t("stat2v")],
-                    ["stat3k", "14"],
-                  ] as const
-                ).map(([k, v]) => (
-                  <div key={k}>
-                    <dt className="text-[10px] tracking-[0.2em] text-od/50 uppercase">
-                      {t(k)}
-                    </dt>
-                    <dd className="mt-1.5 font-serif text-[34px]">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-
-            <div
-              aria-hidden="true"
-              className="relative mt-[clamp(28px,5vh,8px)] h-[clamp(320px,50vh,540px)] [perspective:1400px]"
-            >
-              <Parallax
-                speed={0.08}
-                baseTransform="rotateY(-16deg) rotateX(6deg) rotateZ(-3deg)"
-                className="absolute top-[2%] left-[6%] h-[74%] w-[60%] overflow-hidden rounded-[18px] border border-od/14 shadow-[0_50px_80px_-40px_rgba(0,0,0,0.75)]"
+              <Link
+                href="/tours"
+                className="flex min-h-11 items-center text-[15px] font-bold"
               >
-                <Photo label="Sigiriya rock at sunrise" sizes="(min-width: 1024px) 32vw, 60vw" priority />
-              </Parallax>
-              <Parallax
-                speed={0.14}
-                baseTransform="rotateY(-13deg) rotateX(4deg) rotateZ(2.5deg)"
-                className="absolute top-[20%] right-[2%] h-[56%] w-[46%] overflow-hidden rounded-[18px] border border-od/14 shadow-[0_40px_70px_-34px_rgba(0,0,0,0.7)]"
-              >
-                <Photo label="Tea picker, hill country" sizes="(min-width: 1024px) 24vw, 46vw" priority />
-              </Parallax>
-              <Parallax
-                speed={0.2}
-                baseTransform="rotateY(-10deg) rotateZ(-1.5deg)"
-                className="absolute -bottom-[2%] left-[22%] h-[38%] w-[38%] overflow-hidden rounded-2xl border border-od/22 shadow-[0_34px_60px_-28px_rgba(0,0,0,0.7)]"
-              >
-                <Photo label="Leopard, Yala" sizes="(min-width: 1024px) 20vw, 38vw" />
-              </Parallax>
+                {t("exploreAll")}
+              </Link>
             </div>
-          </div>
-        </section>
-
-        {/* Trust bar */}
-        <section
-          aria-label={t("trustLicensed")}
-          className={`border-t border-od/14 bg-deep2 py-5.5 text-od ${SECTION_PAD}`}
-        >
-          <div className="mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] items-center gap-x-7 gap-y-4.5">
-            <p className="font-serif text-[26px] text-gold-t">
-              {t("trustRating")}
-            </p>
-            {(["trustReviews", "trustLicensed", "trustNoDeposit"] as const).map(
-              (k) => (
-                <p key={k} className="text-sm leading-normal text-od/72">
-                  {t(k)}
-                </p>
-              ),
-            )}
-          </div>
-        </section>
-
-        {/* Why us */}
-        <section
-          id="why"
-          aria-labelledby="why-h"
-          className={`bg-bg py-[clamp(72px,12vh,148px)] ${SECTION_PAD}`}
-        >
-          <div className="mx-auto max-w-[1280px]">
-            <div
-              data-reveal
-              className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-end gap-[clamp(20px,3vw,48px)]"
-            >
-              <h2 id="why-h" className={`max-w-[18ch] ${H2}`}>
-                {t("whyL1")}{" "}
-                <span className="text-terra italic">{t("whyL2")}</span>
-                {t("whyL3")}
-              </h2>
-              <p className="max-w-[46ch] text-[17px] leading-[1.65] text-balance text-ink/72">
-                {t("whyBody")}
-              </p>
-            </div>
-            <div className="mt-[clamp(44px,7vh,84px)] grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-[clamp(18px,2.4vw,32px)]">
-              {why.map(([k, ti, b, dark]) => (
-                <article
-                  key={k}
-                  data-reveal
-                  className={`flex flex-col gap-3.75 rounded-[20px] p-[clamp(24px,3vw,38px)] transition-transform duration-500 ease-[cubic-bezier(.2,.8,.25,1)] hover:-translate-y-1.5 ${
-                    dark
-                      ? "bg-deep2 text-od"
-                      : "border border-line bg-surface"
-                  }`}
-                >
-                  <span
-                    className={`text-[10px] tracking-[0.22em] ${
-                      dark ? "text-gold-t" : "text-terra"
-                    }`}
-                  >
-                    {t(k)}
-                  </span>
-                  <h3 className="font-serif text-[clamp(24px,2.3vw,32px)] leading-[1.12] font-normal">
-                    {t(ti)}
-                  </h3>
-                  <p
-                    className={`text-[15px] leading-[1.66] ${
-                      dark ? "text-od/72" : "text-ink/72"
-                    }`}
-                  >
-                    {t(b)}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Regions */}
-        <section
-          id="regions"
-          aria-labelledby="regions-h"
-          className={`bg-deep2 py-[clamp(72px,12vh,140px)] text-od ${SECTION_PAD}`}
-        >
-          <div className="mx-auto max-w-[1280px]" data-reveal>
-            <p className={`text-gold-t ${KICKER}`}>{t("regKicker")}</p>
-            <h2 id="regions-h" className={`mt-5 max-w-[24ch] ${H2}`}>
-              {t("regH")}
-            </h2>
-            <p className="mt-5.5 max-w-[50ch] text-[17px] leading-[1.65] text-od/72">
-              {t("regBody")}
-            </p>
-
-            <div className="mt-[clamp(40px,6vh,64px)] grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-[clamp(16px,2vw,26px)]">
+            <div className="mt-7 grid snap-x snap-mandatory auto-cols-[minmax(220px,1fr)] grid-flow-col gap-4.5 overflow-x-auto pb-2">
               {dests.map((d) => (
                 <Link
                   key={d.slug}
-                  href={`/destinations/${d.slug}`}
-                  className="flex flex-col overflow-hidden rounded-[18px] border border-od/14 bg-surface text-od shadow-[0_20px_44px_-30px_var(--shadow)] transition-transform duration-400 hover:-translate-y-1.5 hover:text-od"
+                  href={d.href}
+                  className="flex snap-start flex-col overflow-hidden rounded-[18px] border border-line bg-surface text-ink transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:text-ink hover:shadow-[0_24px_48px_-28px_var(--shadow)]"
                 >
-                  <div className="relative min-h-[180px]">
-                    <Photo label={d.photo} sizes="(min-width: 1024px) 20vw, 90vw" />
-                  </div>
-                  <div className="p-5">
-                    <p
-                      className="text-[10px] tracking-[0.18em] uppercase"
-                      style={{ color: d.tint }}
-                    >
+                  <div className="relative aspect-[4/5]">
+                    <Photo
+                      label={d.photo}
+                      sizes="(min-width: 1240px) 240px, (min-width: 640px) 33vw, 70vw"
+                    />
+                    <span className="pointer-events-none absolute top-3 left-3 rounded-lg bg-white/92 px-2.5 py-1.5 text-xs font-bold text-[#0E1B1D]">
                       {d.region}
-                    </p>
-                    <h3 className="mt-2 font-serif text-[22px] leading-[1.15] font-normal">
-                      {d.name} →
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-1.5 px-4 pt-4 pb-4.5">
+                    <h3 className="text-[19px] font-extrabold tracking-[-0.02em]">
+                      {d.short}
                     </h3>
+                    <p className="text-sm leading-normal text-ink/72">
+                      {d.tagline}
+                    </p>
+                    <dl className="mt-1.5 flex flex-wrap gap-x-3.5 gap-y-1 border-t border-line pt-3 text-[13px]">
+                      <div className="flex gap-1.25">
+                        <dt className="text-ink/58">{d.stayKey}:</dt>
+                        <dd className="font-semibold">{d.stay}</dd>
+                      </div>
+                    </dl>
                   </div>
                 </Link>
               ))}
             </div>
-            <Link
-              href="/tours"
-              className="mt-7 inline-flex text-sm tracking-[0.04em] text-gold-t hover:text-od"
-            >
-              {t("exploreAll")}
-            </Link>
           </div>
         </section>
 
-        {/* Starter trips */}
+        {/* Starter itineraries */}
         <section
-          id="starters"
-          aria-labelledby="starters-h"
-          className={`bg-bg py-[clamp(64px,10vh,120px)] ${SECTION_PAD}`}
+          id="itineraries"
+          aria-labelledby="itin-h"
+          className={`${SECTION} pb-[clamp(72px,10vh,120px)]`}
         >
-          <div className="mx-auto max-w-[1280px]">
-            <div data-reveal>
-              <p className={`text-terra ${KICKER}`}>{t("startersK")}</p>
-              <h2
-                id="starters-h"
-                className="mt-4 max-w-[24ch] font-serif text-[clamp(30px,4.2vw,58px)] leading-[1.04] font-normal"
-              >
-                {t("startersH")}
-              </h2>
-              <p className="mt-3.5 max-w-[50ch] text-base leading-[1.6] text-ink/72">
-                {t("startersB")}
-              </p>
-            </div>
+          <div className="mx-auto max-w-[1240px]">
+            <p className={KICKER}>{t("startersK")}</p>
+            <h2 id="itin-h" className={`mt-2 max-w-[24ch] ${H2}`}>
+              {t("startersH")}
+            </h2>
+            <p className="mt-3 max-w-[56ch] text-base leading-[1.6] text-ink/72">
+              {t("startersB")}
+            </p>
             <StarterGrid />
           </div>
         </section>
@@ -365,83 +229,96 @@ export default async function Home({
         <TripPlanner />
 
         {/* How it works */}
-        <section
-          id="how"
-          aria-labelledby="how-h"
-          className={`bg-bg py-[clamp(72px,11vh,130px)] ${SECTION_PAD}`}
-        >
-          <div className="mx-auto max-w-[1280px]">
-            <h2
-              id="how-h"
-              data-reveal
-              className="max-w-[20ch] font-serif text-[clamp(32px,4.4vw,62px)] leading-[1.02] font-normal tracking-[-0.02em]"
-            >
+        <section id="how" aria-labelledby="how-h" className={SECTION}>
+          <div className="mx-auto max-w-[1240px]">
+            <h2 id="how-h" className={`max-w-[22ch] ${H2}`}>
               {t("howH")}
             </h2>
-            <div className="mt-[clamp(36px,6vh,64px)] grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-[clamp(18px,2.4vw,32px)]">
-              {how.map(([ti, b, border], i) => (
-                <div
+            <ol className="mt-7.5 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4.5 p-0">
+              {steps.map(([ti, b], i) => (
+                <li
                   key={ti}
-                  data-reveal
-                  className={`border-t-2 pt-6 ${border}`}
+                  className="flex flex-col gap-3 rounded-[18px] bg-bg-alt p-6.5"
                 >
-                  <p className="text-[11px] tracking-[0.2em] text-terra">
-                    0{i + 1}
-                  </p>
-                  <h3 className="mt-3 font-serif text-[28px] font-normal">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-base font-extrabold text-accent-ink">
+                    {i + 1}
+                  </span>
+                  <h3 className="text-xl font-extrabold tracking-[-0.02em]">
                     {t(ti)}
                   </h3>
-                  <p className="mt-2.5 text-[15px] leading-[1.62] text-ink/72">
+                  <p className="text-[15px] leading-[1.6] text-ink/72">
                     {t(b)}
                   </p>
-                </div>
+                </li>
               ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Why us */}
+        <section id="why" aria-labelledby="why-h" className={SECTION}>
+          <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(28px,4vw,56px)]">
+            <div className="relative min-h-[clamp(320px,52vh,520px)] overflow-hidden rounded-[22px]">
+              <Photo
+                label="Jeep track at dawn, 4:5"
+                sizes="(min-width: 1024px) 600px, 100vw"
+              />
+            </div>
+            <div>
+              <h2 id="why-h" className={`max-w-[20ch] ${H2}`}>
+                {t("whyL1")} {t("whyL2")}
+                {t("whyL3")}
+              </h2>
+              <p className="mt-3.5 max-w-[52ch] text-base leading-[1.65] text-ink/72">
+                {t("whyBody")}
+              </p>
+              <div className="mt-7.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-x-7 gap-y-5.5">
+                {whys.map(([ti, b]) => (
+                  <div key={ti} className="border-t-2 border-accent pt-4">
+                    <h3 className="text-[17px] leading-[1.3] font-extrabold tracking-[-0.01em]">
+                      {t(ti)}
+                    </h3>
+                    <p className="mt-2 text-[14.5px] leading-[1.6] text-ink/72">
+                      {t(b)}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Testimonials */}
-        <section
-          aria-labelledby="tst-h"
-          className={`bg-bg-alt py-[clamp(72px,11vh,130px)] ${SECTION_PAD}`}
-        >
-          <div className="mx-auto max-w-[1280px]">
-            <h2
-              id="tst-h"
-              data-reveal
-              className="max-w-[22ch] font-serif text-[clamp(30px,4vw,56px)] leading-[1.04] font-normal"
-            >
+        <section aria-labelledby="tst-h" className={SECTION}>
+          <div className="mx-auto max-w-[1240px]">
+            <h2 id="tst-h" className={`max-w-[22ch] ${H2}`}>
               {t("tstH")}
             </h2>
-            <div className="mt-[clamp(34px,5vh,56px)] grid grid-cols-[repeat(auto-fit,minmax(min(100%,270px),1fr))] gap-[clamp(16px,2vw,28px)]">
-              {testimonials.map(([q, meta, who, dark]) => (
+            <div className="mt-7.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-4.5">
+              {reviews.map(([q, meta, who]) => (
                 <figure
                   key={q}
-                  data-reveal
-                  className={`flex flex-col gap-4.5 rounded-[20px] p-[clamp(22px,2.6vw,34px)] ${
-                    dark ? "bg-deep2 text-od" : "border border-line bg-surface"
-                  }`}
+                  className="flex flex-col gap-4 rounded-[18px] border border-line bg-surface p-6.5"
                 >
-                  <blockquote className="font-serif text-[22px] leading-[1.34]">
+                  <span
+                    aria-hidden="true"
+                    className="text-[15px] tracking-[2px] text-star"
+                  >
+                    ★★★★★
+                  </span>
+                  <blockquote className="text-[16.5px] leading-[1.6]">
                     {t(q)}
                   </blockquote>
-                  <figcaption
-                    className={`mt-auto flex items-center gap-3 text-[13px] ${
-                      dark ? "text-od/72" : "text-ink/72"
-                    }`}
-                  >
+                  <figcaption className="mt-auto flex items-center gap-3 border-t border-line pt-4">
                     <span
                       aria-hidden="true"
-                      className={`h-11 w-11 flex-none rounded-full ${
-                        dark ? "bg-od/14" : "bg-ink/10"
-                      }`}
-                    />
-                    <span>
-                      {who}
-                      <br />
-                      <span className={dark ? "text-od/50" : "text-ink/50"}>
-                        {t(meta)}
-                      </span>
+                      className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-accent-soft text-base font-extrabold text-accent"
+                    >
+                      {who.charAt(0)}
+                    </span>
+                    <span className="block text-sm">
+                      <strong className="block font-bold">{who}</strong>
+                      <span className="text-ink/58">{t(meta)}</span>
                     </span>
                   </figcaption>
                 </figure>
@@ -450,125 +327,48 @@ export default async function Home({
           </div>
         </section>
 
-        {/* Gallery */}
-        <section
-          id="gallery"
-          aria-labelledby="gal-h"
-          className={`bg-bg py-[clamp(72px,11vh,130px)] ${SECTION_PAD}`}
-        >
-          <div className="mx-auto max-w-[1360px]">
-            <div
-              data-reveal
-              className="flex flex-wrap items-end justify-between gap-5"
-            >
-              <h2
-                id="gal-h"
-                className="font-serif text-[clamp(30px,4vw,56px)] leading-[1.04] font-normal"
-              >
-                {t("galH")}
-              </h2>
-              <p className="text-[11px] tracking-[0.2em] text-ink/50 uppercase">
-                {t("galNote")}
-              </p>
-            </div>
-            <div
-              data-reveal
-              className="mt-[clamp(30px,5vh,52px)] grid grid-flow-dense auto-rows-[clamp(130px,17vh,180px)] grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-[clamp(10px,1.4vw,18px)]"
-            >
-              {gallery.map(([label, span]) => (
-                <div
-                  key={label}
-                  className={`relative overflow-hidden rounded-2xl ${span}`}
-                >
-                  <Photo label={label} sizes="(min-width: 1024px) 25vw, 50vw" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section
-          id="faq"
-          aria-labelledby="faq-h"
-          className={`bg-bg-alt py-[clamp(64px,10vh,120px)] ${SECTION_PAD}`}
-        >
-          <div className="mx-auto max-w-[1000px]">
-            <div data-reveal>
-              <p className={`text-terra ${KICKER}`}>{t("faqK")}</p>
-              <h2
-                id="faq-h"
-                className="mt-4 max-w-[24ch] font-serif text-[clamp(30px,4.2vw,56px)] leading-[1.04] font-normal"
-              >
+        {/* FAQ + direct contact */}
+        <section id="faq" aria-labelledby="faq-h" className={SECTION}>
+          <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-start gap-[clamp(28px,4vw,64px)]">
+            <div>
+              <p className={KICKER}>{t("faqK")}</p>
+              <h2 id="faq-h" className={`mt-2 max-w-[18ch] ${H2}`}>
                 {t("faqH")}
               </h2>
+              <div className="mt-7 flex flex-col gap-2.5">
+                <a
+                  href={waSimple}
+                  target="_blank"
+                  rel="noopener"
+                  className={`${contactRow} bg-accent-soft`}
+                >
+                  <span className="font-bold">WhatsApp</span>
+                  <span className="text-sm text-ink/72">+{WHATSAPP_NUMBER}</span>
+                </a>
+                <a
+                  href={`tel:${CONTACT_TEL}`}
+                  className={`${contactRow} bg-bg-alt`}
+                >
+                  <span className="font-bold">{t("contactPhone")}</span>
+                  <span className="text-sm text-ink/72">{CONTACT_PHONE}</span>
+                </a>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className={`${contactRow} bg-bg-alt`}
+                >
+                  <span className="font-bold">{t("contactEmail")}</span>
+                  <span className="text-sm text-ink/72">{CONTACT_EMAIL}</span>
+                </a>
+              </div>
             </div>
-            <div
-              data-reveal
-              className="mt-[clamp(28px,4vh,44px)] flex flex-col gap-3"
-            >
+            <div className="flex flex-col">
               {FAQ.map((f) => (
-                <FaqItem key={f.q.en} question={f.q[locale]} answer={f.a[locale]} />
+                <FaqItem
+                  key={f.q.en}
+                  question={f.q[locale]}
+                  answer={f.a[locale]}
+                />
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Contact cards */}
-        <section
-          aria-labelledby="reach-h"
-          className={`bg-bg py-[clamp(56px,8vh,100px)] ${SECTION_PAD}`}
-        >
-          <div className="mx-auto max-w-[1280px]">
-            <h2
-              id="reach-h"
-              data-reveal
-              className="max-w-[20ch] font-serif text-[clamp(28px,3.6vw,48px)] leading-[1.04] font-normal"
-            >
-              {t("contactH")}
-            </h2>
-            <div
-              data-reveal
-              className="mt-[clamp(26px,4vh,40px)] grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-[clamp(14px,1.8vw,22px)]"
-            >
-              <a
-                href={waSimple}
-                target="_blank"
-                rel="noopener"
-                className={`${contactCard} bg-green text-green-ink hover:text-green-ink`}
-              >
-                <span className="text-[10px] tracking-[0.18em] uppercase opacity-75">
-                  WhatsApp
-                </span>
-                <span className="font-serif text-2xl">+{WHATSAPP_NUMBER}</span>
-                <span className="text-[13.5px] leading-normal opacity-85">
-                  {t("contactWa")}
-                </span>
-              </a>
-              <a
-                href={`tel:${CONTACT_TEL}`}
-                className={`${contactCard} border border-line bg-surface text-ink hover:text-ink`}
-              >
-                <span className="text-[10px] tracking-[0.18em] text-terra uppercase">
-                  {t("contactPhone")}
-                </span>
-                <span className="font-serif text-2xl">{CONTACT_PHONE}</span>
-                <span className="text-[13.5px] leading-normal text-ink/72">
-                  {t("contactHours")}
-                </span>
-              </a>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className={`${contactCard} border border-line bg-surface text-ink hover:text-ink`}
-              >
-                <span className="text-[10px] tracking-[0.18em] text-terra uppercase">
-                  {t("contactEmail")}
-                </span>
-                <span className="font-serif text-2xl">{CONTACT_EMAIL}</span>
-                <span className="text-[13.5px] leading-normal text-ink/72">
-                  {t("ftLangs")}
-                </span>
-              </a>
             </div>
           </div>
         </section>

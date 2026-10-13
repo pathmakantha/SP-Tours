@@ -24,6 +24,7 @@ const p = (key: string, alt: string): PhotoInfo => ({ key, alt });
  */
 export const PHOTOS: Record<string, PhotoInfo> = {
   // Home hero
+  "Sigiriya from Pidurangala": p("sigiriya-pidurangala", "Sigiriya rock rising out of green forest, seen from Pidurangala"),
   "Sigiriya rock at sunrise": p("sigiriya-sunrise", "Sigiriya rock rising above the jungle at sunrise"),
   "Tea picker, hill country": p("tea-pickers", "Tea pluckers working a hillside estate"),
   "Leopard, Yala": p("leopard-hero", "Sri Lankan leopard walking through Yala National Park"),

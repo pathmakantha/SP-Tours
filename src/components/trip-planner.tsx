@@ -131,24 +131,28 @@ export function TripPlanner({
   return (
     <section
       id="planner"
-      className="bg-gradient-to-b from-bg to-bg-alt px-4 py-16 sm:px-8 sm:py-24"
+      aria-labelledby="plan-h"
+      className="bg-bg-alt px-[clamp(14px,3vw,40px)] py-[clamp(64px,9vh,104px)]"
     >
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+      <div className="mx-auto max-w-[1240px]">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-[11px] tracking-[0.26em] text-terra uppercase">
+            <p className="text-sm font-bold text-accent">
               {kicker ?? t("plKicker")}
             </p>
-            <h2 className="mt-4.5 max-w-[22ch] font-serif text-4xl leading-none font-normal tracking-tight sm:text-6xl">
+            <h2
+              id="plan-h"
+              className="mt-2 max-w-[22ch] text-[clamp(28px,3.4vw,44px)] leading-[1.1] font-extrabold tracking-[-0.03em]"
+            >
               {heading ?? t("plH")}
             </h2>
           </div>
-          <p className="max-w-[38ch] text-base leading-relaxed text-ink/72">
+          <p className="max-w-[40ch] text-base leading-[1.6] text-ink/72">
             {lede ?? t("plBody")}
           </p>
         </div>
 
-        <div className="mt-10 grid items-start gap-6 lg:grid-cols-2 lg:gap-9">
+        <div className="mt-8 grid items-start gap-6 lg:grid-cols-2">
           {/* Wizard card */}
           <div className="rounded-3xl border border-line bg-surface p-5 shadow-[0_40px_80px_-50px_var(--color-shadow)] sm:p-8">
             <div className="flex items-center gap-3.5">
@@ -347,7 +351,7 @@ export function TripPlanner({
                     ? reviewPlan()
                     : patch({ step: (draft.step + 1) as 1 | 2 | 3 | 4 })
                 }
-                className="rounded-full bg-deep2 px-6.5 py-3.5 text-sm font-medium tracking-[0.03em] text-od transition-colors hover:bg-terra"
+                className="rounded-full bg-accent px-6.5 py-3.5 text-sm font-semibold tracking-[0.03em] text-accent-ink transition-[filter] hover:brightness-110"
               >
                 {draft.step === 4 ? t("nextEnd") : t("nextGo")}
               </button>
@@ -359,8 +363,8 @@ export function TripPlanner({
             ref={asideRef}
             tabIndex={-1}
             aria-live="polite"
-            className={`sticky top-20 rounded-3xl bg-deep p-5 text-od shadow-[0_50px_90px_-50px_var(--color-shadow)] outline-none transition-shadow duration-500 sm:p-8 ${
-              flash ? "ring-2 ring-gold" : "ring-0 ring-transparent"
+            className={`sticky top-20 rounded-3xl border border-od/14 bg-deep2 p-5 text-od shadow-[0_40px_80px_-50px_var(--color-shadow)] outline-none transition-shadow duration-500 sm:p-8 ${
+              flash ? "ring-2 ring-accent" : "ring-0 ring-transparent"
             }`}
           >
             <div className="flex items-baseline justify-between gap-3">
@@ -489,7 +493,7 @@ export function TripPlanner({
               href={waHref}
               target="_blank"
               rel="noopener"
-              className="mt-6 flex items-center justify-center gap-2.5 rounded-2xl bg-green py-4.5 text-center text-[15px] font-medium text-green-ink shadow-[0_20px_40px_-20px_color-mix(in_oklab,var(--green)_60%,transparent)] hover:bg-gold"
+              className="mt-6 flex items-center justify-center gap-2.5 rounded-2xl bg-green py-4.5 text-center text-[15px] font-semibold text-green-ink shadow-[0_20px_40px_-20px_color-mix(in_oklab,var(--green)_60%,transparent)] hover:text-green-ink hover:brightness-110"
             >
               {t("sendPlan")}
             </a>

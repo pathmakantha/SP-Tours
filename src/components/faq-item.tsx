@@ -78,28 +78,26 @@ export function FaqItem({
   return (
     <details
       ref={detailsRef}
-      className="rounded-2xl border border-line bg-surface px-5.5 py-5"
+      className="border-b border-line"
     >
       <summary
         ref={summaryRef}
         onClick={toggle}
         aria-expanded={expanded}
-        className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-[clamp(19px,2vw,23px)] leading-[1.25] [&::-webkit-details-marker]:hidden"
+        className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[17px] leading-[1.35] font-bold [&::-webkit-details-marker]:hidden"
       >
         <span>{question}</span>
         <span
           aria-hidden="true"
-          className={`flex size-[22px] flex-none items-center justify-center rounded-full border text-[15px] leading-none transition-[transform,border-color,background-color] duration-300 ${
-            expanded
-              ? "rotate-45 border-terra bg-terra/10 text-terra"
-              : "border-line-2 text-ink/60"
+          className={`flex size-[30px] flex-none items-center justify-center rounded-full text-lg leading-none font-semibold text-accent transition-[transform,background-color] duration-300 ${
+            expanded ? "rotate-45 bg-accent-soft" : "bg-bg-alt"
           }`}
         >
           +
         </span>
       </summary>
       <p
-        className={`mt-3.5 max-w-[70ch] text-[15.5px] leading-[1.68] text-ink/72 transition-[opacity,transform] duration-300 ${
+        className={`max-w-[64ch] pb-5 text-[15.5px] leading-[1.65] text-ink/72 transition-[opacity,transform] duration-300 ${
           expanded ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
         }`}
       >

@@ -32,28 +32,28 @@ export function MobileMenu({
         aria-controls="mobile-menu"
         aria-label={open ? closeLabel : openLabel}
         onClick={() => setOpen((v) => !v)}
-        className="flex h-[38px] w-[38px] flex-none flex-col items-center justify-center gap-1 rounded-full border border-od/22 min-[1080px]:hidden"
+        className="flex h-11 w-11 flex-none cursor-pointer flex-col items-center justify-center gap-1 rounded-[10px] border border-line-2 bg-surface min-[1000px]:hidden"
       >
-        <span className="block h-[1.5px] w-[15px] bg-od" />
-        <span className="block h-[1.5px] w-[15px] bg-od" />
-        <span className="block h-[1.5px] w-[15px] bg-od" />
+        <span className="block h-0.5 w-4 rounded-sm bg-ink" />
+        <span className="block h-0.5 w-4 rounded-sm bg-ink" />
+        <span className="block h-0.5 w-4 rounded-sm bg-ink" />
       </button>
 
       {open && (
         <div
           id="mobile-menu"
-          className="absolute inset-x-0 top-full border-b border-od/14 bg-deep shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] min-[1080px]:hidden"
+          className="absolute inset-x-0 top-full border-y border-line bg-bg shadow-[0_30px_60px_-30px_var(--shadow)] min-[1000px]:hidden"
         >
           <nav
             aria-label="Mobile"
-            className="flex flex-col px-4 pt-2 pb-5 sm:px-8"
+            className="flex flex-col px-[clamp(14px,3vw,40px)] pt-1.5 pb-4.5"
           >
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={close}
-                className="border-b border-od/14 px-0.5 py-3.25 text-base tracking-[0.02em] text-od hover:text-od"
+                className="border-b border-line py-3.5 text-base font-semibold text-ink hover:text-ink"
               >
                 {link.label}
               </Link>
@@ -63,9 +63,8 @@ export function MobileMenu({
               target="_blank"
               rel="noopener"
               onClick={close}
-              className="mt-4.5 flex items-center justify-center gap-2.5 rounded-full bg-green p-4 text-[15px] font-medium text-green-ink hover:text-green-ink"
+              className="mt-4 flex min-h-[50px] items-center justify-center rounded-xl bg-accent text-[15px] font-semibold text-accent-ink hover:text-accent-ink"
             >
-              <span className="h-[9px] w-[9px] flex-none rounded-full bg-green-ink" />
               {waLabel}
             </a>
           </nav>
